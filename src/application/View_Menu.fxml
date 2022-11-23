@@ -50,7 +50,7 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="221.0" text="Chef's Choice Lentil and Rice Meal" />
+            <Label prefHeight="17.0" prefWidth="221.0" text="Chef's Choice: Lentil and Rice Meal" />
             <Label text="\$14.99" />
          </children>
       </HBox>

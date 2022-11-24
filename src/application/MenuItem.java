@@ -40,5 +40,10 @@ public class MenuItem {
 		amount = amountItem;
 		price = priceItem;
 	}
+	
+	public double calculateItemTotalPrice() {
+		double totalItemPrice = amount * price; 
+		return totalItemPrice;
+	}
 
 }

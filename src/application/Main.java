@@ -18,10 +18,10 @@ public class Main extends Application {
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
-		}
+		}	
 	}
 	
 	public static void main(String[] args) {
-		launch(args);
+		launch(args);		
 	}
 }

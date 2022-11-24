@@ -19,7 +19,7 @@ public class projcontroller {
 	private Parent root;
 	
 	@FXML
-    public Label orderNumber;
+    private Label orderNumber;
 	
 	public void switchtoHomePage(ActionEvent event) throws IOException {
 		root=FXMLLoader.load(getClass().getResource("HomePage.fxml"));
@@ -73,5 +73,6 @@ public class projcontroller {
 			number = randomNumbers.nextInt(10);
 			orderNumberAsString = orderNumberAsString + Integer.toString(number);
 		}
+		//orderNumber.setText(orderNumberAsString); //getting nullpointerexception when trying this
 	}
 }

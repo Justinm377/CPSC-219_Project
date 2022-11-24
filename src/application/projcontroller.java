@@ -8,7 +8,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.util.*;
@@ -20,6 +22,26 @@ public class projcontroller {
 	
 	@FXML
     private Label orderNumber;
+	
+	@FXML
+    private TextField samosaTextField;
+    
+    @FXML
+    private CheckBox samosaCheckBox;
+
+    @FXML
+    void samosaTextFieldAppears(ActionEvent event) {
+    	if (samosaCheckBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
+    		if (!samosaTextField.isVisible()) {
+    			samosaTextField.setVisible(true); 
+    		}
+    	}
+    	if (!samosaCheckBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
+    		if (samosaTextField.isVisible()) {
+    			samosaTextField.setVisible(false); 
+    		}
+    	}
+    }
 	
 	public void switchtoHomePage(ActionEvent event) throws IOException {
 		root=FXMLLoader.load(getClass().getResource("HomePage.fxml"));

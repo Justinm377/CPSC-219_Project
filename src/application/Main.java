@@ -13,15 +13,15 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			Parent root=FXMLLoader.load(getClass().getResource("HomePage.fxml"));
-			Scene scene = new Scene(root,400,400);
+			Scene scene = new Scene(root,347,350);
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
-		}
+		}	
 	}
 	
 	public static void main(String[] args) {
-		launch(args);
+		launch(args);		
 	}
 }

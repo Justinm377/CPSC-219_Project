@@ -1,4 +1,6 @@
-module CPSC219_Project {
+
+module CPSC_219_Project {
+
 	requires javafx.controls;
 	requires javafx.fxml;
 	requires javafx.graphics;

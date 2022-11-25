@@ -1,0 +1,11 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.root{
+	-fx-background-color: linen;
+}
+
+.button {
+	-fx-background-color: maroon; 
+	-fx-text-fill: ghostwhite;
+}
+
+/* Website used to find colours: https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html#typecolor */

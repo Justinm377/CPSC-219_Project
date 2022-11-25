@@ -148,6 +148,7 @@ public class projcontroller {
 		root=FXMLLoader.load(getClass().getResource("HomePage.fxml"));
 		stage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		scene= new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -156,6 +157,7 @@ public class projcontroller {
 		root=FXMLLoader.load(getClass().getResource("View_Menu.fxml"));
 		stage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		scene= new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -163,6 +165,7 @@ public class projcontroller {
 		root=FXMLLoader.load(getClass().getResource("Order_Menu.fxml"));
 		stage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		scene= new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -170,6 +173,7 @@ public class projcontroller {
 		root=FXMLLoader.load(getClass().getResource("Payment Summary.fxml"));
 		stage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		scene= new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -177,6 +181,7 @@ public class projcontroller {
 		root=FXMLLoader.load(getClass().getResource("Payment Info.fxml"));
 		stage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		scene= new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 	}
@@ -186,6 +191,7 @@ public class projcontroller {
 		projcontroller controller = (projcontroller)(loader.getController());
 		stage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		scene= new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
 		

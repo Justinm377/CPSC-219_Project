@@ -68,6 +68,81 @@ public class projcontroller {
     		samosaTextField.clear(); //clear any text user may have inputed
     	}
     }
+    
+    @FXML
+    void paniPuriTextFieldAppears(ActionEvent event) {
+    	if (paniPuriCheckBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
+    		if (!paniPuriTextField.isVisible()) {
+    			paniPuriTextField.setVisible(true); 
+    		}
+    	}
+    	if (!paniPuriCheckBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
+    		if (paniPuriTextField.isVisible()) {
+    			paniPuriTextField.setVisible(false); 
+    		}
+    		paniPuriTextField.clear(); //clear any text user may have inputed
+    	}
+    }
+
+    @FXML
+    void butterChickenTextFieldAppears(ActionEvent event) {
+    	if (butterChickenCheckBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
+    		if (!butterChickenTextField.isVisible()) {
+    			butterChickenTextField.setVisible(true); 
+    		}
+    	}
+    	if (!butterChickenCheckBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
+    		if (butterChickenTextField.isVisible()) {
+    			butterChickenTextField.setVisible(false); 
+    		}
+    		butterChickenTextField.clear(); //clear any text user may have inputed
+    	}
+    }
+
+    @FXML
+    void chefsChoiceTextFieldAppears(ActionEvent event) {
+    	if (chefsChoiceCheckBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
+    		if (!chefsChoiceTextField.isVisible()) {
+    			chefsChoiceTextField.setVisible(true); 
+    		}
+    	}
+    	if (!chefsChoiceCheckBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
+    		if (chefsChoiceTextField.isVisible()) {
+    			chefsChoiceTextField.setVisible(false); 
+    		}
+    		chefsChoiceTextField.clear(); //clear any text user may have inputed
+    	}
+    }
+
+    @FXML
+    void gulabJamunTextFieldAppears(ActionEvent event) {
+    	if (gulabJamunCheckBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
+    		if (!gulabJamunTextField.isVisible()) {
+    			gulabJamunTextField.setVisible(true); 
+    		}
+    	}
+    	if (!gulabJamunCheckBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
+    		if (gulabJamunTextField.isVisible()) {
+    			gulabJamunTextField.setVisible(false); 
+    		}
+    		gulabJamunTextField.clear(); //clear any text user may have inputed
+    	}
+    }
+
+    @FXML
+    void brownieTextFieldAppears(ActionEvent event) {
+    	if (brownieCheckBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
+    		if (!brownieTextField.isVisible()) {
+    			brownieTextField.setVisible(true); 
+    		}
+    	}
+    	if (!brownieCheckBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
+    		if (brownieTextField.isVisible()) {
+    			brownieTextField.setVisible(false); 
+    		}
+    		brownieTextField.clear(); //clear any text user may have inputed
+    	}
+    }
 	
 	public void switchtoHomePage(ActionEvent event) throws IOException {
 		root=FXMLLoader.load(getClass().getResource("HomePage.fxml"));

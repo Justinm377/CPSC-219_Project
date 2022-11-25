@@ -1,10 +1,11 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
 .root{
-	-fx-background-color: linen;
+	-fx-background-color: lemonchiffon;
+	-fx-text-fill: ghostwhite;
 }
 
 .button {
-	-fx-background-color: maroon; 
+	-fx-background-color: forestgreen; 
 	-fx-text-fill: ghostwhite;
 }
 

@@ -14,6 +14,7 @@ public class Main extends Application {
 		try {
 			Parent root=FXMLLoader.load(getClass().getResource("HomePage.fxml"));
 			Scene scene = new Scene(root,347,350);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch(Exception e) {

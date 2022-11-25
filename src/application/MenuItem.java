@@ -13,19 +13,23 @@ public class MenuItem {
 		int amountItem = 0;
 		double priceItem = 0.00;
 		
+		int decimalCounter = 0;
 		boolean validAmount = true;
 		for (char c : amountItemAsString.toCharArray()) { //if anything other than an integer number is provided, it's not valid
 			if (!Character.isDigit(c)) validAmount = false;
+			if (c == '.') decimalCounter++;
 		}
 		//non-numeric value for the amount will throw an exception
 		if (validAmount == true) {
 			amountItem = Integer.parseInt(amountItemAsString);
-		} else if (validAmount == false) {
-			throw new InvalidUserInputException("Amount value should only contain numeric values. Decimals and non-numeric values are not allowed.");
+		} else if (validAmount == false && decimalCounter != 0) {
+			throw new InvalidUserInputException("Order quantity cannot contain decimals.");
+		} else if (validAmount == false && decimalCounter == 0) {
+			throw new InvalidUserInputException("Order quantity cannot contain non-numeric characters. Please enter a numeric value.");
 		}
 		//let's assume that the max amount an user can order of a quantity is 10
 		if (amountItem > 10) {
-			throw new InvalidUserInputException("The maximum amount is 10 items.");
+			throw new InvalidUserInputException("To order a quantity of more than 10, please contact us directly by phone or in-person.");
 		}
 		//user cannot order negative amount
 		if (amountItem < 0) {

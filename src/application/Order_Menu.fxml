@@ -49,52 +49,52 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="236.0" text="Pani Puri (6pc.)">
+            <CheckBox fx:id="paniPuriCheckBox" mnemonicParsing="false" prefHeight="18.0" prefWidth="236.0" text="Pani Puri (6pc.)">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin></CheckBox>
             <Label prefHeight="17.0" prefWidth="116.0" text="\$8.99" />
-            <TextField />
+            <TextField fx:id="paniPuriTextField" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="235.0" text="Butter Chicken and Rice Meal">
+            <CheckBox fx:id="butterChickenCheckBox" mnemonicParsing="false" prefHeight="18.0" prefWidth="235.0" text="Butter Chicken and Rice Meal">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin></CheckBox>
             <Label prefHeight="17.0" prefWidth="116.0" text="\$17.99" />
-            <TextField />
+            <TextField fx:id="butterChickenTextField" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="235.0" text="Chef's Choice Lentil and Rice Meal">
+            <CheckBox fx:id="chefsChoiceCheckBox" mnemonicParsing="false" prefHeight="18.0" prefWidth="235.0" text="Chef's Choice Lentil and Rice Meal">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin></CheckBox>
             <Label prefHeight="17.0" prefWidth="116.0" text="\$14.99" />
-            <TextField />
+            <TextField fx:id="chefsChoiceTextField" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="238.0" text="Gulab Jamun">
+            <CheckBox fx:id="gulabJamunCheckBox" mnemonicParsing="false" prefHeight="18.0" prefWidth="238.0" text="Gulab Jamun">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin></CheckBox>
             <Label prefHeight="17.0" prefWidth="116.0" text="\$6.99" />
-            <TextField translateX="-3.0" />
+            <TextField fx:id="gulabJamunTextField" translateX="-3.0" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <CheckBox mnemonicParsing="false" prefHeight="18.0" prefWidth="236.0" text="Sizzling Brownie">
+            <CheckBox fx:id="brownieCheckBox" mnemonicParsing="false" prefHeight="18.0" prefWidth="236.0" text="Sizzling Brownie">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin></CheckBox>
             <Label prefHeight="17.0" prefWidth="116.0" text="\$4.99" />
-            <TextField />
+            <TextField fx:id="brownieTextField" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">

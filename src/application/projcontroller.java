@@ -1,5 +1,6 @@
 package application;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
@@ -25,9 +26,33 @@ public class projcontroller {
 	
 	@FXML
     private TextField samosaTextField;
-    
     @FXML
     private CheckBox samosaCheckBox;
+    
+    @FXML
+    private TextField paniPuriTextField;
+    @FXML
+    private CheckBox paniPuriCheckBox;
+    
+    @FXML
+    private TextField butterChickenTextField;
+    @FXML
+    private CheckBox butterChickenCheckBox;
+    
+    @FXML
+    private TextField chefsChoiceTextField;
+    @FXML
+    private CheckBox chefsChoiceCheckBox;
+    
+    @FXML
+    private TextField gulabJamunTextField;
+    @FXML
+    private CheckBox gulabJamunCheckBox;
+    
+    @FXML
+    private TextField brownieTextField;
+    @FXML
+    private CheckBox brownieCheckBox;
 
     @FXML
     void samosaTextFieldAppears(ActionEvent event) {
@@ -40,6 +65,7 @@ public class projcontroller {
     		if (samosaTextField.isVisible()) {
     			samosaTextField.setVisible(false); 
     		}
+    		samosaTextField.clear(); //clear any text user may have inputed
     	}
     }
 	
@@ -80,7 +106,9 @@ public class projcontroller {
 		stage.show();
 	}
 	public void switchtoOrderComfirmation(ActionEvent event) throws IOException {	
-		Parent root=FXMLLoader.load(getClass().getResource("Order_Confirmation.fxml"));
+		FXMLLoader loader = new FXMLLoader();
+		Parent root = loader.load(new FileInputStream("src/application/Order_Confirmation.fxml"));
+		projcontroller controller = (projcontroller)(loader.getController());
 		stage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		scene= new Scene(root);
 		stage.setScene(scene);
@@ -95,6 +123,7 @@ public class projcontroller {
 			number = randomNumbers.nextInt(10);
 			orderNumberAsString = orderNumberAsString + Integer.toString(number);
 		}
-		//orderNumber.setText(orderNumberAsString); //getting nullpointerexception when trying this
+		
+		controller.orderNumber.setText(orderNumberAsString); //sets the order number label to randomly generated number
 	}
 }

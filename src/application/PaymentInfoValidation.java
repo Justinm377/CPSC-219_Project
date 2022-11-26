@@ -4,9 +4,6 @@ import javafx.scene.control.TextField;
 
 public class PaymentInfoValidation {
 
-	public PaymentInfoValidation() {
-	}
-
     public String isNumeric(TextField stringInputToValidate) {
     	String infoToValidate = stringInputToValidate.getText();
 		String goodCardInfo = "";

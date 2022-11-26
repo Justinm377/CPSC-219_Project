@@ -35,7 +35,7 @@
                <padding>
                   <Insets right="5.0" />
                </padding></Label>
-            <Label fx:id = "totalPriceLabel" text = "TEST" >
+            <Label fx:id = "totalPriceTextField" text = "TEST" >
                <font>
                   <Font size="18.0" />
                </font>

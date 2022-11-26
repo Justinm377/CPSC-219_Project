@@ -67,6 +67,7 @@ public class projcontroller {
     @FXML
     private Label totalPriceLabel;
     
+    
     private void setTextFieldVisibility (CheckBox foodChoiceBox, TextField foodType) {
     	
     	if (foodChoiceBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
@@ -85,11 +86,11 @@ public class projcontroller {
     
     private double ifSelected(CheckBox foodChoiceBox, TextField quantityValue, Double price) {
   	  double quantityTotal = 0;
-  	  if (foodChoiceBox.isSelected() || quantityValue.getText() != null) {  	  
+  	  if (foodChoiceBox.isSelected() && quantityValue.getText() != null) {  	  
 	  	  //if ( argument  != null) {
 	  		 String value = quantityValue.getText();
 	  		 double valueNumber = Double.parseDouble(value);
-	  		  quantityTotal = valueNumber * price;
+	  		  quantityTotal = valueNumber*price;
 	  	  //}
   	  }else {
   		  quantityTotal = 0;
@@ -127,7 +128,7 @@ public class projcontroller {
        	setTextFieldVisibility(brownieCheckBox,brownieTextField );
     }
 	
-    void  totalPrice() {
+    public void  getTotalPrice() {
     	double totalSamosa = ifSelected(samosaCheckBox,samosaTextField, priceSamosa);
     	double totalPaniPuri = ifSelected(paniPuriCheckBox,paniPuriTextField, pricePaniPuri);
     	double totalButterChicken = ifSelected(butterChickenCheckBox,butterChickenTextField, priceButterChicken);
@@ -177,7 +178,7 @@ public class projcontroller {
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
-//		totalPrice();
+		//getTotalPrice();
 	}
 	public void switchtoPaymentInfo(ActionEvent event) throws IOException {
 		root=FXMLLoader.load(getClass().getResource("Payment Info.fxml"));

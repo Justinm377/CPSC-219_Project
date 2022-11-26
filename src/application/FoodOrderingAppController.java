@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 import java.util.*;
 
 
-public class projcontroller {
+public class FoodOrderingAppController {
 
 	private Stage stage;
 	private Scene scene;
@@ -135,7 +135,7 @@ public class projcontroller {
 	public void switchtoOrderMenu(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		Parent root = loader.load(new FileInputStream("src/application/Order_Menu.fxml"));
-		projcontroller controller = (projcontroller)(loader.getController());
+		FoodOrderingAppController controller = (FoodOrderingAppController)(loader.getController());
 		stage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		scene= new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -170,7 +170,7 @@ public class projcontroller {
 	public void switchtoPaymentSummary(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		Parent root = loader.load(new FileInputStream("src/application/Payment Summary.fxml"));
-		projcontroller controller = (projcontroller)(loader.getController());
+		FoodOrderingAppController controller = (FoodOrderingAppController)(loader.getController());
 		stage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		scene= new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -192,7 +192,7 @@ public class projcontroller {
 	public void switchtoOrderComfirmation(ActionEvent event) throws IOException {	
 		FXMLLoader loader = new FXMLLoader();
 		Parent root = loader.load(new FileInputStream("src/application/Order_Confirmation.fxml"));
-		projcontroller controller = (projcontroller)(loader.getController());
+		FoodOrderingAppController controller = (FoodOrderingAppController)(loader.getController());
 		stage=(Stage)((Node)event.getSource()).getScene().getWindow();
 		scene= new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="ASCII"?>
 <anttasks:AntTask xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:anttasks="http://org.eclipse.fx.ide.jdt/1.0" buildDirectory="${project}/build">
   <deploy>
+<<<<<<< HEAD
     <application name="CPSC-219-Project-G5"/>
+=======
+    <application name="CPSC_219_Project"/>
+>>>>>>> refs/remotes/origin/Khushi's_New_Branch
     <info/>
   </deploy>
   <signjar/>

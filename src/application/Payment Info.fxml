@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FoodOrderingAppController">
+   <children>
+      <Label text="Personal Information">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="154.0" text="First name ">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="154.0" text="Last Name ">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="154.0" text="Delivery Address">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="154.0" text="Phone Number ">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField />
+         </children>
+      </HBox>
+      <Label text="Payment Information">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="154.0" text="Name on Card">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="155.0" text="Card Number">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="155.0" text="Expiry date (MM/YY)">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField prefHeight="25.0" prefWidth="68.0" />
+            <Label prefHeight="17.0" prefWidth="13.0" text="/">
+               <padding>
+                  <Insets left="3.0" top="3.0" />
+               </padding>
+            </Label>
+            <TextField prefHeight="25.0" prefWidth="70.0" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="159.0" text="CVV">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <PasswordField translateX="-3.0" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="156.0" text="Postal Code">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#switchtoOrderComfirmation" text="Submit" />
+         </children>
+      </HBox>
+   </children>
+</VBox>

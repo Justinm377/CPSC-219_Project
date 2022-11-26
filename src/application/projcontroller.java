@@ -2,7 +2,6 @@ package application;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,140 +9,135 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.util.*;
 
+
 public class projcontroller {
+	private double priceSamosa = 5.99;
+	private double pricePaniPuri = 8.99;
+	private double priceButterChicken = 17.99;
+	private double priceChefsChoice = 14.99;
+	private double priceGulabJamun = 6.99;
+	private double priceBrownie = 4.99;
+	private double totalPrice = 0.0;
+
+	
 	private Stage stage;
 	private Scene scene;
 	private Parent root;
 	
 	@FXML
-    private Label orderNumber;
-	
+    private Label orderNumber;	
 	@FXML
     private TextField samosaTextField;
     @FXML
-    private CheckBox samosaCheckBox;
-    
+    private CheckBox samosaCheckBox;   
     @FXML
     private TextField paniPuriTextField;
     @FXML
-    private CheckBox paniPuriCheckBox;
-    
+    private CheckBox paniPuriCheckBox;   
     @FXML
     private TextField butterChickenTextField;
     @FXML
-    private CheckBox butterChickenCheckBox;
-    
+    private CheckBox butterChickenCheckBox;    
     @FXML
     private TextField chefsChoiceTextField;
     @FXML
-    private CheckBox chefsChoiceCheckBox;
-    
+    private CheckBox chefsChoiceCheckBox;   
     @FXML
     private TextField gulabJamunTextField;
     @FXML
-    private CheckBox gulabJamunCheckBox;
-    
+    private CheckBox gulabJamunCheckBox;   
     @FXML
     private TextField brownieTextField;
     @FXML
-    private CheckBox brownieCheckBox;
-
+    private CheckBox brownieCheckBox;    
     @FXML
-    void samosaTextFieldAppears(ActionEvent event) {
-    	if (samosaCheckBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
-    		if (!samosaTextField.isVisible()) {
-    			samosaTextField.setVisible(true); 
+    private ChoiceBox <String> paymentTypeChoiceBox;
+    @FXML
+    private Label totalPriceLabel;
+    
+    
+    private void setTextFieldVisibility (CheckBox foodChoiceBox, TextField foodType) {
+    	
+    	if (foodChoiceBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
+    		if (!foodType.isVisible()) {
+    			foodType.setVisible(true); 
     		}
     	}
-    	if (!samosaCheckBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
-    		if (samosaTextField.isVisible()) {
-    			samosaTextField.setVisible(false); 
+    	if (!foodChoiceBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
+    		if (foodType.isVisible()) {
+    			foodType.setVisible(false); 
     		}
-    		samosaTextField.clear(); //clear any text user may have inputed
+    		foodType.clear(); //clear any text user may have inputed
+    		
     	}
     }
     
+    private double ifSelected(CheckBox foodChoiceBox, TextField quantityValue, Double price) {
+  	  double quantityTotal = 0;
+  	  if (foodChoiceBox.isSelected() && quantityValue.getText() != null) {  	  
+	  	  //if ( argument  != null) {
+	  		 String value = quantityValue.getText();
+	  		 double valueNumber = Double.parseDouble(value);
+	  		  quantityTotal = valueNumber*price;
+	  	  //}
+  	  }else {
+  		  quantityTotal = 0;
+  	  }
+  		 return quantityTotal;
+     }
+    
+    @FXML
+    void samosaTextFieldAppears(ActionEvent event) {
+       	setTextFieldVisibility(samosaCheckBox,samosaTextField ); 
+    }   
+      
     @FXML
     void paniPuriTextFieldAppears(ActionEvent event) {
-    	if (paniPuriCheckBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
-    		if (!paniPuriTextField.isVisible()) {
-    			paniPuriTextField.setVisible(true); 
-    		}
-    	}
-    	if (!paniPuriCheckBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
-    		if (paniPuriTextField.isVisible()) {
-    			paniPuriTextField.setVisible(false); 
-    		}
-    		paniPuriTextField.clear(); //clear any text user may have inputed
-    	}
+    	setTextFieldVisibility(paniPuriCheckBox,paniPuriTextField );
     }
 
     @FXML
     void butterChickenTextFieldAppears(ActionEvent event) {
-    	if (butterChickenCheckBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
-    		if (!butterChickenTextField.isVisible()) {
-    			butterChickenTextField.setVisible(true); 
-    		}
-    	}
-    	if (!butterChickenCheckBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
-    		if (butterChickenTextField.isVisible()) {
-    			butterChickenTextField.setVisible(false); 
-    		}
-    		butterChickenTextField.clear(); //clear any text user may have inputed
-    	}
+       	setTextFieldVisibility(butterChickenCheckBox,butterChickenTextField );
+       	}
+
+    @FXML
+    void chefsChoiceTextFieldAppears(ActionEvent event) {   	
+       	setTextFieldVisibility(chefsChoiceCheckBox,chefsChoiceTextField );
     }
 
     @FXML
-    void chefsChoiceTextFieldAppears(ActionEvent event) {
-    	if (chefsChoiceCheckBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
-    		if (!chefsChoiceTextField.isVisible()) {
-    			chefsChoiceTextField.setVisible(true); 
-    		}
-    	}
-    	if (!chefsChoiceCheckBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
-    		if (chefsChoiceTextField.isVisible()) {
-    			chefsChoiceTextField.setVisible(false); 
-    		}
-    		chefsChoiceTextField.clear(); //clear any text user may have inputed
-    	}
-    }
-
-    @FXML
-    void gulabJamunTextFieldAppears(ActionEvent event) {
-    	if (gulabJamunCheckBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
-    		if (!gulabJamunTextField.isVisible()) {
-    			gulabJamunTextField.setVisible(true); 
-    		}
-    	}
-    	if (!gulabJamunCheckBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
-    		if (gulabJamunTextField.isVisible()) {
-    			gulabJamunTextField.setVisible(false); 
-    		}
-    		gulabJamunTextField.clear(); //clear any text user may have inputed
-    	}
+    void gulabJamunTextFieldAppears(ActionEvent event) {   	
+       	setTextFieldVisibility(gulabJamunCheckBox,gulabJamunTextField );
     }
 
     @FXML
     void brownieTextFieldAppears(ActionEvent event) {
-    	if (brownieCheckBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
-    		if (!brownieTextField.isVisible()) {
-    			brownieTextField.setVisible(true); 
-    		}
-    	}
-    	if (!brownieCheckBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
-    		if (brownieTextField.isVisible()) {
-    			brownieTextField.setVisible(false); 
-    		}
-    		brownieTextField.clear(); //clear any text user may have inputed
-    	}
+       	setTextFieldVisibility(brownieCheckBox,brownieTextField );
     }
 	
+    public void  getTotalPrice() {
+    	double totalSamosa = ifSelected(samosaCheckBox,samosaTextField, priceSamosa);
+    	double totalPaniPuri = ifSelected(paniPuriCheckBox,paniPuriTextField, pricePaniPuri);
+    	double totalButterChicken = ifSelected(butterChickenCheckBox,butterChickenTextField, priceButterChicken);
+    	double totalChefsChoice = ifSelected(chefsChoiceCheckBox,chefsChoiceTextField, priceChefsChoice);
+    	double totalGulabJamun = ifSelected(gulabJamunCheckBox,gulabJamunTextField, priceGulabJamun);
+    	double totalBrownie = ifSelected(brownieCheckBox,brownieTextField, priceBrownie);
+    	
+    	
+    	totalPrice = totalSamosa + totalPaniPuri + totalButterChicken + totalChefsChoice + totalGulabJamun + totalBrownie;
+    	String totalPriceStr = Double.toString(totalPrice);
+    	
+    	totalPriceLabel.setText(totalPriceStr);
+    }
+
 	public void switchtoHomePage(ActionEvent event) throws IOException {
 		root=FXMLLoader.load(getClass().getResource("HomePage.fxml"));
 		stage=(Stage)((Node)event.getSource()).getScene().getWindow();
@@ -176,6 +170,7 @@ public class projcontroller {
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		stage.setScene(scene);
 		stage.show();
+		//getTotalPrice();
 	}
 	public void switchtoPaymentInfo(ActionEvent event) throws IOException {
 		root=FXMLLoader.load(getClass().getResource("Payment Info.fxml"));

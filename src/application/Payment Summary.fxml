@@ -29,7 +29,8 @@
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Label prefHeight="17.0" prefWidth="274.0" text="Your Preferred Payment Method:" />
-            <ChoiceBox prefWidth="150.0" />
+            <ChoiceBox prefWidth="150.0">
+            </ChoiceBox>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">

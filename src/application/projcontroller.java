@@ -200,7 +200,7 @@ public class projcontroller {
 		String orderNumberAsString = ""; 
 		Random randomNumbers = new Random();
 		int number = 0;
-		for (int i = 0; i < 6; i++) {
+		for (int i = 0; i < 4; i++) {
 			number = randomNumbers.nextInt(10);
 			orderNumberAsString = orderNumberAsString + Integer.toString(number);
 		}

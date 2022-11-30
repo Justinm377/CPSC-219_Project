@@ -14,16 +14,18 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			TotalPrice finalPrice = new TotalPrice();
+			
 			FXMLLoader loader = new FXMLLoader();
 			Parent root = loader.load(new FileInputStream("src/application/HomePage.fxml"));
 			Scene scene = new Scene(root,347,350);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			//scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
-			//HomePageController controller = (HomePageController)loader.getController();
-			//controller.setMyScene(scene);
-			//ontroller.applicationStage = primaryStage;
+			HomePageController controller = (HomePageController)loader.getController();
+			controller.setMyScene(scene);
+			controller.setPrimaryStage(primaryStage);
 
 			primaryStage.setTitle("Taste of India - Food Ordering App");
 		} catch(Exception e) {

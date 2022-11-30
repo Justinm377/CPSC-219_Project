@@ -9,6 +9,10 @@ public class TotalPrice extends MenuItem {
 		itemList = foodItemList;
 	}
 	
+	public TotalPrice() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public double calculateTotalPrice() {
 		double priceToReturn = 0.00;
 		

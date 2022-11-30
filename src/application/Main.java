@@ -21,8 +21,8 @@ public class Main extends Application {
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
-			HomePageController controller = (HomePageController)loader.getController();
-			controller.setMyScene(scene);
+			//HomePageController controller = (HomePageController)loader.getController();
+			//controller.setMyScene(scene);
 			//ontroller.applicationStage = primaryStage;
 
 			primaryStage.setTitle("Taste of India - Food Ordering App");

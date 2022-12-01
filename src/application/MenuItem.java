@@ -29,7 +29,7 @@ public class MenuItem {
 		}
 		
 		//non-numeric value for the amount will throw an exception
-		if (validAmount == true) {
+		if (validAmount == true && amountItemAsString != "") {
 			amountItem = Integer.parseInt(amountItemAsString);
 		} else if (validAmount == false && decimalCounter != 0) {
 			throw new InvalidUserInputException("Order quantity cannot contain decimals.");

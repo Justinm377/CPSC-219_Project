@@ -22,8 +22,7 @@ public class OrderMenuController {
 	private Scene myScene;
 	private HomePageController homePageController; 
 	private PaymentSummaryController paymentController;
-	
-	private Label totalPriceTextField;
+	private ViewMenuController viewMenuController;
 	
 	@FXML
     private TextField samosaTextField;
@@ -61,6 +60,10 @@ public class OrderMenuController {
 	public void setNextController(HomePageController next) {
 		homePageController = next;
 	}
+	
+	public void setNextController2(ViewMenuController next) {
+		viewMenuController = next;
+	}
 
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
@@ -68,9 +71,19 @@ public class OrderMenuController {
 
 	@FXML
 	public void switchtoHomePage(ActionEvent event) {
-		if (homePageController != null) {
-			homePageController.takeFocus();
-		} 
+		if (homePageController == null) {
+			try {
+				FXMLLoader loader = new FXMLLoader();
+				Parent root = loader.load(new FileInputStream("src/application/HomePage.fxml"));
+				homePageController = loader.getController();
+				homePageController.setPrimaryStage(primaryStage);
+				homePageController.setMyScene(new Scene(root));
+				homePageController.setNextController(this);	
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		homePageController.takeFocus();
 	}
 	
 	private void setTextFieldVisibility (CheckBox foodChoiceBox, TextField foodType) {
@@ -117,7 +130,7 @@ public class OrderMenuController {
 		setTextFieldVisibility(brownieCheckBox,brownieTextField );
 	}
 	
-	    
+	@FXML  
 	public void switchtoPaymentSummary(ActionEvent event) {
 		if (paymentController == null) {
 			try {
@@ -159,11 +172,8 @@ public class OrderMenuController {
 			//set error messages
 		}
 		
-		TotalPrice finalPrice = new TotalPrice(foodItemList);
-		paymentController.setTotalPrice(finalPrice.calculateTotalPrice());
-		
-		//create TotalPrice object that contains all the information entered by the user here
-		//PaymentController.setTotalPrice() pass it the TotalPrice object
+		TotalPrice finalPrice = new TotalPrice(foodItemList); //created TotalPrice object to contain all the MenuItems 
+		paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController
 		
 		paymentController.takeFocus();
 	}

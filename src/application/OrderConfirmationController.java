@@ -1,9 +1,13 @@
 package application;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Random;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -37,9 +41,19 @@ public class OrderConfirmationController {
 	
 	@FXML
 	public void switchtoHomePage(ActionEvent event) { 
-		if (homePageController != null) {
-			homePageController.takeFocus();
-		} 
+		if (homePageController == null) {
+			try {
+				FXMLLoader loader = new FXMLLoader();
+				Parent root = loader.load(new FileInputStream("src/application/HomePage.fxml"));
+				homePageController = loader.getController();
+				homePageController.setPrimaryStage(primaryStage);
+				homePageController.setMyScene(new Scene(root));
+				homePageController.setNextController2(this);	
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		homePageController.takeFocus();
 	}
 	
 	@FXML

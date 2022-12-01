@@ -19,6 +19,7 @@ public class HomePageController {
 
 	private OrderMenuController orderMenuSceneController;
 	private ViewMenuController viewMenuController;
+	private OrderConfirmationController orderConfirmationController;
 	
 	
 	public void setPrimaryStage(Stage aStage) {
@@ -70,6 +71,10 @@ public class HomePageController {
 
 	public void setNextController(OrderMenuController next) {
 		orderMenuSceneController = next;
+	}
+	
+	public void setNextController2(OrderConfirmationController next) {
+		orderConfirmationController = next;
 	}
 
 }

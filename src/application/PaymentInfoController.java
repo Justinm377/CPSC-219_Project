@@ -2,6 +2,7 @@ package application;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Random;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -46,6 +47,18 @@ public class PaymentInfoController {
 				e.printStackTrace();
 			}
 		}
+		
+		//generate random order number
+		//this site was used to learn about the random class, and how it works: https://www.digitalocean.com/community/tutorials/java-random
+		String orderNumberAsString = ""; 
+		Random randomNumbers = new Random();
+		int number = 0;
+		for (int i = 0; i < 4; i++) {
+			number = randomNumbers.nextInt(10);
+			orderNumberAsString = orderNumberAsString + Integer.toString(number);
+		}
+		orderConfirmationController.setLabelText(orderNumberAsString);		
+		
 		orderConfirmationController.takeFocus();
 	}
 }

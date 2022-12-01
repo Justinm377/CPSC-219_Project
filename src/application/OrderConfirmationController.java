@@ -56,19 +56,9 @@ public class OrderConfirmationController {
 		homePageController.takeFocus();
 	}
 	
-	@FXML
-	private void setLabelText() {
-		//generate random order number
-		//this site was used to learn about the random class, and how it works: https://www.digitalocean.com/community/tutorials/java-random
-		String orderNumberAsString = ""; 
-		Random randomNumbers = new Random();
-		int number = 0;
-		for (int i = 0; i < 4; i++) {
-			number = randomNumbers.nextInt(10);
-			orderNumberAsString = orderNumberAsString + Integer.toString(number);
-		}
-				
-		orderNumber.setText(orderNumberAsString); //sets the order number label to randomly generated number
+	public void setLabelText(String randomNum) {
+		String num = randomNum;
+		orderNumber.setText(num); //sets the order number label to randomly generated number
 	}
 
 }

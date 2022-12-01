@@ -132,6 +132,7 @@ public class FoodOrderingAppController {
 		stage.setScene(scene);
 		stage.show();
 	}
+	
 	public void switchtoOrderMenu(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
 		Parent root = loader.load(new FileInputStream("src/application/Order_Menu.fxml"));
@@ -142,7 +143,18 @@ public class FoodOrderingAppController {
 		stage.setScene(scene);
 		stage.show();
 		
-		/*double priceSamosa = 5.99;
+	}
+	public void switchtoPaymentSummary(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+		Parent root = loader.load(new FileInputStream("src/application/Payment Summary.fxml"));
+		FoodOrderingAppController controller = (FoodOrderingAppController)(loader.getController());
+		stage=(Stage)((Node)event.getSource()).getScene().getWindow();
+		scene= new Scene(root);
+		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+		stage.setScene(scene);
+		stage.show();
+		
+		double priceSamosa = 5.99;
 		double pricePaniPuri = 8.99;
 		double priceButterChicken = 17.99;
 		double priceChefsChoice = 14.99;
@@ -163,19 +175,8 @@ public class FoodOrderingAppController {
 					gulabJamun.calculateItemTotalPrice() + brownie.calculateItemTotalPrice();
 		} catch (InvalidUserInputException e) {
 			e.printStackTrace();
-		} 
+		}
 		//NOTE: this code is not working right now because of the Controller issue. Controller needs to be separated into multiple */
-		
-	}
-	public void switchtoPaymentSummary(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		Parent root = loader.load(new FileInputStream("src/application/Payment Summary.fxml"));
-		FoodOrderingAppController controller = (FoodOrderingAppController)(loader.getController());
-		stage=(Stage)((Node)event.getSource()).getScene().getWindow();
-		scene= new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-		stage.setScene(scene);
-		stage.show();
 		
 //		String totalPriceAsString = Double.toString(totalPrice); These two lines of code will will not work right now. This is because the commented code in above method does not work. 
 //		controller.totalPriceLabel.setText("hello"); 

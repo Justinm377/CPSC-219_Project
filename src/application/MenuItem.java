@@ -24,6 +24,8 @@ public class MenuItem {
 			}
 		} else if (amountItemAsString == "" || amountItemAsString == null) {
 			validAmount = false;
+			amountItem = 0;
+			throw new InvalidUserInputException("Please input a value in this field.");
 		}
 		
 		//non-numeric value for the amount will throw an exception

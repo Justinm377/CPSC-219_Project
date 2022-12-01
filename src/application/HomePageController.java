@@ -19,7 +19,6 @@ public class HomePageController {
 
 	private OrderMenuController orderMenuSceneController;
 	
-	private Label totalPriceTextField;
 	
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -54,4 +53,5 @@ public class HomePageController {
 	@FXML
 	public void switchtoViewMenu(ActionEvent event) {
 	}
+
 }

@@ -19,7 +19,7 @@ public class TotalPrice {
 		for (int i = 0; i < itemList.size(); i++) {
 			priceToReturn = priceToReturn + itemList.get(i).calculateItemTotalPrice();
 		}
-		priceToReturn = priceToReturn*1.05;
+		
 		return priceToReturn;
 	}
 

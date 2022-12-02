@@ -2,12 +2,12 @@ package application;
 
 import javafx.scene.control.TextField;
 
-public class PaymentInfoValidation  {
+public class PaymentInfoValidation {
 
 	public PaymentInfoValidation() {
 	}
 
-    public String isNumeric(TextField stringInputToValidate) throws InvalidUserInputException{
+    public String isNumeric(TextField stringInputToValidate) {
     	String infoToValidate = stringInputToValidate.getText();
 		String goodCardInfo = "";
 		String errorMessage = "";
@@ -28,7 +28,6 @@ public class PaymentInfoValidation  {
     			c == '>') {
     			
     			invalidCharacterCounter += 1;
-    			throw new InvalidUserInputException ("Invalid character entered. Do not include the character: " + c);
     		}
     		if (invalidCharacterCounter > 0) {
     			validCardInfo = false;
@@ -40,16 +39,16 @@ public class PaymentInfoValidation  {
     		  goodCardInfo = (infoToValidate);
     	}   	
     	
-    	return goodCardInfo;
+    	return errorMessage;
 	}
     
     public String isAlphabeticValidation (TextField stringInputToValidate ) {
-    	String validInfo = stringInputToValidate.getText();
+    	String infoToValidate = stringInputToValidate.getText();
     	String validatedInfo = "";
 		String errorMessage = "";
 		boolean validInput = true;
 		
-		for(char c : validInfo.toCharArray()) {
+		for(char c : infoToValidate.toCharArray()) {
 			if(Character.isDigit(c)) {
 				validInput = false;
 				errorMessage = "Do not include any numerical characters.";
@@ -63,7 +62,7 @@ public class PaymentInfoValidation  {
 				errorMessage = "Do not include any non alphabetic characters.";
 				
 			}else {
-				validatedInfo = validInfo;
+				validatedInfo = infoToValidate;
 				validInput = true;
 			}
 		}

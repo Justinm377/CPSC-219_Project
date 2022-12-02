@@ -8,8 +8,8 @@ public class MenuItem {
 	}
 	
 	public MenuItem(int amountItem, double priceItem) {
-		amount = amountItem;
-		price = priceItem;
+		setAmount(amountItem);
+		setPrice(priceItem);
 	}
 	
 	public MenuItem(String amountItemAsString, Double priceItem) throws InvalidUserInputException {
@@ -48,13 +48,29 @@ public class MenuItem {
 		}
 		
 		//set the instance variables
-		amount = amountItem;
-		price = priceItem;
+		setAmount(amountItem);
+		setPrice(priceItem);
 	}
 
 	public double calculateItemTotalPrice() {
-		double totalItemPrice = amount * price; 
+		double totalItemPrice = getAmount() * getPrice(); 
 		return totalItemPrice;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 }

@@ -28,6 +28,7 @@ public class OrderMenuController {
     private TextField samosaTextField;
     @FXML
     private CheckBox samosaCheckBox; 
+    
     @FXML
     private TextField paniPuriTextField;
     @FXML
@@ -48,6 +49,8 @@ public class OrderMenuController {
     private TextField brownieTextField;
     @FXML
     private CheckBox brownieCheckBox;  
+    @FXML
+    private Label errorLabel;
 
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -130,21 +133,40 @@ public class OrderMenuController {
 		setTextFieldVisibility(brownieCheckBox,brownieTextField );
 	}
 	
+	public String isNumeric(TextField stringInputToValidate) throws InvalidUserInputException {
+    	String infoToValidate = stringInputToValidate.getText();
+		String validInfo = "";
+		boolean validCardInfo = true;
+    	int decimalCounter = 0;
+		
+    	    	
+    	for (char c : infoToValidate.toCharArray()){
+    		if (!Character.isDigit(c) && c != '.') {
+    			validCardInfo = false;
+    			throw new InvalidUserInputException ( "Invalid Input. Input should only be numerical.");
+    			
+    		}else if (c == '.') {
+				decimalCounter =+ 1;
+				if (decimalCounter > 1) {
+					validCardInfo = false;
+					throw new InvalidUserInputException ("Do not inlclude more than 1 decimal per input");
+				}				
+    		}    	
+    	}
+    	
+    	if(validCardInfo == true) {
+    		validInfo = (infoToValidate);
+    	} else if ( validCardInfo == false) {
+    		validInfo = "0";
+    	}
+    	
+    	return validInfo;
+	}
+	
+	
 	@FXML  
 	public void switchtoPaymentSummary(ActionEvent event) {
-		if (paymentController == null) {
-			try {
-				FXMLLoader loader = new FXMLLoader();
-				Parent root = loader.load(new FileInputStream("src/application/Payment Summary.fxml"));
-				paymentController = loader.getController();
-				paymentController.setPrimaryStage(primaryStage);
-				paymentController.setMyScene(new Scene(root));
-				paymentController.setNextController(this);	
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		
+		boolean noErrorMessage = false;
 		double priceSamosa = 5.99;
 		double pricePaniPuri = 8.99;
 		double priceButterChicken = 17.99;
@@ -155,26 +177,44 @@ public class OrderMenuController {
 		ArrayList<MenuItem> foodItemList = new ArrayList<MenuItem>();
 		
 		try {
-			MenuItem samosa = new MenuItem(samosaTextField.getText(), priceSamosa);
-			MenuItem paniPuri = new MenuItem(paniPuriTextField.getText(), pricePaniPuri);
-			MenuItem butterChicken = new MenuItem(butterChickenTextField.getText(), priceButterChicken);
-			MenuItem chefsChoice = new MenuItem(chefsChoiceTextField.getText(), priceChefsChoice);
-			MenuItem gulabJamun = new MenuItem(gulabJamunTextField.getText(), priceGulabJamun);
-			MenuItem brownie = new MenuItem(brownieTextField.getText(), priceBrownie);
+			
+			MenuItem samosa = new MenuItem( isNumeric(samosaTextField), priceSamosa);			
+			MenuItem paniPuri = new MenuItem(isNumeric(paniPuriTextField), pricePaniPuri);
+			MenuItem butterChicken = new MenuItem(isNumeric(butterChickenTextField), priceButterChicken);
+			MenuItem chefsChoice = new MenuItem(isNumeric(chefsChoiceTextField), priceChefsChoice);
+			MenuItem gulabJamun = new MenuItem(isNumeric(gulabJamunTextField), priceGulabJamun);
+			MenuItem brownie = new MenuItem(isNumeric(brownieTextField), priceBrownie);
 			foodItemList.add(samosa);
 			foodItemList.add(paniPuri);
 			foodItemList.add(butterChicken);
 			foodItemList.add(chefsChoice);
 			foodItemList.add(gulabJamun);
 			foodItemList.add(brownie);
-		} catch (InvalidUserInputException e) {
-			e.printStackTrace();
-			//set error messages
+		} catch (InvalidUserInputException IUIE) {
+			errorLabel.setText(IUIE.getMessage());
+			noErrorMessage = true;
+		}	
+		if (noErrorMessage == false) {
+			
+			if (paymentController == null) {
+				try {
+					FXMLLoader loader = new FXMLLoader();
+					Parent root = loader.load(new FileInputStream("src/application/Payment Summary.fxml"));
+					Scene scene = new Scene(root);
+					scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+					paymentController = loader.getController();
+					paymentController.setPrimaryStage(primaryStage);
+					paymentController.setMyScene(scene);
+					paymentController.setNextController(this);	
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
+	
+			TotalPrice finalPrice = new TotalPrice(foodItemList); //created TotalPrice object to contain all the MenuItems 
+			paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController		
+			paymentController.takeFocus();
 		}
-		
-		TotalPrice finalPrice = new TotalPrice(foodItemList); //created TotalPrice object to contain all the MenuItems 
-		paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController
-		
-		paymentController.takeFocus();
 	}
+	
 }

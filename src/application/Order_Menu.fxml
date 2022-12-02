@@ -44,7 +44,7 @@
                   <Insets left="5.0" />
                </HBox.margin></CheckBox>
             <Label prefHeight="17.0" prefWidth="116.0" text="\$5.99" />
-            <TextField fx:id="samosaTextField" translateX="2.0" visible="false" />
+            <TextField fx:id="samosaTextField" visible="false" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
@@ -97,6 +97,14 @@
             <TextField fx:id="brownieTextField" visible="false" />
          </children>
       </HBox>
+      <Label fx:id = "errorLabel" alignment="CENTER" prefHeight="27.0" prefWidth="425.0" text="" textAlignment="CENTER" textFill="RED">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </Label>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <Button mnemonicParsing="false" onAction="#switchtoHomePage" prefHeight="26.0" prefWidth="236.0" text="Return to Home Page" translateX="15.0">

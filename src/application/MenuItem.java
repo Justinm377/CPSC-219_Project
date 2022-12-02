@@ -1,7 +1,7 @@
 package application;
 
 public class MenuItem {
-	private int amount;
+	private double amount;
 	private double price = 0.00;
 	
 	public MenuItem() {
@@ -13,24 +13,24 @@ public class MenuItem {
 	}
 	
 	public MenuItem(String amountItemAsString, Double priceItem) throws InvalidUserInputException {
-		int amountItem = 0;
+		double amountItem = 0;
 		
 		int decimalCounter = 0;
 		boolean validAmount = true;
-		if (amountItemAsString != "" || amountItemAsString != null) {
-			for (char c : amountItemAsString.toCharArray()) { //if anything other than an integer number is provided, it's not valid
-				if (!Character.isDigit(c)) validAmount = false;
-				if (c == '.') decimalCounter++;
-			}
-		} else if (amountItemAsString == "" || amountItemAsString == null) {
-			validAmount = false;
-			amountItem = 0;
-			throw new InvalidUserInputException("Please input a value in this field.");
-		}
+//		if (amountItemAsString != "" || amountItemAsString != null) {
+//			for (char c : amountItemAsString.toCharArray()) { //if anything other than an integer number is provided, it's not valid
+//				if (!Character.isDigit(c)) validAmount = false;
+//				if (c == '.') decimalCounter++;
+//			}
+//		} else if (amountItemAsString == "" || amountItemAsString == null) {
+//			validAmount = false;
+//			amountItem = 0;
+//			throw new InvalidUserInputException("Please input a value in this field.");
+//		}
 		
 		//non-numeric value for the amount will throw an exception
 		if (validAmount == true && amountItemAsString != "") {
-			amountItem = Integer.parseInt(amountItemAsString);
+			amountItem = Double.parseDouble(amountItemAsString);
 		} else if (validAmount == false && decimalCounter != 0) {
 			throw new InvalidUserInputException("Order quantity cannot contain decimals.");
 		} else if (validAmount == false && decimalCounter == 0) {
@@ -39,7 +39,7 @@ public class MenuItem {
 		
 		//let's assume that the max amount an user can order of a quantity is 10
 		if (amountItem > 10) {
-			throw new InvalidUserInputException("To order a quantity of more than 10, please contact us directly by phone or in-person.");
+			throw new InvalidUserInputException("To order a quantity of more than 10, please contact us directly by phone");
 		}
 		
 		//user cannot order negative amount

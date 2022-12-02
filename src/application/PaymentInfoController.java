@@ -144,74 +144,81 @@ public class PaymentInfoController {
 		boolean allValidationPassed = true;
 		
 		try {
+			firstNameErrorLabel.setText(""); //clear text once error is gone
 			isAlphabeticValidation(firstNameTextField);			
 		}catch (InvalidUserInputException IUIE){
 			allValidationPassed = false;
 			firstNameErrorLabel.setText(IUIE.getMessage());
 		}		
 		try {
+			lastNameErrorLabel.setText(""); //clear text once error is gone
 			isAlphabeticValidation(lastNameTextField);			
 		}catch (InvalidUserInputException IUIE){
 			allValidationPassed = false;
 			lastNameErrorLabel.setText(IUIE.getMessage());
 		}
 		try {
+			phoneNumberErrorLabel.setText(""); //clear text once error is gone
 			isNumeric(phoneNumberTextField);			
 		}catch (InvalidUserInputException IUIE){
 			allValidationPassed = false;
 			phoneNumberErrorLabel.setText(IUIE.getMessage());
 		}
 		try {
+			nameErrorLabel.setText(""); //clear text once error is gone
 			isAlphabeticValidation(nameOnCardTextField);			
 		}catch (InvalidUserInputException IUIE){
 			allValidationPassed = false;
 			nameErrorLabel.setText(IUIE.getMessage());
 		}		
 		try {
+			cardNumberErrorLabel.setText(""); //clear text once error is gone
 			isNumeric(cardNumberTextField);			
 		}catch (InvalidUserInputException IUIE){
 			allValidationPassed = false;
 			cardNumberErrorLabel.setText(IUIE.getMessage());
 		}
 		try {
+			expiryMonthErrorLabel.setText(""); //clear text once error is gone
 			isNumeric(expireMonthTextField);			
 		}catch (InvalidUserInputException IUIE){
 			allValidationPassed = false;
 			expiryMonthErrorLabel.setText(IUIE.getMessage());
 		}
 		try {
+			expiryYearErrorLabel.setText(""); //clear text once error is gone
 			isNumeric(expiryYearTextField);			
 		}catch (InvalidUserInputException IUIE){
 			allValidationPassed = false;
 			expiryYearErrorLabel.setText(IUIE.getMessage());
 		}
 		
-		if (allValidationPassed == true) {
-			if (orderConfirmationController == null) {
-				try {
-					FXMLLoader loader = new FXMLLoader();
-					Parent root = loader.load(new FileInputStream("src/application/Order_Confirmation.fxml"));
-					orderConfirmationController = loader.getController();
-					orderConfirmationController.setPrimaryStage(primaryStage);
-					orderConfirmationController.setMyScene(new Scene(root));
-					orderConfirmationController.setNextController(this);	
-				} catch (IOException e) {
-					e.printStackTrace();
+		if (orderConfirmationController == null && allValidationPassed == true) {
+			try {
+				FXMLLoader loader = new FXMLLoader();
+				Parent root = loader.load(new FileInputStream("src/application/Order_Confirmation.fxml"));
+				Scene scene = new Scene(root);
+				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+				orderConfirmationController = loader.getController();
+				orderConfirmationController.setPrimaryStage(primaryStage);
+				orderConfirmationController.setMyScene(scene);
+				orderConfirmationController.setNextController(this);
+				
+				//generate random order number
+				//this site was used to learn about the random class, and how it works: https://www.digitalocean.com/community/tutorials/java-random
+				String orderNumberAsString = ""; 
+				Random randomNumbers = new Random();
+				int number = 0;
+				for (int i = 0; i < 4; i++) {
+					number = randomNumbers.nextInt(10);
+					orderNumberAsString = orderNumberAsString + Integer.toString(number);
 				}
+				orderConfirmationController.setLabelText(orderNumberAsString);
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
+			orderConfirmationController.takeFocus();
 		}
-		
-		//generate random order number
-		//this site was used to learn about the random class, and how it works: https://www.digitalocean.com/community/tutorials/java-random
-		String orderNumberAsString = ""; 
-		Random randomNumbers = new Random();
-		int number = 0;
-		for (int i = 0; i < 4; i++) {
-			number = randomNumbers.nextInt(10);
-			orderNumberAsString = orderNumberAsString + Integer.toString(number);
-		}
-		orderConfirmationController.setLabelText(orderNumberAsString);		
-		
-		orderConfirmationController.takeFocus();
+				
 	}
 }

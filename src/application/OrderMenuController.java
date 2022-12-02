@@ -78,9 +78,11 @@ public class OrderMenuController {
 			try {
 				FXMLLoader loader = new FXMLLoader();
 				Parent root = loader.load(new FileInputStream("src/application/HomePage.fxml"));
+				Scene scene = new Scene(root);
+				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				homePageController = loader.getController();
 				homePageController.setPrimaryStage(primaryStage);
-				homePageController.setMyScene(new Scene(root));
+				homePageController.setMyScene(scene);
 				homePageController.setNextController(this);	
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -168,9 +170,11 @@ public class OrderMenuController {
 			try {
 				FXMLLoader loader = new FXMLLoader();
 				Parent root = loader.load(new FileInputStream("src/application/Payment Summary.fxml"));
+				Scene scene = new Scene(root);
+				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				paymentController = loader.getController();
 				paymentController.setPrimaryStage(primaryStage);
-				paymentController.setMyScene(new Scene(root));
+				paymentController.setMyScene(scene);
 				paymentController.setNextController(this);	
 				inputErrorLabel.setText(""); //clears error label text
 				TotalPrice finalPrice = new TotalPrice(foodItemList); //created TotalPrice object to contain all the MenuItems 

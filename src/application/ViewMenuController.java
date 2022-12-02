@@ -46,9 +46,11 @@ public class ViewMenuController {
 			try {
 				FXMLLoader loader = new FXMLLoader();
 				Parent root = loader.load(new FileInputStream("src/application/Order_Menu.fxml"));
+				Scene scene = new Scene(root);
+				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				orderMenuSceneController = loader.getController();
 				orderMenuSceneController.setPrimaryStage(primaryStage);
-				orderMenuSceneController.setMyScene(new Scene(root));
+				orderMenuSceneController.setMyScene(scene);
 				orderMenuSceneController.setNextController2(this);	
 			} catch (IOException e) {
 				e.printStackTrace();

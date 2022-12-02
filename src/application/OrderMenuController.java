@@ -48,6 +48,9 @@ public class OrderMenuController {
     private TextField brownieTextField;
     @FXML
     private CheckBox brownieCheckBox;  
+    
+    @FXML
+    private Label inputErrorLabel;
 
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -132,18 +135,7 @@ public class OrderMenuController {
 	
 	@FXML  
 	public void switchtoPaymentSummary(ActionEvent event) {
-		if (paymentController == null) {
-			try {
-				FXMLLoader loader = new FXMLLoader();
-				Parent root = loader.load(new FileInputStream("src/application/Payment Summary.fxml"));
-				paymentController = loader.getController();
-				paymentController.setPrimaryStage(primaryStage);
-				paymentController.setMyScene(new Scene(root));
-				paymentController.setNextController(this);	
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
+		boolean errorPresent = false;
 		
 		double priceSamosa = 5.99;
 		double pricePaniPuri = 8.99;
@@ -167,14 +159,28 @@ public class OrderMenuController {
 			foodItemList.add(chefsChoice);
 			foodItemList.add(gulabJamun);
 			foodItemList.add(brownie);
-		} catch (InvalidUserInputException e) {
-			e.printStackTrace();
-			//set error messages
+		} catch (InvalidUserInputException IUIE) {
+			inputErrorLabel.setText(IUIE.getMessage());
+			errorPresent = true;			
+		}
+		
+		if(errorPresent == false) {
+			if (paymentController == null) {
+				try {
+					FXMLLoader loader = new FXMLLoader();
+					Parent root = loader.load(new FileInputStream("src/application/Payment Summary.fxml"));
+					paymentController = loader.getController();
+					paymentController.setPrimaryStage(primaryStage);
+					paymentController.setMyScene(new Scene(root));
+					paymentController.setNextController(this);	
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}
 		}
 		
 		TotalPrice finalPrice = new TotalPrice(foodItemList); //created TotalPrice object to contain all the MenuItems 
-		paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController
-		
+		paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController		
 		paymentController.takeFocus();
 	}
 }

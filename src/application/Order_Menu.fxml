@@ -97,6 +97,14 @@
             <TextField fx:id="brownieTextField" visible="false" />
          </children>
       </HBox>
+      <Label fx:id= "inputErrorLabel" alignment="CENTER" prefHeight="19.0" prefWidth="558.0" text="" textFill="RED">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <padding>
+            <Insets bottom="10.0" />
+         </padding>
+      </Label>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <Button mnemonicParsing="false" onAction="#switchtoHomePage" prefHeight="26.0" prefWidth="236.0" text="Return to Home Page" translateX="15.0">

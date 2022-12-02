@@ -14,7 +14,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			TotalPrice finalPrice = new TotalPrice();
+			Order finalPrice = new Order();
 			
 			FXMLLoader loader = new FXMLLoader();
 			Parent root = loader.load(new FileInputStream("src/application/HomePage.fxml"));

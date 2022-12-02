@@ -177,7 +177,7 @@ public class OrderMenuController {
 				paymentController.setMyScene(scene);
 				paymentController.setNextController(this);	
 				inputErrorLabel.setText(""); //clears error label text
-				TotalPrice finalPrice = new TotalPrice(foodItemList); //created TotalPrice object to contain all the MenuItems 
+				Order finalPrice = new Order(foodItemList); //created TotalPrice object to contain all the MenuItems 
 				paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController		
 				} catch (IOException e) {
 					e.printStackTrace();

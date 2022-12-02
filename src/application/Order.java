@@ -2,14 +2,14 @@ package application;
 
 import java.util.ArrayList;
 
-public class TotalPrice {
+public class Order {
 	private ArrayList<MenuItem> itemList; 
 	
-	public TotalPrice(ArrayList<MenuItem> foodItemList) {
+	public Order(ArrayList<MenuItem> foodItemList) {
 		itemList = foodItemList;
 	}
 	
-	public TotalPrice() {
+	public Order() {
 		// TODO Auto-generated constructor stub
 	}
 

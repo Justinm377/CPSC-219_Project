@@ -22,13 +22,13 @@ public class Drinks extends MenuItem {
 	
 	public double calculateDrinkTotalPrice() {
 		if (getSize() == "Small") {
-			
+			setPrice(1.99);
 		} else if (getSize() == "Medium") {
-			
+			setPrice(2.49);
 		} else if (getSize() == "Large") {
-			
+			setPrice(2.99);
 		}
 		
-		return 0;
+		return calculateItemTotalPrice();
 	}
 }

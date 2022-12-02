@@ -164,24 +164,22 @@ public class OrderMenuController {
 			errorPresent = true;			
 		}
 		
-		if(errorPresent == false) {
-			if (paymentController == null) {
-				try {
-					FXMLLoader loader = new FXMLLoader();
-					Parent root = loader.load(new FileInputStream("src/application/Payment Summary.fxml"));
-					paymentController = loader.getController();
-					paymentController.setPrimaryStage(primaryStage);
-					paymentController.setMyScene(new Scene(root));
-					paymentController.setNextController(this);	
-					inputErrorLabel.setText(null);
+		if (paymentController == null && errorPresent == false) {
+			try {
+				FXMLLoader loader = new FXMLLoader();
+				Parent root = loader.load(new FileInputStream("src/application/Payment Summary.fxml"));
+				paymentController = loader.getController();
+				paymentController.setPrimaryStage(primaryStage);
+				paymentController.setMyScene(new Scene(root));
+				paymentController.setNextController(this);	
+				inputErrorLabel.setText(""); //clears error label text
+				TotalPrice finalPrice = new TotalPrice(foodItemList); //created TotalPrice object to contain all the MenuItems 
+				paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController		
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
+				paymentController.takeFocus();
 			}
-		}
 		
-		TotalPrice finalPrice = new TotalPrice(foodItemList); //created TotalPrice object to contain all the MenuItems 
-		paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController		
-		paymentController.takeFocus();
 	}
 }

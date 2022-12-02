@@ -42,6 +42,10 @@ public class MenuItem {
 			throw new InvalidUserInputException("To order a quantity of more than 10, please contact us directly by phone or in-person.");
 		}
 		
+		//user cannot order negative amount
+		if (amountItem < 0) {
+			throw new InvalidUserInputException("Please enter a positive number between 0 and 10");
+		}
 		
 		//set the instance variables
 		amount = amountItem;

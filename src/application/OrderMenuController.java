@@ -173,6 +173,7 @@ public class OrderMenuController {
 					paymentController.setPrimaryStage(primaryStage);
 					paymentController.setMyScene(new Scene(root));
 					paymentController.setNextController(this);	
+					inputErrorLabel.setText(null);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

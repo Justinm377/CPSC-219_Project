@@ -35,7 +35,7 @@
                <padding>
                   <Insets right="5.0" />
                </padding></Label>
-            <Label fx:id = "totalPriceTextField" text = "TEST" >
+            <Label fx:id="totalPriceTextField" text="">
                <font>
                   <Font size="18.0" />
                </font>
@@ -44,20 +44,46 @@
                </padding>
             </Label>
          </children>
+         <VBox.margin>
+            <Insets top="50.0" />
+         </VBox.margin>
       </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="274.0" text="Your Preferred Payment Method:" />
-            <ChoiceBox fx:id="paymentTypeChoiceBox" prefWidth="150.0">
-            	<items>
-            		<FXCollections fx:factory="observableArrayList">
-            			<String fx:value="Credit" />
-            			<String fx:value="Debit" />
-            		</FXCollections>
-            	</items>
-            </ChoiceBox>
+            <VBox maxHeight="30.0" prefHeight="30.0" prefWidth="568.0">
+               <children>
+                  <HBox prefHeight="50.0" prefWidth="568.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="229.0" text="Your Preferred Payment Method:">
+                           <HBox.margin>
+                              <Insets left="75.0" />
+                           </HBox.margin>
+                        </Label>
+                        <ChoiceBox fx:id="paymentTypeChoiceBox" prefWidth="150.0">
+                        	<items>
+                        		<FXCollections fx:factory="observableArrayList">
+                        			<String fx:value="Credit" />
+                        			<String fx:value="Debit" />
+                        		</FXCollections>
+                        	</items>
+                           <HBox.margin>
+                              <Insets left="30.0" />
+                           </HBox.margin>
+                        </ChoiceBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
          </children>
       </HBox>
+      <Label fx:id= "errorLabelChoicebox" alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="389.0" text="" textFill="RED">
+         <padding>
+            <Insets bottom="30.0" />
+         </padding>
+      </Label>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
             <Button mnemonicParsing="false" onAction="#switchtoOrderMenu" prefHeight="26.0" prefWidth="305.0" text="Return to Order">

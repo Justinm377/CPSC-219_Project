@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -21,6 +22,13 @@ public class PaymentSummaryController {
 	
 	@FXML
 	private Label totalPriceTextField;
+	
+	@FXML
+	private ChoiceBox paymentTypeChoiceBox;
+	
+	@FXML
+	private Label errorLabelChoicebox;
+	
 	
 	private double totalPrice;
 	
@@ -49,19 +57,28 @@ public class PaymentSummaryController {
 	
 	@FXML
 	public void switchtoPaymentInfo(ActionEvent event) {
-		if (paymentInfoController == null) {
-			try {
-				FXMLLoader loader = new FXMLLoader();
-				Parent root = loader.load(new FileInputStream("src/application/Payment Info.fxml"));
-				paymentInfoController = loader.getController();
-				paymentInfoController.setPrimaryStage(primaryStage);
-				paymentInfoController.setMyScene(new Scene(root));
-				paymentInfoController.setNextController(this);	
-			} catch (IOException e) {
-				e.printStackTrace();
+		
+//		try {
+//			PaymentInfoValidation firstName = new PaymentInfoValidation()}catch
+		if ( paymentTypeChoiceBox.getValue() != null) {
+			if (paymentInfoController == null) {
+				try {
+					FXMLLoader loader = new FXMLLoader();
+					Parent root = loader.load(new FileInputStream("src/application/Payment Info.fxml"));
+					paymentInfoController = loader.getController();
+					paymentInfoController.setPrimaryStage(primaryStage);
+					paymentInfoController.setMyScene(new Scene(root));
+					paymentInfoController.setNextController(this);
+					errorLabelChoicebox.setText(null);
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
 			}
+			paymentInfoController.takeFocus();
+		} else {
+			errorLabelChoicebox.setText("Please select a type of payment.");
 		}
-		paymentInfoController.takeFocus();
+		
 	}
 
 	public void setTotalPrice(double price) {

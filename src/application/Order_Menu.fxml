@@ -33,8 +33,21 @@
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin></Label>
-            <Label prefHeight="17.0" prefWidth="153.0" text="Price" />
-            <Label prefHeight="17.0" prefWidth="56.0" text="Quantity" />
+            <Label prefHeight="17.0" prefWidth="131.0" text="Price" />
+            <VBox prefHeight="40.0" prefWidth="128.0">
+               <children>
+                  <Label prefHeight="17.0" prefWidth="56.0" text="Quantity">
+                     <VBox.margin>
+                        <Insets left="35.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="13.0" prefWidth="210.0" text="(Only inlude whole numbers)">
+                     <font>
+                        <Font size="9.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
@@ -97,7 +110,7 @@
             <TextField fx:id="brownieTextField" visible="false" />
          </children>
       </HBox>
-      <Label fx:id= "inputErrorLabel" alignment="CENTER" prefHeight="19.0" prefWidth="558.0" text="" textFill="RED">
+      <Label fx:id="inputErrorLabel" alignment="CENTER" prefHeight="19.0" prefWidth="558.0" text="" textFill="RED">
          <font>
             <Font size="13.0" />
          </font>

@@ -1,9 +1,12 @@
 package application;
 
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 
 public class PaymentInfoValidation {
 
+	
+	
 	public PaymentInfoValidation() {
 	}
 
@@ -42,7 +45,7 @@ public class PaymentInfoValidation {
     	return errorMessage;
 	}
     
-    public String isAlphabeticValidation (TextField stringInputToValidate ) {
+    public String isAlphabeticValidation (TextField stringInputToValidate ) throws InvalidUserInputException {
     	String infoToValidate = stringInputToValidate.getText();
     	String validatedInfo = "";
 		String errorMessage = "";
@@ -51,7 +54,7 @@ public class PaymentInfoValidation {
 		for(char c : infoToValidate.toCharArray()) {
 			if(Character.isDigit(c)) {
 				validInput = false;
-				errorMessage = "Do not include any numerical characters.";
+				throw new InvalidUserInputException ( "Do not include any numerical characters.");
 			}else if (c == '.' || c == '/' || c == '!' || c =='@' || 
     			c == '#' || c == '$' || c =='+'  || c =='%' ||
     			c == '^' || c == '&' || c == '*' || c == '('||
@@ -59,14 +62,22 @@ public class PaymentInfoValidation {
     			c == '?' || c == ',' || c == '.' || c == '<'||
     			c == '>'){
 				validInput = false;
-				errorMessage = "Do not include any non alphabetic characters.";
-				
+				throw new InvalidUserInputException ("Do not include any non alphabetic characters.");				
 			}else {
 				validatedInfo = infoToValidate;
 				validInput = true;
 			}
 		}
-		return errorMessage;
+		return validatedInfo;
     }
 
+    public boolean paymentTypeSelected(ChoiceBox paymentType) {
+    	boolean selected = true;
+    	 Object value = paymentType.getValue();
+    	 if ( value == null) {
+    		 selected = false;
+    	 }
+    	 return selected;
+    }
+    
 }

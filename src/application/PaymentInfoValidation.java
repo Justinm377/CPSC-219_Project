@@ -8,7 +8,7 @@ public class PaymentInfoValidation {
 	public PaymentInfoValidation() {
 	}
 
-	public String isNumeric(TextField stringInputToValidate) {
+	/*public String isNumeric(TextField stringInputToValidate) {
 		String infoToValidate = stringInputToValidate.getText();
 		String goodCardInfo = "";
 		String errorMessage = "";
@@ -76,6 +76,6 @@ public class PaymentInfoValidation {
 			selected = false;
 		}
 		return selected;
-	}
+	}*/
 
 }

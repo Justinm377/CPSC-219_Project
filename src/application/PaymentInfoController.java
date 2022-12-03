@@ -110,23 +110,23 @@ public class PaymentInfoController {
 //	}
 	public void isUserInputValid (TextField userInput, int typeOfValidation) throws InvalidUserInputException{
 		String infoToValidate = userInput.getText();
-    	if (infoToValidate == "") {throw new InvalidUserInputException ("Please enter a value");}	
+    	if (infoToValidate == "") {throw new InvalidUserInputException ("Please input information in this field.");}	
     	if ( typeOfValidation == 1) {
     		for (char c : infoToValidate.toCharArray()){
         		if (!Character.isDigit(c)&& c!=' ') {
-        			throw new InvalidUserInputException ("Please input numerical values only");
+        			throw new InvalidUserInputException ("Please input numerical values only in this field.");
         		}
         	}
     	}else if (typeOfValidation == 2) {
     		for(char c : infoToValidate.toCharArray()) {
     			if(!Character.isLetter(c)&& c!=' ') {
-    				throw new InvalidUserInputException ( "Do not include non alphabetical characters.");
+    				throw new InvalidUserInputException ( "Do not include non alphabetical characters in this field.");
     			}
     		}
     	}else if ( typeOfValidation == 3) {
     		for (char c : infoToValidate.toCharArray()){
         		if (!Character.isDigit(c)&& !Character.isLetter(c)&& c!= ' ') {
-        			throw new InvalidUserInputException ("Please do not input special characters.");
+        			throw new InvalidUserInputException ("Please do not input special characters in this field.");
         		}
         	}
     	}

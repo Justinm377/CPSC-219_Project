@@ -57,7 +57,7 @@
                <padding>
                   <Insets left="5.0" />
                </padding></Label>
-            <TextField fx:id = "addressTextField"/>
+            <TextField fx:id="addressTextField" />
             <Label fx:id="addressErrorLabel" text="" textFill="#f50000">
                <HBox.margin>
                   <Insets left="125.0" />
@@ -151,14 +151,15 @@
                <padding>
                   <Insets left="5.0" />
                </padding></Label>
-            <TextField fx:id = "postalCodeTextField"/>
-            <Label fx:id = "postalCodeErrorLabel" text="" textFill="RED">
+            <TextField fx:id="postalCodeTextField" />
+            <Label fx:id="postalCodeErrorLabel" text="" textFill="RED">
                <padding>
                   <Insets left="125.0" />
                </padding>
             </Label>
          </children>
       </HBox>
+      <Label fx:id="lengthErrorLabel" alignment="CENTER" prefHeight="17.0" prefWidth="550.0" text="" textFill="RED" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <Button mnemonicParsing="false" onAction="#switchtoOrderConfirmation" text="Submit" />

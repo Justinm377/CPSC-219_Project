@@ -157,6 +157,23 @@ public class OrderMenuController {
 	void drink2TextFieldAppears(ActionEvent event) {
 		setTextFieldVisibility(drink2CheckBox,drink2TextField);
 	}
+	public void ifAnySelected () throws InvalidUserInputException {
+		if (samosaCheckBox.isSelected() == false && paniPuriCheckBox.isSelected() == false && butterChickenCheckBox.isSelected()==false
+				&& chefsChoiceCheckBox.isSelected() == false && gulabJamunCheckBox.isSelected()==false && brownieCheckBox.isSelected()==false) {
+			throw new InvalidUserInputException ("Please select at least one item to continue.");
+		}		 
+	}
+	
+	public boolean ifSelected(CheckBox itemSelected, TextField inputQuantity) throws InvalidUserInputException{
+		boolean empty = false;
+		if ( itemSelected.isSelected() == true && inputQuantity.getText() == "") {
+			empty = true;
+			throw new InvalidUserInputException ("Please input a quantity.");
+		}else if ( itemSelected.isSelected()== true && inputQuantity.getText() != "") {
+			empty = false;
+		}
+		return empty;
+	}
 	
 	@FXML  
 	public void switchtoPaymentSummary(ActionEvent event) {
@@ -171,9 +188,11 @@ public class OrderMenuController {
 		
 		ArrayList<MenuItem> foodItemList = new ArrayList<MenuItem>();
 		ArrayList<Drinks> drinksItemList = new ArrayList<Drinks>();
-		
+
+	
 		try {
-			MenuItem samosa = new MenuItem(samosaTextField.getText(), priceSamosa);
+							
+			MenuItem samosa = new MenuItem(samosaTextField.getText(), priceSamosa);			
 			MenuItem paniPuri = new MenuItem(paniPuriTextField.getText(), pricePaniPuri);
 			MenuItem butterChicken = new MenuItem(butterChickenTextField.getText(), priceButterChicken);
 			MenuItem chefsChoice = new MenuItem(chefsChoiceTextField.getText(), priceChefsChoice);
@@ -182,6 +201,7 @@ public class OrderMenuController {
 			
 			Drinks drink1 = new Drinks(drink1ChoiceBox.getValue().toString(), drink1TextField.getText());
 			Drinks drink2 = new Drinks(drink2ChoiceBox.getValue().toString(), drink2TextField.getText());
+			
 			
 			foodItemList.add(samosa);
 			foodItemList.add(paniPuri);
@@ -195,6 +215,19 @@ public class OrderMenuController {
 		} catch (InvalidUserInputException iuie) {
 			inputErrorLabel.setText(iuie.getMessage());
 			errorPresent = true;			
+		}
+		
+		try {
+			ifAnySelected();
+			ifSelected(samosaCheckBox,samosaTextField);	
+			ifSelected(paniPuriCheckBox,paniPuriTextField);	
+			ifSelected(butterChickenCheckBox,butterChickenTextField);	
+			ifSelected(chefsChoiceCheckBox,chefsChoiceTextField);	
+			ifSelected(gulabJamunCheckBox,gulabJamunTextField);	
+			ifSelected(brownieCheckBox,brownieTextField);	
+		} catch (InvalidUserInputException iuie) {
+			errorPresent = true;
+			inputErrorLabel.setText(iuie.getMessage());
 		}
 		
 		if (errorPresent == false) {

@@ -52,7 +52,11 @@ public class Order {
 		
 		//takes total price of each drink and adds them to a total order price
 		for (int i = 0; i < getDrinksList().size(); i++) {
-			priceToReturn = priceToReturn + getDrinksList().get(i).calculateDrinkTotalPrice();
+			try {
+				priceToReturn = priceToReturn + getDrinksList().get(i).calculateDrinkTotalPrice();
+			} catch (InvalidUserInputException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		return priceToReturn;
@@ -60,7 +64,7 @@ public class Order {
 	
 	/**
 	 * This method calculates the total price of the user's order with 5% tax and returns the total price with tax.
-	 * @return the total price of the user's entire order of items with 5% tax
+	 * @return the total price of the user's entire order of items with 5% tax.
 	 */
 	public double calculateTotalPriceWithTax() {
 		double priceToReturnWithTax = calculateTotalPrice() + (calculateTotalPrice() * 0.05); //we're using GST tax of 5%

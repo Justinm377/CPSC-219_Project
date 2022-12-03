@@ -206,15 +206,16 @@ public class OrderMenuController {
 				paymentController = loader.getController();
 				paymentController.setPrimaryStage(primaryStage);
 				paymentController.setMyScene(scene);
-				paymentController.setNextController(this);	
+				paymentController.setNextController(this);
+				
 				inputErrorLabel.setText(""); //clears error label text
 				Order finalPrice = new Order(foodItemList, drinksItemList); //created TotalPrice object to contain all the MenuItems 
 				paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController		
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-				paymentController.takeFocus();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
 			}
-		
+			paymentController.takeFocus();
+		}
 	}
 }

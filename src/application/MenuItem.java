@@ -25,6 +25,26 @@ public class MenuItem {
 	 * @throws InvalidUserInputException is thrown when user input for amount of item is anything other than a positive integer between 0 and 10. 
 	 */
 	public MenuItem(String amountItemAsString, Double priceItem) throws InvalidUserInputException {
+		setAmount(amountItemAsString);
+		setPrice(priceItem);
+	}
+	
+	/**
+	 * This getter method is an accessor method that allows for the amount instance variable to be accessed throughout the class
+	 * and its child class, Drinks. 
+	 * @return the quantity entered by the user for the item, set by the constructor. 
+	 */
+	public int getAmount() {
+		return amount;
+	}
+
+	/**
+	 * This setter method is a mutator method that sets the quantity instance variable, as long as the quantity
+	 * is a positive integer between 0 and 10. 
+	 * @param amountItemAsString a String intended to be a quantity value entered by the user. 
+	 * @throws InvalidUserInputException is thrown when quantity of item is anything other than a positive integer between 0 and 10.
+	 */
+	public void setAmount(String amountItemAsString) throws InvalidUserInputException {
 		int amountItem = 0;
 		
 		int decimalCounter = 0;
@@ -34,7 +54,7 @@ public class MenuItem {
 				if (!Character.isDigit(c)) validAmount = false;
 				if (c == '.') decimalCounter++;
 			}
-		} else if (amountItemAsString == "" || amountItemAsString == null) {
+		} else if (amountItemAsString == "" || amountItemAsString == null) { //checks for when an user enters no input
 			validAmount = false;
 			amountItem = 0;
 			throw new InvalidUserInputException("Please input a value in this field.");
@@ -59,26 +79,7 @@ public class MenuItem {
 			throw new InvalidUserInputException("To order a quantity of more than 10, please contact us directly by phone or in-person.");
 		}
 		
-		//set the instance variables
-		setAmount(amountItem);
-		setPrice(priceItem);
-	}
-	
-	/**
-	 * This getter method is an accessor method that allows for the amount instance variable to be accessed throughout the class
-	 * and its child class, Drinks. 
-	 * @return the quantity entered by the user for the item, set by the constructor. 
-	 */
-	public int getAmount() {
-		return amount;
-	}
-
-	/**
-	 * This setter method is a mutator method that sets the quantity instance variable.
-	 * @param amount a quantity value entered by the user. 
-	 */
-	public void setAmount(int amount) {
-		this.amount = amount;
+		this.amount = amountItem;
 	}
 
 	/**

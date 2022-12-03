@@ -7,9 +7,8 @@ public class Drinks extends MenuItem {
 		super();
 	}
 	
-	public Drinks(int amountItem, double priceItem, String sizeDrink) {
-		super(amountItem, priceItem);
-		setSize(sizeDrink);
+	public Drinks(String drinkSize) {
+		setSize(drinkSize);
 	}
 
 	public String getSize() {
@@ -28,6 +27,10 @@ public class Drinks extends MenuItem {
 		} else if (getSize() == "Large") {
 			setPrice(2.99);
 		}
+		
+		
+		
+		//System.out.print(calculateItemTotalPrice());
 		
 		return calculateItemTotalPrice();
 	}

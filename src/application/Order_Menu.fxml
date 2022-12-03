@@ -110,6 +110,30 @@
             <TextField fx:id="brownieTextField" visible="false" />
          </children>
       </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <CheckBox fx:id="drink1CheckBox" mnemonicParsing="false" onAction="#drink1TextFieldAppears" prefHeight="18.0" prefWidth="236.0" text="Drink1">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </CheckBox>
+            <Label prefHeight="17.0" prefWidth="116.0" text="Size:" />
+            <ChoiceBox fx:id="drink1ChoiceBox" prefHeight="25.0" prefWidth="86.0" />
+            <TextField fx:id="drink1TextField" prefHeight="25.0" prefWidth="99.0" visible="false" />
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <CheckBox fx:id="drink2CheckBox" mnemonicParsing="false" onAction="#drink2TextFieldAppears" prefHeight="18.0" prefWidth="236.0" text="Drink2">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </CheckBox>
+            <Label prefHeight="17.0" prefWidth="116.0" text="Size:" />
+            <ChoiceBox fx:id="drink2ChoiceBox" prefHeight="25.0" prefWidth="86.0" />
+            <TextField fx:id="drink2TextField" prefHeight="25.0" prefWidth="98.0" visible="false" />
+         </children>
+      </HBox>
       <Label fx:id="inputErrorLabel" alignment="CENTER" prefHeight="19.0" prefWidth="558.0" text="" textFill="RED">
          <font>
             <Font size="13.0" />

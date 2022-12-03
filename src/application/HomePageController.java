@@ -41,9 +41,11 @@ public class HomePageController {
 			try {
 				FXMLLoader loader = new FXMLLoader();
 				Parent root = loader.load(new FileInputStream("src/application/Order_Menu.fxml"));
+				Scene scene = new Scene(root);
+				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				orderMenuSceneController = loader.getController();
 				orderMenuSceneController.setPrimaryStage(primaryStage);
-				orderMenuSceneController.setMyScene(new Scene(root));
+				orderMenuSceneController.setMyScene(scene);
 				orderMenuSceneController.setNextController(this);	
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -58,14 +60,20 @@ public class HomePageController {
 			try {
 				FXMLLoader loader = new FXMLLoader();
 				Parent root = loader.load(new FileInputStream("src/application/View_Menu.fxml"));
+				Scene scene = new Scene(root);
+				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				viewMenuController = loader.getController();
 				viewMenuController.setPrimaryStage(primaryStage);
-				viewMenuController.setMyScene(new Scene(root));
+				viewMenuController.setMyScene(scene);
 				viewMenuController.setNextController(this);	
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
+		
+		Drinks pepsi = new Drinks("Small");
+		System.out.println(pepsi.calculateDrinkTotalPrice()); 
+
 		viewMenuController.takeFocus();
 	}
 
@@ -76,5 +84,5 @@ public class HomePageController {
 	public void setNextController2(OrderConfirmationController next) {
 		orderConfirmationController = next;
 	}
-
+	
 }

@@ -58,16 +58,16 @@ public class PaymentSummaryController {
 	@FXML
 	public void switchtoPaymentInfo(ActionEvent event) {
 		
-//		try {
-//			PaymentInfoValidation firstName = new PaymentInfoValidation()}catch
 		if ( paymentTypeChoiceBox.getValue() != null) {
 			if (paymentInfoController == null) {
 				try {
 					FXMLLoader loader = new FXMLLoader();
 					Parent root = loader.load(new FileInputStream("src/application/Payment Info.fxml"));
+					Scene scene = new Scene(root);
+					scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 					paymentInfoController = loader.getController();
 					paymentInfoController.setPrimaryStage(primaryStage);
-					paymentInfoController.setMyScene(new Scene(root));
+					paymentInfoController.setMyScene(scene);
 					paymentInfoController.setNextController(this);
 					errorLabelChoicebox.setText(null);
 				} catch (IOException e) {

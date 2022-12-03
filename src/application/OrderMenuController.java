@@ -61,7 +61,6 @@ public class OrderMenuController {
     private TextField drink2TextField;
     @FXML
     private ChoiceBox drink2ChoiceBox;
-    
     @FXML
     private Label inputErrorLabel;
 
@@ -157,9 +156,12 @@ public class OrderMenuController {
 	void drink2TextFieldAppears(ActionEvent event) {
 		setTextFieldVisibility(drink2CheckBox,drink2TextField);
 	}
+	
+	
 	public void ifAnySelected () throws InvalidUserInputException {
 		if (samosaCheckBox.isSelected() == false && paniPuriCheckBox.isSelected() == false && butterChickenCheckBox.isSelected()==false
-				&& chefsChoiceCheckBox.isSelected() == false && gulabJamunCheckBox.isSelected()==false && brownieCheckBox.isSelected()==false) {
+				&& chefsChoiceCheckBox.isSelected() == false && gulabJamunCheckBox.isSelected()==false && brownieCheckBox.isSelected()==false
+				&& drink1CheckBox.isSelected() == false && drink2CheckBox.isSelected() == false) {
 			throw new InvalidUserInputException ("Please select at least one item to continue.");
 		}		 
 	}

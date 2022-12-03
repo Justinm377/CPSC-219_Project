@@ -51,6 +51,11 @@ public class MenuItem {
 		setAmount(amountItem);
 		setPrice(priceItem);
 	}
+	
+	public MenuItem (MenuItem toCopy) {
+		setAmount(toCopy.getAmount());
+		setPrice(toCopy.getPrice());
+	}
 
 	public double calculateItemTotalPrice() {
 		double totalItemPrice = getAmount() * getPrice(); 

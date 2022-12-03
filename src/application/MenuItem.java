@@ -8,8 +8,8 @@ public class MenuItem {
 	}
 	
 	public MenuItem(int amountItem, double priceItem) {
-		amount = amountItem;
-		price = priceItem;
+		setAmount(amountItem);
+		setPrice(priceItem);
 	}
 	
 	public MenuItem(String amountItemAsString, Double priceItem) throws InvalidUserInputException {
@@ -28,6 +28,11 @@ public class MenuItem {
 			throw new InvalidUserInputException("Please input a value in this field.");
 		}
 		
+		//user cannot order negative amount
+		if (amountItem < 0) {
+			throw new InvalidUserInputException("Please enter a positive number between 0 and 10");
+		}
+		
 		//non-numeric value for the amount will throw an exception
 		if (validAmount == true && amountItemAsString != "") {
 			amountItem = Integer.parseInt(amountItemAsString);
@@ -42,19 +47,35 @@ public class MenuItem {
 			throw new InvalidUserInputException("To order a quantity of more than 10, please contact us directly by phone or in-person.");
 		}
 		
-		//user cannot order negative amount
-		if (amountItem < 0) {
-			throw new InvalidUserInputException("Please enter a positive number between 0 and 10");
-		}
-		
 		//set the instance variables
-		amount = amountItem;
-		price = priceItem;
+		setAmount(amountItem);
+		setPrice(priceItem);
+	}
+	
+	public MenuItem (MenuItem toCopy) {
+		setAmount(toCopy.getAmount());
+		setPrice(toCopy.getPrice());
 	}
 
 	public double calculateItemTotalPrice() {
-		double totalItemPrice = amount * price; 
+		double totalItemPrice = getAmount() * getPrice(); 
 		return totalItemPrice;
+	}
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
 	}
 
 }

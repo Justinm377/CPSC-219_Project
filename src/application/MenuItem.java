@@ -1,17 +1,29 @@
 package application;
 
+/**
+ * Takes information about a Menu item, like amount of item and price of item, and calculates the total price of 
+ * the item, provided that the user input is valid. Otherwise, an InvalidUserInputException is thrown.   
+ * @author CS219-user Group 5
+ *
+ */
 public class MenuItem {
 	private int amount;
 	private double price = 0.00;
 	
+	/**
+	 * Empty constructor for the class. 
+	 */
 	public MenuItem() {
+		
 	}
 	
-	public MenuItem(int amountItem, double priceItem) {
-		setAmount(amountItem);
-		setPrice(priceItem);
-	}
-	
+	/**
+	 * This constructor takes the price of item and the user input for quantity of item and sets the instance variables,
+	 * provided that the user inputs a valid positive integer value between 0 and 10 for quantity. 
+	 * @param amountItemAsString a String that holds the value of the amount of item intended by the user to be a quantity of that item. 
+	 * @param priceItem a double that holds the price of the item.
+	 * @throws InvalidUserInputException is thrown when user input for amount of item is anything other than a positive integer between 0 and 10. 
+	 */
 	public MenuItem(String amountItemAsString, Double priceItem) throws InvalidUserInputException {
 		int amountItem = 0;
 		
@@ -52,30 +64,49 @@ public class MenuItem {
 		setPrice(priceItem);
 	}
 	
-	public MenuItem (MenuItem toCopy) {
-		setAmount(toCopy.getAmount());
-		setPrice(toCopy.getPrice());
+	/**
+	 * This getter method is an accessor method that allows for the amount instance variable to be accessed throughout the class
+	 * and its child class, Drinks. 
+	 * @return the quantity entered by the user for the item, set by the constructor. 
+	 */
+	public int getAmount() {
+		return amount;
 	}
 
+	/**
+	 * This setter method is a mutator method that sets the quantity instance variable.
+	 * @param amount a quantity value entered by the user. 
+	 */
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	/**
+	 * This getter method is an accessor method that allows for the price instance variable to be accessed throughout
+	 * the MenuItem class and its child class, Drinks.
+	 * @return the price of the item
+	 */
+	public double getPrice() {
+		return price;
+	}
+
+	/**
+	 * This setter method is a mutator method that sets the price instance variable. 
+	 * @param price the price of the item. 
+	 */
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	/**
+	 * This method calculates the total price of the given item based on the quantity entered by the user and price 
+	 * of the item. 
+	 * @return the total price of the item based on the quantity entered by the user and price of the item.
+	 */
 	public double calculateItemTotalPrice() {
 		double totalItemPrice = getAmount() * getPrice(); 
 		return totalItemPrice;
 	}
 
-	public int getAmount() {
-		return amount;
-	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-
-	public double getPrice() {
-		return price;
-	}
-
-	public void setPrice(double price) {
-		this.price = price;
-	}
 
 }

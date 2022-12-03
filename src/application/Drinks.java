@@ -7,8 +7,9 @@ public class Drinks extends MenuItem {
 		super(); //idk if we need this???
 	}
 	
-	public Drinks(String drinkSize) {
+	public Drinks(String drinkSize, String drinkAmount) {
 		setSize(drinkSize);
+		setAmount(Integer.parseInt(drinkAmount));
 	}
 
 	public String getSize() {
@@ -20,11 +21,11 @@ public class Drinks extends MenuItem {
 	}
 	
 	public double calculateDrinkTotalPrice() {
-		if (getSize() == "Small") {
+		if (getSize().equals("Small")) {
 			setPrice(1.99);
-		} else if (getSize() == "Medium") {
+		} else if (getSize().equals("Medium")) {
 			setPrice(2.49);
-		} else if (getSize() == "Large") {
+		} else if (getSize().equals("Large")) {
 			setPrice(2.99);
 		}
 		

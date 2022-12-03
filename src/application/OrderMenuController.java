@@ -170,6 +170,7 @@ public class OrderMenuController {
 		double priceBrownie = 4.99;
 		
 		ArrayList<MenuItem> foodItemList = new ArrayList<MenuItem>();
+		ArrayList<Drinks> drinksItemList = new ArrayList<Drinks>();
 		
 		try {
 			MenuItem samosa = new MenuItem(samosaTextField.getText(), priceSamosa);
@@ -178,12 +179,19 @@ public class OrderMenuController {
 			MenuItem chefsChoice = new MenuItem(chefsChoiceTextField.getText(), priceChefsChoice);
 			MenuItem gulabJamun = new MenuItem(gulabJamunTextField.getText(), priceGulabJamun);
 			MenuItem brownie = new MenuItem(brownieTextField.getText(), priceBrownie);
+			
+			Drinks drink1 = new Drinks(drink1ChoiceBox.getValue().toString(), drink1TextField.getText());
+			Drinks drink2 = new Drinks(drink2ChoiceBox.getValue().toString(), drink2TextField.getText());
+			
 			foodItemList.add(samosa);
 			foodItemList.add(paniPuri);
 			foodItemList.add(butterChicken);
 			foodItemList.add(chefsChoice);
 			foodItemList.add(gulabJamun);
 			foodItemList.add(brownie);
+			
+			drinksItemList.add(drink1);
+			drinksItemList.add(drink2);
 		} catch (InvalidUserInputException iuie) {
 			inputErrorLabel.setText(iuie.getMessage());
 			errorPresent = true;			
@@ -200,7 +208,7 @@ public class OrderMenuController {
 				paymentController.setMyScene(scene);
 				paymentController.setNextController(this);	
 				inputErrorLabel.setText(""); //clears error label text
-				Order finalPrice = new Order(foodItemList); //created TotalPrice object to contain all the MenuItems 
+				Order finalPrice = new Order(foodItemList, drinksItemList); //created TotalPrice object to contain all the MenuItems 
 				paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController		
 				} catch (IOException e) {
 					e.printStackTrace();

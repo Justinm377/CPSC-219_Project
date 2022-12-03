@@ -70,9 +70,6 @@ public class HomePageController {
 				e.printStackTrace();
 			}
 		}
-		
-		Drinks pepsi = new Drinks("Small");
-		System.out.println(pepsi.calculateDrinkTotalPrice()); 
 
 		viewMenuController.takeFocus();
 	}

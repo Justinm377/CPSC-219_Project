@@ -14,12 +14,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class PaymentInfoController {
-
+	
 	private Stage primaryStage;
 	private Scene myScene;
-
+	
 	private OrderConfirmationController orderConfirmationController;
-
+	
 	@FXML
 	private Label firstNameErrorLabel;
 	@FXML
@@ -48,7 +48,7 @@ public class PaymentInfoController {
 	private Label expiryYearErrorLabel;
 	@FXML
 	private TextField expiryYearTextField;
-
+	
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
 	}
@@ -64,36 +64,36 @@ public class PaymentInfoController {
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
 	}
-
-	//	public boolean isHabitated(TextField userInfo) {
-	//		boolean empty = true;
-	//		if ( userInfo.getText() == "") {
-	//			empty = false;
-	//		}
-	//	return empty;
-	//	}
-
-
+	
+//	public boolean isHabitated(TextField userInfo) {
+//		boolean empty = true;
+//		if ( userInfo.getText() == "") {
+//			empty = false;
+//		}
+//	return empty;
+//	}
+	
+	
 	public String isAlphabeticValidation (TextField stringInputToValidate ) throws InvalidUserInputException {
-		String infoToValidate = stringInputToValidate.getText();
-		String validatedInfo = "";
+    	String infoToValidate = stringInputToValidate.getText();
+    	String validatedInfo = "";
 		String errorMessage = "";
 		boolean validInput = true;
-
+		
 		if (infoToValidate == "") {
 			throw new InvalidUserInputException ("Please enter a value");
 		}
-
+		
 		for(char c : infoToValidate.toCharArray()) {
 			if(Character.isDigit(c)) {
 				validInput = false;
 				throw new InvalidUserInputException ( "Do not include any numerical characters.");
 			}else if (c == '.' || c == '/' || c == '!' || c =='@' || 
-					c == '#' || c == '$' || c =='+'  || c =='%' ||
-					c == '^' || c == '&' || c == '*' || c == '('||
-					c == ')' || c == '-' || c == '_' || c == '='||
-					c == '?' || c == ',' || c == '.' || c == '<'||
-					c == '>'){
+    			c == '#' || c == '$' || c =='+'  || c =='%' ||
+    			c == '^' || c == '&' || c == '*' || c == '('||
+    			c == ')' || c == '-' || c == '_' || c == '='||
+    			c == '?' || c == ',' || c == '.' || c == '<'||
+    			c == '>'){
 				validInput = false;
 				throw new InvalidUserInputException ("Do not include any non alphabetic characters.");		
 			}else {
@@ -102,47 +102,47 @@ public class PaymentInfoController {
 			}
 		}
 		return validatedInfo;
-	}
-
+    }
+	
 	public String isNumeric (TextField integerToValidate) throws InvalidUserInputException{
 		String infoToValidate = integerToValidate.getText();
 		String goodCardInfo = "";
 		boolean validCardInfo = true;
-		double invalidCharacterCounter = 0;
-
-		if (infoToValidate == "") {
+    	double invalidCharacterCounter = 0;
+    	
+    	if (infoToValidate == "") {
 			throw new InvalidUserInputException ("Please enter a value");
-		}
-
-		for (char c : infoToValidate.toCharArray()){
-			if (!Character.isDigit(c)) {
-				validCardInfo = false;
-				throw new InvalidUserInputException ("Please input numerical values only");
-			}
-			if (c == '.' || c == '/' || c == '!' || c =='@' || 
-					c == '#' || c == '$' || c =='+'  || c =='%' ||
-					c == '^' || c == '&' || c == '*' || c == '('||
-					c == ')' || c == '-' || c == '_' || c == '='||
-					c == '?' || c == ',' || c == '.' || c == '<'||
-					c == '>') {
-
-				invalidCharacterCounter += 1;
-			}
-			if (invalidCharacterCounter > 0) {
-				validCardInfo = false;
-				throw new InvalidUserInputException( "Credit card info is invalid: " + invalidCharacterCounter + " invalid characters were entered.") ;
-			}
-		}
-
-		if(validCardInfo == true) {
-			goodCardInfo = infoToValidate;
-		} 
-		return goodCardInfo;
+    	}
+    	
+    	for (char c : infoToValidate.toCharArray()){
+    		if (!Character.isDigit(c)) {
+    			validCardInfo = false;
+    			throw new InvalidUserInputException ("Please input numerical values only");
+    		}
+    		if (c == '.' || c == '/' || c == '!' || c =='@' || 
+    			c == '#' || c == '$' || c =='+'  || c =='%' ||
+    			c == '^' || c == '&' || c == '*' || c == '('||
+    			c == ')' || c == '-' || c == '_' || c == '='||
+    			c == '?' || c == ',' || c == '.' || c == '<'||
+    			c == '>') {
+    			
+    			invalidCharacterCounter += 1;
+    		}
+    		if (invalidCharacterCounter > 0) {
+    			validCardInfo = false;
+    			throw new InvalidUserInputException( "Credit card info is invalid: " + invalidCharacterCounter + " invalid characters were entered.") ;
+    		}
+    	}
+    	
+    	if(validCardInfo == true) {
+    		  goodCardInfo = infoToValidate;
+    	} 
+    	return goodCardInfo;
 	}
-
+	
 	public void switchtoOrderConfirmation(ActionEvent event) {
 		boolean allValidationPassed = true;
-
+		
 		try {
 			firstNameErrorLabel.setText(""); //clear text once error is gone
 			isAlphabeticValidation(firstNameTextField);			
@@ -192,7 +192,7 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			expiryYearErrorLabel.setText(IUIE.getMessage());
 		}
-
+		
 		if (orderConfirmationController == null && allValidationPassed == true) {
 			try {
 				FXMLLoader loader = new FXMLLoader();
@@ -203,7 +203,7 @@ public class PaymentInfoController {
 				orderConfirmationController.setPrimaryStage(primaryStage);
 				orderConfirmationController.setMyScene(scene);
 				orderConfirmationController.setNextController(this);
-
+				
 				//generate random order number
 				//this site was used to learn about the random class, and how it works: https://www.digitalocean.com/community/tutorials/java-random
 				String orderNumberAsString = ""; 
@@ -219,6 +219,6 @@ public class PaymentInfoController {
 			}
 			orderConfirmationController.takeFocus();
 		}
-
+				
 	}
 }

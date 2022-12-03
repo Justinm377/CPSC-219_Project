@@ -4,7 +4,7 @@ public class Drinks extends MenuItem {
 	private String size;
 	
 	public Drinks() {
-		super();
+		super(); //idk if we need this???
 	}
 	
 	public Drinks(String drinkSize) {
@@ -28,10 +28,7 @@ public class Drinks extends MenuItem {
 			setPrice(2.99);
 		}
 		
-		
-		
-		//System.out.print(calculateItemTotalPrice());
-		
 		return calculateItemTotalPrice();
 	}
+
 }

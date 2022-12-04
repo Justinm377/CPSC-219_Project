@@ -218,7 +218,7 @@ public class OrderMenuController {
 			drinksItemList.add(drink2);
 		} catch (InvalidUserInputException iuie) {
 			inputErrorLabel.setText(iuie.getMessage()); //if exception is caught because of invalid user input, an appropriate error message will be displayed
-			errorPresent = true; //errors present in user input			
+			errorPresent = true; //errors are present in user input			
 		}
 		
 		try {
@@ -247,8 +247,8 @@ public class OrderMenuController {
 				
 				inputErrorLabel.setText(""); //clears error label text
 				Order finalPrice = new Order(menuItemList, drinksItemList); //created TotalPrice object to contain all the MenuItems and Drinks
-				paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController		
-				paymentController.setTotalPriceWithTax(finalPrice.calculateTotalPriceWithTax());
+				paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing the total price information to the PaymentSummaryController		
+				paymentController.setTotalPriceWithTax(finalPrice.calculateTotalPriceWithTax()); //sharing the total price with tax information to the PaymentSummaryController
 				
 			} catch (IOException e) {
 				e.printStackTrace();

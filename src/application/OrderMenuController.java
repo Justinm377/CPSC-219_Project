@@ -248,6 +248,7 @@ public class OrderMenuController {
 				inputErrorLabel.setText(""); //clears error label text
 				Order finalPrice = new Order(menuItemList, drinksItemList); //created TotalPrice object to contain all the MenuItems and Drinks
 				paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController		
+				paymentController.setTotalPriceWithTax(finalPrice.calculateTotalPriceWithTax());
 				
 			} catch (IOException e) {
 				e.printStackTrace();

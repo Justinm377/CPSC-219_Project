@@ -22,42 +22,64 @@
          <font>
             <Font size="24.0" />
          </font></Label>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" prefHeight="47.0" prefWidth="597.0">
          <children>
-            <Label prefHeight="27.0" prefWidth="114.0" text="Your total is:">
+            <Label prefHeight="27.0" prefWidth="108.0" text="Your total is:" translateX="20.0">
                <font>
                   <Font size="18.0" />
                </font></Label>
-            <Label text="\$">
+            <Label text="\$" translateX="20.0">
                <font>
                   <Font size="18.0" />
                </font>
                <padding>
-                  <Insets right="5.0" />
+                  <Insets right="2.0" />
                </padding></Label>
-            <Label fx:id="totalPriceTextField" text="">
+            <Label fx:id="totalPriceLabel" prefHeight="27.0" prefWidth="53.0" translateX="20.0">
                <font>
                   <Font size="18.0" />
                </font>
-               <padding>
-                  <Insets right="50.0" />
-               </padding>
             </Label>
          </children>
          <VBox.margin>
             <Insets top="50.0" />
          </VBox.margin>
       </HBox>
+      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="589.0">
+         <children>
+            <Label prefHeight="27.0" prefWidth="245.0" text="Your total with 5% GST is:" translateX="-15.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label text="\$" translateX="-48.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+               <padding>
+                  <Insets right="2.0" />
+               </padding>
+            </Label>
+            <Label fx:id="totalPriceWithTaxLabel" prefHeight="27.0" prefWidth="53.0" translateX="-48.0">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
       <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
             <VBox maxHeight="30.0" prefHeight="30.0" prefWidth="568.0">
                <children>
-                  <HBox prefHeight="50.0" prefWidth="568.0">
+                  <HBox prefHeight="0.0" prefWidth="563.0">
                      <children>
-                        <Label prefHeight="17.0" prefWidth="229.0" text="Your Preferred Payment Method:">
+                        <Label prefHeight="20.0" prefWidth="207.0" text="Your Preferred Payment Method:" translateX="10.0">
                            <HBox.margin>
                               <Insets left="75.0" />
                            </HBox.margin>
+                           <font>
+                              <Font size="14.0" />
+                           </font>
                         </Label>
                         <ChoiceBox fx:id="paymentTypeChoiceBox" prefWidth="150.0">
                         	<items>
@@ -79,7 +101,8 @@
             </VBox>
          </children>
       </HBox>
-      <Label fx:id= "errorLabelChoicebox" alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="389.0" text="" textFill="RED">
+      <Label text="To pay in cash, please visit us in person or give us a call on our phone number: 123-456-7890" />
+      <Label fx:id="errorLabelChoiceBox" alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="389.0" text="" textFill="RED">
          <padding>
             <Insets bottom="30.0" />
          </padding>

@@ -19,6 +19,7 @@ public class PaymentInfoController {
 	private Scene myScene;
 	
 	private OrderConfirmationController orderConfirmationController;
+	private PaymentSummaryController paymentSummaryController;
 	
 	@FXML
 	private Label firstNameErrorLabel;
@@ -72,7 +73,7 @@ public class PaymentInfoController {
 	}
 
 	public void setNextController(PaymentSummaryController next) {
-		//paymentSummaryController = next;
+		paymentSummaryController = next;
 	}
 
 	public void takeFocus() {

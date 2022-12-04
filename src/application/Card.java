@@ -78,7 +78,7 @@ public class Card {
 	 * @throws InvalidUserInputException 
 	 */
 	public void setExpiryMonth(String expiryMonth) throws InvalidUserInputException {
-		
+		//sets user input for expiry month, only if it is between 1 and 12 and contains only digits, else it throws an exception
 		if (expiryMonth == "") {
 			throw new InvalidUserInputException("Please input your card's expiry month in this field.");
 		} else if (expiryMonth != "") {
@@ -110,7 +110,7 @@ public class Card {
 	 * @throws InvalidUserInputException 
 	 */
 	public void setExpiryYear(String expiryYear) throws InvalidUserInputException {
-		
+		//sets user input for expiry year as long as its a digit and 22 or later, else it throws an exception
 		if (expiryYear == "") {
 			throw new InvalidUserInputException("Please input your card's expiry year in this field.");
 		} else if (expiryYear != "") {
@@ -128,7 +128,6 @@ public class Card {
 		} else {
 			this.expiryYear = expiryYear; //sets the instance variable when valid input is given
 		}
-		System.out.println(Integer.parseInt(expiryYear));
 	}
 
 	/**
@@ -143,7 +142,7 @@ public class Card {
 	 * @throws InvalidUserInputException 
 	 */
 	public void setCvv(String cvv) throws InvalidUserInputException {
-		
+		//checks if CVV input by user is 3 digits only. if not it throws an exception
 		if (cvv == "") {
 			throw new InvalidUserInputException("Please input your card's CVV in this field.");
 		} else if (cvv != "") {

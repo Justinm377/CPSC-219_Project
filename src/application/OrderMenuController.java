@@ -158,20 +158,20 @@ public class OrderMenuController {
 	}
 	
 	
-	public void ifAnySelected () throws InvalidUserInputException {
+	public void ifAnySelected() throws InvalidUserInputException {
 		if (samosaCheckBox.isSelected() == false && paniPuriCheckBox.isSelected() == false && butterChickenCheckBox.isSelected()==false
-				&& chefsChoiceCheckBox.isSelected() == false && gulabJamunCheckBox.isSelected()==false && brownieCheckBox.isSelected()==false
-				&& drink1CheckBox.isSelected() == false && drink2CheckBox.isSelected() == false) {
+			&& chefsChoiceCheckBox.isSelected() == false && gulabJamunCheckBox.isSelected()==false && brownieCheckBox.isSelected()==false
+			&& drink1CheckBox.isSelected() == false && drink2CheckBox.isSelected() == false) {
 			throw new InvalidUserInputException ("Please select at least one item to continue.");
 		}		 
 	}
 	
-	public boolean ifSelected(CheckBox itemSelected, TextField inputQuantity) throws InvalidUserInputException{
+	public boolean ifItemIsSelected(CheckBox itemSelected, TextField inputQuantity) throws InvalidUserInputException{
 		boolean empty = false;
-		if ( itemSelected.isSelected() == true && inputQuantity.getText() == "") {
+		if (itemSelected.isSelected() == true && inputQuantity.getText() == "") {
 			empty = true;
 			throw new InvalidUserInputException ("Please input a quantity.");
-		}else if ( itemSelected.isSelected()== true && inputQuantity.getText() != "") {
+		} else if (itemSelected.isSelected()== true && inputQuantity.getText() != "") {
 			empty = false;
 		}
 		return empty;
@@ -179,8 +179,9 @@ public class OrderMenuController {
 	
 	@FXML  
 	public void switchtoPaymentSummary(ActionEvent event) {
-		boolean errorPresent = false;
+		boolean errorPresent = false; //no errors present in user input
 		
+		//setting the price of each menu item 
 		double priceSamosa = 5.99;
 		double pricePaniPuri = 8.99;
 		double priceButterChicken = 17.99;
@@ -188,12 +189,11 @@ public class OrderMenuController {
 		double priceGulabJamun = 6.99;
 		double priceBrownie = 4.99;
 		
-		ArrayList<MenuItem> foodItemList = new ArrayList<MenuItem>();
-		ArrayList<Drinks> drinksItemList = new ArrayList<Drinks>();
-
+		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>(); //list of MenuItems (appetizer, main course, dessert)
+		ArrayList<Drinks> drinksItemList = new ArrayList<Drinks>(); //list of Drinks
 	
-		try {
-							
+		try {	
+			//creating MenuItem objects for each menu item 
 			MenuItem samosa = new MenuItem(samosaTextField.getText(), priceSamosa);			
 			MenuItem paniPuri = new MenuItem(paniPuriTextField.getText(), pricePaniPuri);
 			MenuItem butterChicken = new MenuItem(butterChickenTextField.getText(), priceButterChicken);
@@ -201,32 +201,34 @@ public class OrderMenuController {
 			MenuItem gulabJamun = new MenuItem(gulabJamunTextField.getText(), priceGulabJamun);
 			MenuItem brownie = new MenuItem(brownieTextField.getText(), priceBrownie);
 			
+			//creating Drinks objects for each drink item
 			Drinks drink1 = new Drinks(drink1ChoiceBox.getValue().toString(), drink1TextField.getText());
 			Drinks drink2 = new Drinks(drink2ChoiceBox.getValue().toString(), drink2TextField.getText());
 			
+			//adding all the menu items to the list
+			menuItemList.add(samosa);
+			menuItemList.add(paniPuri);
+			menuItemList.add(butterChicken);
+			menuItemList.add(chefsChoice);
+			menuItemList.add(gulabJamun);
+			menuItemList.add(brownie);
 			
-			foodItemList.add(samosa);
-			foodItemList.add(paniPuri);
-			foodItemList.add(butterChicken);
-			foodItemList.add(chefsChoice);
-			foodItemList.add(gulabJamun);
-			foodItemList.add(brownie);
-			
+			//adding all the drinks to the list
 			drinksItemList.add(drink1);
 			drinksItemList.add(drink2);
 		} catch (InvalidUserInputException iuie) {
-			inputErrorLabel.setText(iuie.getMessage());
-			errorPresent = true;			
+			inputErrorLabel.setText(iuie.getMessage()); //if exception is caught because of invalid user input, an appropriate error message will be displayed
+			errorPresent = true; //errors present in user input			
 		}
 		
 		try {
 			ifAnySelected();
-			ifSelected(samosaCheckBox,samosaTextField);	
-			ifSelected(paniPuriCheckBox,paniPuriTextField);	
-			ifSelected(butterChickenCheckBox,butterChickenTextField);	
-			ifSelected(chefsChoiceCheckBox,chefsChoiceTextField);	
-			ifSelected(gulabJamunCheckBox,gulabJamunTextField);	
-			ifSelected(brownieCheckBox,brownieTextField);	
+			ifItemIsSelected(samosaCheckBox,samosaTextField);	
+			ifItemIsSelected(paniPuriCheckBox,paniPuriTextField);	
+			ifItemIsSelected(butterChickenCheckBox,butterChickenTextField);	
+			ifItemIsSelected(chefsChoiceCheckBox,chefsChoiceTextField);	
+			ifItemIsSelected(gulabJamunCheckBox,gulabJamunTextField);	
+			ifItemIsSelected(brownieCheckBox,brownieTextField);	
 		} catch (InvalidUserInputException iuie) {
 			errorPresent = true;
 			inputErrorLabel.setText(iuie.getMessage());
@@ -244,7 +246,7 @@ public class OrderMenuController {
 				paymentController.setNextController(this);
 				
 				inputErrorLabel.setText(""); //clears error label text
-				Order finalPrice = new Order(foodItemList, drinksItemList); //created TotalPrice object to contain all the MenuItems 
+				Order finalPrice = new Order(menuItemList, drinksItemList); //created TotalPrice object to contain all the MenuItems and Drinks
 				paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController		
 				
 			} catch (IOException e) {

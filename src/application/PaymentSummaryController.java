@@ -19,18 +19,14 @@ public class PaymentSummaryController {
 	private Scene myScene;
 	private OrderMenuController orderMenuSceneController; 
 	private PaymentInfoController paymentInfoController;
+	private double totalPrice;
 	
 	@FXML
 	private Label totalPriceTextField;
-	
 	@FXML
-	private ChoiceBox paymentTypeChoiceBox;
-	
+	private ChoiceBox<String> paymentTypeChoiceBox;
 	@FXML
 	private Label errorLabelChoicebox;
-	
-	
-	private double totalPrice;
 	
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -58,7 +54,7 @@ public class PaymentSummaryController {
 	@FXML
 	public void switchtoPaymentInfo(ActionEvent event) {
 		
-		if ( paymentTypeChoiceBox.getValue() != null) {
+		if (paymentTypeChoiceBox.getValue() != null) {
 			if (paymentInfoController == null) {
 				try {
 					FXMLLoader loader = new FXMLLoader();
@@ -76,9 +72,8 @@ public class PaymentSummaryController {
 			}
 			paymentInfoController.takeFocus();
 		} else {
-			errorLabelChoicebox.setText("Please select a type of payment.");
+			errorLabelChoicebox.setText("Please select a type of payment."); //if user doesn't select a payment type, error message will be displayed
 		}
-		
 	}
 
 	public void setTotalPrice(double price) {

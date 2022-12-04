@@ -75,39 +75,6 @@ public class PaymentInfoController {
 		primaryStage.setScene(myScene);
 	}
 	
-
-	
-	
-//	public void isAlphabeticValidation (TextField stringInputToValidate ) throws InvalidUserInputException {
-//    	String infoToValidate = stringInputToValidate.getText();
-//    	
-//		if (infoToValidate == "") {throw new InvalidUserInputException ("Please enter a value");}		
-//		for(char c : infoToValidate.toCharArray()) {
-//			if(!Character.isLetter(c)&& c!=' ') {
-//				throw new InvalidUserInputException ( "Do not include non alphabetical characters.");
-//			}
-//		}
-//    }
-//	
-//	public void isNumeric (TextField integerToValidate) throws InvalidUserInputException{
-//		String infoToValidate = integerToValidate.getText();  	
-//    	if (infoToValidate == "") {throw new InvalidUserInputException ("Please enter a value");}
-//    	for (char c : infoToValidate.toCharArray()){
-//    		if (!Character.isDigit(c)&& c!=' ') {
-//    			throw new InvalidUserInputException ("Please input numerical values only");
-//    		}
-//    	}
-//	}
-//	
-//	public void noSpecialCharacters ( TextField argumentToValidate) throws InvalidUserInputException{
-//		String infoToValidate = argumentToValidate.getText();  	
-//		if (infoToValidate == "") {throw new InvalidUserInputException ("Please enter a value");}
-//		for (char c : infoToValidate.toCharArray()){
-//    		if (!Character.isDigit(c)&& !Character.isLetter(c)&& c!= ' ') {
-//    			throw new InvalidUserInputException ("Please do not input special characters.");
-//    		}
-//    	}
-//	}
 	public void isUserInputValid (TextField userInput, int typeOfValidation) throws InvalidUserInputException{
 		String infoToValidate = userInput.getText();
     	if (infoToValidate == "") {throw new InvalidUserInputException ("Please input information in this field.");}	
@@ -140,7 +107,7 @@ public class PaymentInfoController {
 	}
 	
 	public void switchtoOrderConfirmation(ActionEvent event) {
-		boolean allValidationPassed = true;		
+		boolean allValidationPassed = true;
 		
 		User user = new User(); //creating a new instance of an user, using User class
 		
@@ -175,6 +142,8 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			phoneNumberErrorLabel.setText(iuie.getMessage());
 		}
+		
+		
 		
 		try {
 			nameErrorLabel.setText(""); //clear text once error is gone

@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -8,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.projcontroller">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PaymentInfoController">
    <children>
       <Label text="Personal Information">
          <font>
@@ -17,26 +22,80 @@
       </Label>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="154.0" text="First name " />
-            <TextField />
+            <Label prefHeight="17.0" prefWidth="154.0" text="First name ">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField fx:id="firstNameTextField" />
+            <Label fx:id="firstNameErrorLabel" prefHeight="17.0" prefWidth="292.0" textFill="RED" translateY="3.0">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="154.0" text="Last Name " />
-            <TextField />
+            <Label prefHeight="17.0" prefWidth="154.0" text="Last Name ">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField fx:id="lastNameTextField" />
+            <Label fx:id="lastNameErrorLabel" prefHeight="17.0" prefWidth="289.0" text="" textFill="#f80000" translateY="4.0">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="154.0" text="Delivery Address" />
-            <TextField />
+            <Label prefHeight="17.0" prefWidth="154.0" text="Delivery Address">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField fx:id="addressTextField" />
+            <Label fx:id="addressErrorLabel" prefHeight="17.0" prefWidth="276.0" text="" textFill="#f50000" translateY="4.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="154.0" text="Phone Number " />
-            <TextField />
+            <Label prefHeight="17.0" prefWidth="156.0" text="Postal Code">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField fx:id="postalCodeTextField" translateX="-2.0" />
+            <Label fx:id="postalCodeErrorLabel" prefHeight="17.0" prefWidth="286.0" text="" textFill="RED" translateY="4.0">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Label prefHeight="17.0" prefWidth="154.0" text="Phone Number ">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField fx:id="phoneNumberTextField" />
+            <Label fx:id="phoneNumberErrorLabel" prefHeight="17.0" prefWidth="291.0" text="" textFill="RED" translateY="4.0">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
          </children>
       </HBox>
       <Label text="Payment Information">
@@ -46,38 +105,77 @@
       </Label>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="154.0" text="Name on Card" />
-            <TextField />
+            <Label prefHeight="17.0" prefWidth="154.0" text="Name on Card">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField fx:id="nameOnCardTextField" />
+            <Label fx:id="nameErrorLabel" prefHeight="17.0" prefWidth="289.0" text="" textFill="RED" translateY="4.0">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="155.0" text="Card Number" />
-            <TextField />
+            <Label prefHeight="17.0" prefWidth="155.0" text="Card Number">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField fx:id="cardNumberTextField" />
+            <Label fx:id="cardNumberErrorLabel" prefHeight="17.0" prefWidth="289.0" text="" textFill="RED" translateY="4.0">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="155.0" text="Expiry date(MMYY)" />
-            <TextField />
+            <Label prefHeight="17.0" prefWidth="155.0" text="Expiry date (MM/YY)">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField fx:id="expireMonthTextField" prefHeight="25.0" prefWidth="68.0" />
+            <Label prefHeight="17.0" prefWidth="13.0" text="/">
+               <padding>
+                  <Insets left="3.0" top="3.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="expiryYearTextField" prefHeight="25.0" prefWidth="70.0" />
+            <VBox prefHeight="35.0" prefWidth="287.0">
+               <children>
+                  <Label fx:id="expiryMonthErrorLabel" prefHeight="17.0" prefWidth="254.0" textFill="RED" translateX="-120.0" translateY="-2.0" />
+                  <Label fx:id="expiryYearErrorLabel" prefHeight="17.0" prefWidth="152.0" textFill="RED" translateX="-120.0" translateY="-4.0" />
+               </children>
+               <padding>
+                  <Insets left="125.0" />
+               </padding>
+            </VBox>
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Label prefHeight="17.0" prefWidth="159.0" text="CVV" />
-            <PasswordField />
+            <Label prefHeight="17.0" prefWidth="159.0" text="CVV">
+               <padding>
+                  <Insets left="5.0" />
+               </padding></Label>
+            <TextField fx:id="cvvTextField" translateX="-4.0" />
+            <Label fx:id="cvvErrorLabel" prefHeight="17.0" prefWidth="289.0" text="" textFill="RED" translateY="4.0">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label prefHeight="17.0" prefWidth="156.0" text="Postal Code" />
-            <TextField />
-         </children>
-      </HBox>
+      <Label fx:id="lengthErrorLabel" alignment="CENTER" prefHeight="17.0" prefWidth="550.0" text="" textFill="RED" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#switchtoOrderComfirmation" text="Submit" />
+            <Button mnemonicParsing="false" onAction="#switchtoOrderConfirmation" text="Submit" />
          </children>
       </HBox>
    </children>
 </VBox>
+
+

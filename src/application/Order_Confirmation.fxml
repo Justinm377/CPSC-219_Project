@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -10,21 +11,24 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.projcontroller">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OrderConfirmationController">
    <children>
-      <Label text="Thank you for your Order!">
+      <Label text="Thank you for your order!">
          <font>
             <Font size="24.0" />
          </font>
+         <padding>
+            <Insets top="5.0" />
+         </padding>
       </Label>
       <HBox alignment="CENTER" prefHeight="303.0" prefWidth="600.0">
          <children>
-            <Label text="Your Order Number is :">
+            <Label text="Your Order Number is: ">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <Label text="Label">
+            <Label text="label" fx:id="orderNumber">
                <font>
                   <Font size="24.0" />
                </font></Label>
@@ -33,3 +37,4 @@
       <Button mnemonicParsing="false" onAction="#switchtoHomePage" text="Return to Home Page" />
    </children>
 </VBox>
+

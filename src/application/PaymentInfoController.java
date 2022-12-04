@@ -103,7 +103,6 @@ public class PaymentInfoController {
 		if(expireMonthTextField.getText().length() != 2 && expireMonthTextField.getText().length() != 0) {throw new InvalidUserInputException ("Month of expiry input should be 2 digits.");}
 		if(expiryYearTextField.getText().length() != 2 && expiryYearTextField.getText().length() != 0) {throw new InvalidUserInputException ("Year of expiry input should be 2 digits.");}
 		if(cardNumberTextField.getText().length() != 16 && cardNumberTextField.getText().length() != 0) {throw new InvalidUserInputException ("Card number input should be 12 digits.");}
-		if(postalCodeTextField.getText().length() != 6 && postalCodeTextField.getText().length() != 0) {throw new InvalidUserInputException ("Postal code input should be 6 digits.");}
 	}
 	
 	public void switchtoOrderConfirmation(ActionEvent event) {
@@ -111,6 +110,8 @@ public class PaymentInfoController {
 		
 		User user = new User(); //creating a new instance of an user, using User class
 		
+		//attempting to set personal user information (first name, last name, address, phone number) based on user input
+		// and if input is invalid, a proper error message will be set
 		try {
 			firstNameErrorLabel.setText(""); //clear text once error is gone
 			user.setFirstName(firstNameTextField.getText());			
@@ -133,6 +134,14 @@ public class PaymentInfoController {
 		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			addressErrorLabel.setText(iuie.getMessage());
+		}
+		
+		try {
+			postalCodeErrorLabel.setText(""); //clear text once error is gone
+			user.setPostalCode(postalCodeTextField.getText());			
+		} catch (InvalidUserInputException iuie){
+			allValidationPassed = false;
+			postalCodeErrorLabel.setText(iuie.getMessage());
 		}
 		
 		try {
@@ -175,14 +184,6 @@ public class PaymentInfoController {
 		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			expiryYearErrorLabel.setText(iuie.getMessage());
-		}
-		
-		try {
-			postalCodeErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(postalCodeTextField,3);			
-		} catch (InvalidUserInputException iuie){
-			allValidationPassed = false;
-			postalCodeErrorLabel.setText(iuie.getMessage());
 		}
 		
 		try {

@@ -1,84 +1,118 @@
 package application;
 
-import javafx.scene.control.TextField;
-
 public class User {
 
 	private String firstName; 
 	private String lastName; 
 	private String address;
 	private String phoneNumber;
-	private String cardName; 
-	private int cardNumber;
-	private int expiry; 
 	
 	public User() {
+	
 	}
 	
-	public String isAlphabeticValidation (TextField stringInputToValidate) throws InvalidUserInputException {
-    	String infoToValidate = stringInputToValidate.getText();
-    	String validatedInfo = "";
-		String errorMessage = "";
-		boolean validInput = true;
-		
-		if (infoToValidate == "") {
-			throw new InvalidUserInputException ("Please enter a value");
-		}
-		
-		for(char c : infoToValidate.toCharArray()) {
-			if(Character.isDigit(c)) {
-				validInput = false;
-				throw new InvalidUserInputException ( "Do not include any numerical characters.");
-			}else if (c == '.' || c == '/' || c == '!' || c =='@' || 
-    			c == '#' || c == '$' || c =='+'  || c =='%' ||
-    			c == '^' || c == '&' || c == '*' || c == '('||
-    			c == ')' || c == '-' || c == '_' || c == '='||
-    			c == '?' || c == ',' || c == '.' || c == '<'||
-    			c == '>'){
-				validInput = false;
-				throw new InvalidUserInputException ("Do not include any non alphabetic characters.");		
-			}else {
-				validatedInfo = infoToValidate;
-				validInput = true;
-			}
-		}
-		return validatedInfo;
-    }
-	
-	public String isNumeric (TextField integerToValidate) throws InvalidUserInputException{
-		String infoToValidate = integerToValidate.getText();
-		String goodCardInfo = "";
-		boolean validCardInfo = true;
-    	double invalidCharacterCounter = 0;
-    	
-    	if (infoToValidate == "") {
-			throw new InvalidUserInputException ("Please enter a value");
-    	}
-    	
-    	for (char c : infoToValidate.toCharArray()){
-    		if (!Character.isDigit(c)) {
-    			validCardInfo = false;
-    			throw new InvalidUserInputException ("Please input numerical values only");
-    		}
-    		if (c == '.' || c == '/' || c == '!' || c =='@' || 
-    			c == '#' || c == '$' || c =='+'  || c =='%' ||
-    			c == '^' || c == '&' || c == '*' || c == '('||
-    			c == ')' || c == '-' || c == '_' || c == '='||
-    			c == '?' || c == ',' || c == '.' || c == '<'||
-    			c == '>') {
-    			
-    			invalidCharacterCounter += 1;
-    		}
-    		if (invalidCharacterCounter > 0) {
-    			validCardInfo = false;
-    			throw new InvalidUserInputException( "Credit card info is invalid: " + invalidCharacterCounter + " invalid characters were entered.") ;
-    		}
-    	}
-    	
-    	if(validCardInfo == true) {
-    		  goodCardInfo = infoToValidate;
-    	} 
-    	return goodCardInfo;
+	public String getFirstName() {
+		return firstName;
 	}
+
+	public void setFirstName(String firstName) throws InvalidUserInputException {
+		
+		//checks if first name input given by user is only letters, and if not, throws invalid input exception
+		if (firstName == "") {
+			throw new InvalidUserInputException("Please input your first name in this field.");
+		} else if (firstName != "") {	
+    		for (char c : firstName.toCharArray()){
+        		if (!Character.isLetter(c)&& c!=' ') {
+        			throw new InvalidUserInputException("Only include letters in this field.");
+        		}
+        	}
+		} else {
+			this.firstName = firstName; //sets the instance variable when valid input is given
+		}
+	}
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	public void setLastName(String lastName) throws InvalidUserInputException {
+		
+		//checks if last name input given by user is only letters, and if not, throws invalid input exception
+		if (lastName == "") {
+			throw new InvalidUserInputException("Please input your last name in this field.");
+		} else if (lastName != "") {	
+    		for (char c : lastName.toCharArray()){
+        		if (!Character.isLetter(c) && c!=' ') {
+        			throw new InvalidUserInputException("Only include letters in this field.");
+        		}
+        	}
+		} else {
+			this.lastName = lastName; //sets the instance variable when valid input is given
+		}
+	}
+	
+	public String getAddress() {
+		return address;
+	}
+	
+	/**
+	 * 
+	 * @param address
+	 * @throws InvalidUserInputException 
+	 */
+	public void setAddress(String address) throws InvalidUserInputException {
+		int hashCount = 0; //user is allowed to input one hash (some addresses contain a hash)
+		
+		//checks if address input given by user is letters and numbers, and contains no special characters except 0 hashes or 1 hash
+		if (address == "") {
+			throw new InvalidUserInputException("Please input your address in this field.");
+		} else if (address != "") {	
+			for (char c : address.toCharArray()){
+        		if (c == '#') hashCount++; 
+        	}
+			for (char c : address.toCharArray()){
+        		if (hashCount > 1) { //more than 1 hash in input will cause exception to be thrown
+        			throw new InvalidUserInputException("Only one # is allowed to be used in this field.");
+        		}
+    			if (!Character.isDigit(c) && !Character.isLetter(c) && c!=' ' && c != '#' && (hashCount == 0 || hashCount == 1)) {
+        			throw new InvalidUserInputException("Only include letters or numbers in this field.");
+        		}
+        	}
+		} else {
+			this.address = address; //sets the instance variable when valid input is given
+		}
+		
+		
+	}
+	
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	/**
+	 * @param phoneNumber the phoneNumber to set
+	 * @throws InvalidUserInputException 
+	 */
+	public void setPhoneNumber(String phoneNumber) throws InvalidUserInputException {
+		
+		//checks if phone number input given by user has no letters and is 10 digits long
+		if (phoneNumber == "") {
+			throw new InvalidUserInputException("Please input your phone number in this field.");
+		} else if (phoneNumber != "") {
+    		for (char c : phoneNumber.toCharArray()){
+    			if (phoneNumber.length() != 10 && Character.isDigit(c)) {
+    				throw new InvalidUserInputException (String.format("Phone number should have 10 digits, not %d digits", phoneNumber.length()));
+    			}
+        		if (!Character.isDigit(c) && c!=' ') {
+        			throw new InvalidUserInputException("Only include numbers in this field.");
+        		}
+        	}
+		} else {
+			this.phoneNumber = phoneNumber; //sets the instance variable when valid input is given
+		}
+		
+	}
+	
+	
 
 }

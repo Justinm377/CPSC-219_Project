@@ -133,83 +133,92 @@ public class PaymentInfoController {
 	}
 	
 	public void checkInputLength() throws InvalidUserInputException{
-		if (phoneNumberTextField.getText().length() != 10 && phoneNumberTextField.getText().length() != 0) {throw new InvalidUserInputException ("Phone number input should be 10 digits.");}
 		if(expireMonthTextField.getText().length() != 2 && expireMonthTextField.getText().length() != 0) {throw new InvalidUserInputException ("Month of expiry input should be 2 digits.");}
 		if(expiryYearTextField.getText().length() != 2 && expiryYearTextField.getText().length() != 0) {throw new InvalidUserInputException ("Year of expiry input should be 2 digits.");}
-		if(cardNumberTextField.getText().length() != 12 && cardNumberTextField.getText().length() != 0) {throw new InvalidUserInputException ("Card number input should be 12 digits.");}
+		if(cardNumberTextField.getText().length() != 16 && cardNumberTextField.getText().length() != 0) {throw new InvalidUserInputException ("Card number input should be 12 digits.");}
 		if(postalCodeTextField.getText().length() != 6 && postalCodeTextField.getText().length() != 0) {throw new InvalidUserInputException ("Postal code input should be 6 digits.");}
 	}
 	
 	public void switchtoOrderConfirmation(ActionEvent event) {
 		boolean allValidationPassed = true;		
 		
+		User user = new User(); //creating a new instance of an user, using User class
+		
 		try {
 			firstNameErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(firstNameTextField,2);			
-		}catch (InvalidUserInputException iuie){
+			user.setFirstName(firstNameTextField.getText());			
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			firstNameErrorLabel.setText(iuie.getMessage());
-		}		
+		}
+		
 		try {
 			lastNameErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(lastNameTextField, 2);			
-		}catch (InvalidUserInputException iuie){
+			user.setLastName(lastNameTextField.getText());			
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			lastNameErrorLabel.setText(iuie.getMessage());
 		}
+		
 		try {
 			addressErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(addressTextField,3);			
-		}catch (InvalidUserInputException iuie){
+			user.setAddress(addressTextField.getText());			
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			addressErrorLabel.setText(iuie.getMessage());
 		}
+		
 		try {
 			phoneNumberErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(phoneNumberTextField,1);			
-		}catch (InvalidUserInputException iuie){
+			user.setPhoneNumber(phoneNumberTextField.getText());			
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			phoneNumberErrorLabel.setText(iuie.getMessage());
 		}
+		
 		try {
 			nameErrorLabel.setText(""); //clear text once error is gone
 			isUserInputValid(nameOnCardTextField,2);			
-		}catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			nameErrorLabel.setText(iuie.getMessage());
-		}		
+		}
+		
 		try {
 			cardNumberErrorLabel.setText(""); //clear text once error is gone
 			isUserInputValid(cardNumberTextField,1);			
-		}catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			cardNumberErrorLabel.setText(iuie.getMessage());
 		}
+		
 		try {
 			expiryMonthErrorLabel.setText(""); //clear text once error is gone
 			isUserInputValid(expireMonthTextField,1);			
-		}catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			expiryMonthErrorLabel.setText(iuie.getMessage());
 		}
+		
 		try {
 			expiryYearErrorLabel.setText(""); //clear text once error is gone
 			isUserInputValid(expiryYearTextField,1);			
-		}catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			expiryYearErrorLabel.setText(iuie.getMessage());
 		}
+		
 		try {
 			postalCodeErrorLabel.setText(""); //clear text once error is gone
 			isUserInputValid(postalCodeTextField,3);			
-		}catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			postalCodeErrorLabel.setText(iuie.getMessage());
 		}
 		
 		try {
 			checkInputLength();
-		}catch (InvalidUserInputException iuie) {
+		} catch (InvalidUserInputException iuie) {
 			allValidationPassed = false;
 			lengthErrorLabel.setText(iuie.getMessage());
 

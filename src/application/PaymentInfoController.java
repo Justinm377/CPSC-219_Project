@@ -58,6 +58,10 @@ public class PaymentInfoController {
 	private TextField postalCodeTextField;
 	@FXML
 	private Label lengthErrorLabel;
+	@FXML
+	private TextField cvvTextField;
+	@FXML
+	private Label cvvErrorLabel;
 	
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -75,40 +79,11 @@ public class PaymentInfoController {
 		primaryStage.setScene(myScene);
 	}
 	
-	public void isUserInputValid (TextField userInput, int typeOfValidation) throws InvalidUserInputException{
-		String infoToValidate = userInput.getText();
-    	if (infoToValidate == "") {throw new InvalidUserInputException ("Please input information in this field.");}	
-    	if ( typeOfValidation == 1) {
-    		for (char c : infoToValidate.toCharArray()){
-        		if (!Character.isDigit(c)&& c!=' ') {
-        			throw new InvalidUserInputException ("Please input numerical values only in this field.");
-        		}
-        	}
-    	}else if (typeOfValidation == 2) {
-    		for(char c : infoToValidate.toCharArray()) {
-    			if(!Character.isLetter(c)&& c!=' ') {
-    				throw new InvalidUserInputException ( "Do not include non alphabetical characters in this field.");
-    			}
-    		}
-    	}else if ( typeOfValidation == 3) {
-    		for (char c : infoToValidate.toCharArray()){
-        		if (!Character.isDigit(c)&& !Character.isLetter(c)&& c!= ' ') {
-        			throw new InvalidUserInputException ("Please do not input special characters in this field.");
-        		}
-        	}
-    	}
-	}
-	
-	public void checkInputLength() throws InvalidUserInputException{
-		if(expireMonthTextField.getText().length() != 2 && expireMonthTextField.getText().length() != 0) {throw new InvalidUserInputException ("Month of expiry input should be 2 digits.");}
-		if(expiryYearTextField.getText().length() != 2 && expiryYearTextField.getText().length() != 0) {throw new InvalidUserInputException ("Year of expiry input should be 2 digits.");}
-		if(cardNumberTextField.getText().length() != 16 && cardNumberTextField.getText().length() != 0) {throw new InvalidUserInputException ("Card number input should be 12 digits.");}
-	}
-	
 	public void switchtoOrderConfirmation(ActionEvent event) {
 		boolean allValidationPassed = true;
 		
-		User user = new User(); //creating a new instance of an user, using User class
+		//creating a new instance of an user, using User class
+		User user = new User();
 		
 		//attempting to set personal user information (first name, last name, address, phone number) based on user input
 		// and if input is invalid, a proper error message will be set
@@ -152,11 +127,12 @@ public class PaymentInfoController {
 			phoneNumberErrorLabel.setText(iuie.getMessage());
 		}
 		
-		
+		//creating the user's credit or debit card
+		Card userPaymentCard = new Card();
 		
 		try {
 			nameErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(nameOnCardTextField,2);			
+			userPaymentCard.setCardName(nameOnCardTextField.getText());			
 		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			nameErrorLabel.setText(iuie.getMessage());
@@ -164,7 +140,7 @@ public class PaymentInfoController {
 		
 		try {
 			cardNumberErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(cardNumberTextField,1);			
+			userPaymentCard.setCardNumber(cardNumberTextField.getText());			
 		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			cardNumberErrorLabel.setText(iuie.getMessage());
@@ -172,7 +148,7 @@ public class PaymentInfoController {
 		
 		try {
 			expiryMonthErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(expireMonthTextField,1);			
+			userPaymentCard.setExpiryMonth(expireMonthTextField.getText());
 		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			expiryMonthErrorLabel.setText(iuie.getMessage());
@@ -180,18 +156,18 @@ public class PaymentInfoController {
 		
 		try {
 			expiryYearErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(expiryYearTextField,1);			
+			userPaymentCard.setExpiryYear(expiryYearTextField.getText());			
 		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			expiryYearErrorLabel.setText(iuie.getMessage());
 		}
 		
 		try {
-			checkInputLength();
-		} catch (InvalidUserInputException iuie) {
+			cvvErrorLabel.setText(""); //clear text once error is gone
+			userPaymentCard.setCvv(cvvTextField.getText());			
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
-			lengthErrorLabel.setText(iuie.getMessage());
-
+			cvvErrorLabel.setText(iuie.getMessage());
 		}
 		
 		if (orderConfirmationController == null && allValidationPassed == true) {

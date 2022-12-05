@@ -171,23 +171,21 @@ public class OrderMenuController {
 	}
 
 	@FXML
-	void drink1RadioButtonAppearsForDrinks(ActionEvent event) {
+	void chaiTextFieldsAppear(ActionEvent event) {
 		if(drink1CheckBox.isSelected()) {
 			setTextFieldVisibility(drink1CBsmall, drink1TextFieldSmall);
 			setTextFieldVisibility(drink1CBmed, drink1TextFieldMed);
 			setTextFieldVisibility(drink1CBlarge, drink1TextFieldLarge);
 		}
-
-	}
+	} 
 
 	@FXML
-	void drink2RadioButtonAppearsForDrinks(ActionEvent event) {
+	void roseSherbetTextFieldsAppear(ActionEvent event) {
 		if(drink2CheckBox.isSelected()) {
 			setTextFieldVisibility(drink2CBsmall, drink2TextFieldSmall);
 			setTextFieldVisibility(drink2CBmed, drink2TextFieldMed);
 			setTextFieldVisibility(drink2CBlarge, drink2TextFieldLarge);
 		}
-
 	}
 
 	/**
@@ -231,8 +229,6 @@ public class OrderMenuController {
 			throw new InvalidUserInputException("Please select a drink size.");
 		}
 	}
-	
-	
 
 	@FXML  
 	public void switchtoPaymentSummary(ActionEvent event) {

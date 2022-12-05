@@ -110,7 +110,7 @@
 				</VBox>
 			</children>
 		</HBox>
-		<Label text="To pay in cash, please visit us in person or give us a call on our phone number: 123-456-7890" />
+		<Label text="To pay in cash, please visit us in person or give us a call on our phone number: 202-225-4965" />
 		<Label fx:id="errorLabelChoiceBox" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" prefHeight="15.0" prefWidth="389.0" text="" textFill="RED">
 			<padding>
 				<Insets bottom="30.0" />

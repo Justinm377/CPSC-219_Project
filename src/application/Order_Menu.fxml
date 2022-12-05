@@ -124,11 +124,12 @@
 		<Separator prefWidth="200.0" />
 		<HBox prefHeight="100.0" prefWidth="200.0">
 			<children>
-				<CheckBox fx:id="drink1CheckBox" mnemonicParsing="false" onAction="#drink1RadioButtonAppearsForDrinks" prefHeight="18.0" prefWidth="236.0" text="Chai">
-					<HBox.margin>
-						<Insets left="5.0" />
-					</HBox.margin>
-				</CheckBox>
+            <VBox prefHeight="75.0" prefWidth="243.0">
+               <children>
+      				<CheckBox fx:id="drink1CheckBox" mnemonicParsing="false" onAction="#drink1RadioButtonAppearsForDrinks" prefHeight="18.0" prefWidth="236.0" text="Chai" />
+                  <Label prefHeight="27.0" prefWidth="245.0" text="Select drink check box before size selection." />
+               </children>
+            </VBox>
 				<VBox prefHeight="75.0" prefWidth="345.0">
 					<children>
 						<HBox prefHeight="100.0" prefWidth="200.0">
@@ -156,11 +157,12 @@
 		<Separator prefHeight="0.0" prefWidth="600.0" />
 		<HBox prefHeight="100.0" prefWidth="200.0">
 			<children>
-				<CheckBox fx:id="drink2CheckBox" mnemonicParsing="false" onAction="#drink2RadioButtonAppearsForDrinks" prefHeight="18.0" prefWidth="236.0" text="Rose Sherbet">
-					<HBox.margin>
-						<Insets left="5.0" />
-					</HBox.margin>
-				</CheckBox>
+            <VBox prefHeight="75.0" prefWidth="245.0">
+               <children>
+      				<CheckBox fx:id="drink2CheckBox" mnemonicParsing="false" onAction="#drink2RadioButtonAppearsForDrinks" prefHeight="18.0" prefWidth="236.0" text="Rose Sherbet" />
+                  <Label prefHeight="27.0" prefWidth="245.0" text="Select drink check box before size selection." />
+               </children>
+            </VBox>
 				<VBox prefHeight="75.0" prefWidth="308.0">
 					<children>
 						<HBox prefHeight="100.0" prefWidth="200.0">

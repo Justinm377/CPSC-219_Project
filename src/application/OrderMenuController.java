@@ -193,7 +193,8 @@ public class OrderMenuController {
 	}
 
 	/**
-	 * This method checks if any of the check boxes are selected and throws an exception if no check boxes are selected.
+	 * This method checks if any of the menu item and drinks check boxes are selected and throws an 
+	 * InvalidUserInputException if no check boxes are selected.
 	 * @throws InvalidUserInputException if no check boxes are selected.
 	 */
 	public void ifAnySelected() throws InvalidUserInputException {
@@ -217,6 +218,15 @@ public class OrderMenuController {
 		if (itemSelected.isSelected() == true && inputQuantity.getText() == "") throw new InvalidUserInputException ("Please input a quantity."); 
 	}
 	
+	/**
+	 * This method checks if the user has selected a drinks check box, but selected no size. If they have selected no
+	 * size but have selected a drink, an InvalidUserInputException is thrown. 
+	 * @param drinkSelected the drink that is selected by user
+	 * @param smallCB CheckBox of the small size of given drink
+	 * @param mediumCB CheckBox of the medium size of given drink
+	 * @param largeCB CheckBox of the large size of given drink
+	 * @throws InvalidUserInputException is thrown when a drink is selected, but no size is selected by user. 
+	 */
 	public void ifDrinkIsSelected(CheckBox drinkSelected, CheckBox smallCB, CheckBox mediumCB, CheckBox largeCB) throws InvalidUserInputException {
 		if (drinkSelected.isSelected() == true && smallCB.isSelected() == false && mediumCB.isSelected() == false
 				&& largeCB.isSelected() == false) {

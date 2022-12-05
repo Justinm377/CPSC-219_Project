@@ -16,7 +16,7 @@ public class ViewMenuController {
 	private Scene myScene;
 	private HomePageController homePageController; 
 	private OrderMenuController orderMenuSceneController;
-	
+
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
 	}
@@ -24,7 +24,7 @@ public class ViewMenuController {
 	public void setMyScene(Scene aScene) {
 		myScene = aScene;
 	}
-	
+
 	public void setNextController(HomePageController next) {
 		homePageController = next;
 	}
@@ -32,14 +32,14 @@ public class ViewMenuController {
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
 	}
-	
+
 	@FXML
 	public void switchtoHomePage(ActionEvent event) {
 		if (homePageController != null) {
 			homePageController.takeFocus();
 		} 
 	}
-	
+
 	@FXML
 	public void switchtoOrderMenu(ActionEvent event) {
 		if (orderMenuSceneController == null) {

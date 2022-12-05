@@ -13,16 +13,16 @@ import javafx.scene.control.RadioButton;
 
 public class Drinks extends MenuItem {
 	private String size ;
-	
-	
-	
+
+
+
 	/**
 	 * An empty constructor that utilizes super method to match its parent class, MenuItem. 
 	 */
 	public Drinks() {
 		super();
 	}
-	
+
 	/**
 	 * This constructor takes the drink size and drink quantity and sets the instance variables size and quantity.
 	 * @param drinkSize A size (Small, Medium, Large) selected by the user. 
@@ -42,7 +42,7 @@ public class Drinks extends MenuItem {
 	public void setSize(String size) {
 		this.size = size;
 	}
-	
+
 	/**
 	 * This method calculates the total price of the drink selected by the user. 
 	 * @return the total price of the drink.
@@ -60,7 +60,7 @@ public class Drinks extends MenuItem {
 			setPrice(0.00);
 			throw new InvalidUserInputException("Please select a size for your drink.");
 		}
-		
+
 		return calculateItemTotalPrice();
 	}
 

@@ -13,16 +13,16 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class OrderConfirmationController {
-	
+
 	private Stage primaryStage;
 	private Scene myScene;
-	
+
 	private PaymentInfoController paymentInfoController;
 	private HomePageController homePageController;
-	
+
 	@FXML
-    private Label orderNumber;
-	
+	private Label orderNumber;
+
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
 	}
@@ -38,7 +38,7 @@ public class OrderConfirmationController {
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
 	}
-	
+
 	@FXML
 	public void switchtoHomePage(ActionEvent event) { 
 		if (homePageController == null) {
@@ -57,7 +57,7 @@ public class OrderConfirmationController {
 		}
 		homePageController.takeFocus();
 	}
-	
+
 	public void setLabelText(String randomNum) {
 		String num = randomNum;
 		orderNumber.setText(num); //sets the order number label to randomly generated number

@@ -14,13 +14,13 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class PaymentInfoController {
-	
+
 	private Stage primaryStage;
 	private Scene myScene;
-	
+
 	private OrderConfirmationController orderConfirmationController;
 	private PaymentSummaryController paymentSummaryController;
-	
+
 	@FXML
 	private Label firstNameErrorLabel;
 	@FXML
@@ -63,7 +63,7 @@ public class PaymentInfoController {
 	private TextField cvvTextField;
 	@FXML
 	private Label cvvErrorLabel;
-	
+
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
 	}
@@ -79,13 +79,13 @@ public class PaymentInfoController {
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
 	}
-	
+
 	public void switchtoOrderConfirmation(ActionEvent event) {
 		boolean allValidationPassed = true;
-		
+
 		//creating a new instance of an user, using User class
 		User user = new User();
-		
+
 		//attempting to set personal user information (first name, last name, address, phone number) based on user input
 		// and if input is invalid, a proper error message will be set
 		try {
@@ -95,7 +95,7 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			firstNameErrorLabel.setText(iuie.getMessage());
 		}
-		
+
 		try {
 			lastNameErrorLabel.setText(""); //clear text once error is gone
 			user.setLastName(lastNameTextField.getText());			
@@ -103,7 +103,7 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			lastNameErrorLabel.setText(iuie.getMessage());
 		}
-		
+
 		try {
 			addressErrorLabel.setText(""); //clear text once error is gone
 			user.setAddress(addressTextField.getText());			
@@ -111,7 +111,7 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			addressErrorLabel.setText(iuie.getMessage());
 		}
-		
+
 		try {
 			postalCodeErrorLabel.setText(""); //clear text once error is gone
 			user.setPostalCode(postalCodeTextField.getText());			
@@ -119,7 +119,7 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			postalCodeErrorLabel.setText(iuie.getMessage());
 		}
-		
+
 		try {
 			phoneNumberErrorLabel.setText(""); //clear text once error is gone
 			user.setPhoneNumber(phoneNumberTextField.getText());			
@@ -127,10 +127,10 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			phoneNumberErrorLabel.setText(iuie.getMessage());
 		}
-		
+
 		//creating the user's credit or debit card
 		Card userPaymentCard = new Card();
-		
+
 		try {
 			nameErrorLabel.setText(""); //clear text once error is gone
 			userPaymentCard.setCardName(nameOnCardTextField.getText());			
@@ -138,7 +138,7 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			nameErrorLabel.setText(iuie.getMessage());
 		}
-		
+
 		try {
 			cardNumberErrorLabel.setText(""); //clear text once error is gone
 			userPaymentCard.setCardNumber(cardNumberTextField.getText());			
@@ -146,7 +146,7 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			cardNumberErrorLabel.setText(iuie.getMessage());
 		}
-		
+
 		try {
 			expiryMonthErrorLabel.setText(""); //clear text once error is gone
 			userPaymentCard.setExpiryMonth(expireMonthTextField.getText());
@@ -154,7 +154,7 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			expiryMonthErrorLabel.setText(iuie.getMessage());
 		}
-		
+
 		try {
 			expiryYearErrorLabel.setText(""); //clear text once error is gone
 			userPaymentCard.setExpiryYear(expiryYearTextField.getText());			
@@ -162,7 +162,7 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			expiryYearErrorLabel.setText(iuie.getMessage());
 		}
-		
+
 		try {
 			cvvErrorLabel.setText(""); //clear text once error is gone
 			userPaymentCard.setCvv(cvvTextField.getText());			
@@ -170,7 +170,7 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			cvvErrorLabel.setText(iuie.getMessage());
 		}
-		
+
 		if (orderConfirmationController == null && allValidationPassed == true) {
 			try {
 				FXMLLoader loader = new FXMLLoader();
@@ -181,7 +181,7 @@ public class PaymentInfoController {
 				orderConfirmationController.setPrimaryStage(primaryStage);
 				orderConfirmationController.setMyScene(scene);
 				orderConfirmationController.setNextController(this);
-				
+
 				//generate random order number
 				//this site was used to learn about the random class, and how it works: https://www.digitalocean.com/community/tutorials/java-random
 				String orderNumberAsString = ""; 
@@ -197,6 +197,6 @@ public class PaymentInfoController {
 			}
 			orderConfirmationController.takeFocus();
 		}
-				
+
 	}
 }

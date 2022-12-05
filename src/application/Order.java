@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class Order {
 	private ArrayList<MenuItem> itemList;
 	private ArrayList<Drinks> drinksList;
-	
+
 	/**
 	 * This constructor takes lists of the menu items and drinks and sets the instance variables as those lists.
 	 * @param foodItemList a list of all the MenuItems 
@@ -47,31 +47,31 @@ public class Order {
 	 */
 	public double calculateTotalPrice() {
 		double priceToReturn = 0.00;
-		
+
 		//takes total price of each item and adds them to a total order price
 		for (int i = 0; i < getItemList().size(); i++) {
 			priceToReturn = priceToReturn + getItemList().get(i).calculateItemTotalPrice();
 		}
-		
+
 		//takes total price of each drink and adds them to a total order price
 		for (int i = 0; i < getDrinksList().size(); i++) {
 			try {
 				priceToReturn = priceToReturn + getDrinksList().get(i).calculateDrinkTotalPrice();
 			} catch (InvalidUserInputException e) {
-			e.printStackTrace();
+				e.printStackTrace();
 			}
 		}
-		
+
 		return priceToReturn;
 	}
-	
+
 	/**
 	 * This method calculates the total price of the user's order with 5% tax and returns the total price with tax.
 	 * @return the total price of the user's entire order of items with 5% tax.
 	 */
 	public double calculateTotalPriceWithTax() {
 		double priceToReturnWithTax = calculateTotalPrice() + (calculateTotalPrice() * 0.05); //we're using GST tax of 5%
-		
+
 		return priceToReturnWithTax;
 	}
 

@@ -206,20 +206,29 @@ public class OrderMenuController {
 	}
 
 	/**
-	 * This method checks if the user has selected a check box and has input a value in the quantity text field.
-	 * if there is no input and the check box is selected it throws an InvalidUserInputException
+	 * This method checks if the user has selected a check box and if they have inputed a quantity in the quantity 
+	 * text field. If there is no input and the check box is selected it throws an InvalidUserInputException. 
 	 * @param itemSelected takes the check box for the menu item
 	 * @param inputQuantity takes the user input in the quantity text field for the corresponding check box ( menu item)
 	 * @throws InvalidUserInputException when user selects a check box and does not enter any input.
 	 */
-	public  void ifItemIsSelected(CheckBox itemSelected, TextField inputQuantity) throws InvalidUserInputException{
+	public void ifItemIsSelected(CheckBox itemSelected, TextField inputQuantity) throws InvalidUserInputException{
 		// if the check box is selected and the corresponding quantity text field 
 		if (itemSelected.isSelected() == true && inputQuantity.getText() == "") throw new InvalidUserInputException ("Please input a quantity."); 
 	}
+	
+	public void ifDrinkIsSelected(CheckBox drinkSelected, CheckBox smallCB, CheckBox mediumCB, CheckBox largeCB) throws InvalidUserInputException {
+		if (drinkSelected.isSelected() == true && smallCB.isSelected() == false && mediumCB.isSelected() == false
+				&& largeCB.isSelected() == false) {
+			throw new InvalidUserInputException("Please select a drink size.");
+		}
+	}
+	
+	
 
 	@FXML  
 	public void switchtoPaymentSummary(ActionEvent event) {
-		boolean errorPresent = false; //no errors present in user input
+		boolean errorPresent = false; //currently no errors present in user input
 
 		//setting the price of each menu item 
 		double priceSamosa = 5.99;
@@ -241,18 +250,14 @@ public class OrderMenuController {
 			MenuItem gulabJamun = new MenuItem(gulabJamunTextField.getText(), priceGulabJamun);
 			MenuItem brownie = new MenuItem(brownieTextField.getText(), priceBrownie);
 
-			//creating Drinks objects for each drink item
+			//creating Drinks objects for Chai, based on its different sizes
 			Drinks drink1small = new Drinks("Small",drink1TextFieldSmall.getText());
-
 			Drinks drink1med = new Drinks("Medium",drink1TextFieldMed.getText());
-
 			Drinks drink1large = new Drinks("Large",drink1TextFieldLarge.getText());
 
-
+			//creating Drinks objects for Rose Sherbet, based on its different sizes
 			Drinks drink2small = new Drinks("Small",(String)drink1TextFieldSmall.getText());
-
 			Drinks drink2med = new Drinks("Medium",(String)drink2TextFieldMed.getText());
-
 			Drinks drink2large = new Drinks("Large",(String)drink2TextFieldLarge.getText());
 
 
@@ -271,26 +276,33 @@ public class OrderMenuController {
 			drinksItemList.add(drink2med);
 			drinksItemList.add(drink1large);
 			drinksItemList.add(drink2large);
-		} catch (InvalidUserInputException iuie) {
-			inputErrorLabel.setText(iuie.getMessage()); //if exception is caught because of invalid user input, an appropriate error message will be displayed
-			errorPresent = true; //errors are present in user input			
-		} catch (NullPointerException npe) {
-
-		}
-
-		try {
-			//checks if any of the check boxes are selected
+			
+			//checks if any of the check boxes are not selected, and if none are, user is given an error message when they attempt to continue
 			ifAnySelected();
-			// checks if the check box is selected and the 
+			
+			//checks if the check box is selected for the menu items, and if one is, but text field is empty, user is given error message when they attempt to continue
 			ifItemIsSelected(samosaCheckBox,samosaTextField);	
 			ifItemIsSelected(paniPuriCheckBox,paniPuriTextField);	
 			ifItemIsSelected(butterChickenCheckBox,butterChickenTextField);	
 			ifItemIsSelected(chefsChoiceCheckBox,chefsChoiceTextField);	
 			ifItemIsSelected(gulabJamunCheckBox,gulabJamunTextField);	
-			ifItemIsSelected(brownieCheckBox,brownieTextField);	
+			ifItemIsSelected(brownieCheckBox,brownieTextField);
+			
+			//checks if drink is selected, but no size is selected
+			ifDrinkIsSelected(drink1CheckBox, drink1CBsmall, drink1CBmed, drink1CBlarge);
+			ifDrinkIsSelected(drink2CheckBox, drink2CBsmall, drink2CBmed, drink2CBlarge);
+			
+			//checks if the check box is selected for the different sizes of the drinks, and if one is, but text field is empty, user is given error message when they attempt to continue
+			ifItemIsSelected(drink1CBsmall, drink1TextFieldSmall);
+			ifItemIsSelected(drink1CBmed, drink1TextFieldMed);
+			ifItemIsSelected(drink1CBlarge, drink1TextFieldLarge);
+			ifItemIsSelected(drink2CBsmall, drink2TextFieldSmall);
+			ifItemIsSelected(drink2CBmed, drink2TextFieldMed);
+			ifItemIsSelected(drink2CBlarge, drink2TextFieldLarge);
+			
 		} catch (InvalidUserInputException iuie) {
-			errorPresent = true; // indicates errors are present in user input
-			inputErrorLabel.setText(iuie.getMessage()); // sets the error label to whatever exception is thrown
+			inputErrorLabel.setText(iuie.getMessage()); //if exception is caught because of invalid user input, an appropriate error message will be displayed
+			errorPresent = true; //errors are present in user input
 		}
 
 		if (errorPresent == false) { // if there is no error message it will allow the button to take the user to the next scene.
@@ -315,3 +327,4 @@ public class OrderMenuController {
 		}
 	}
 }
+		

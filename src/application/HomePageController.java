@@ -13,15 +13,15 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class HomePageController {
-	
+
 	private Stage primaryStage;
 	private Scene myScene;
 
 	private OrderMenuController orderMenuSceneController;
 	private ViewMenuController viewMenuController;
 	private OrderConfirmationController orderConfirmationController;
-	
-	
+
+
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
 	}
@@ -77,9 +77,9 @@ public class HomePageController {
 	public void setNextController(OrderMenuController next) {
 		orderMenuSceneController = next;
 	}
-	
+
 	public void setNextController2(OrderConfirmationController next) {
 		orderConfirmationController = next;
 	}
-	
+
 }

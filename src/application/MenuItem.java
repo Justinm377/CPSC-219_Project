@@ -9,14 +9,14 @@ package application;
 public class MenuItem {
 	private int amount;
 	private double price = 0.00;
-	
+
 	/**
 	 * Empty constructor for the class. 
 	 */
 	public MenuItem() {
-		
+
 	}
-	
+
 	/**
 	 * This constructor takes the price of item and the user input for quantity of item and sets the instance variables,
 	 * provided that the user inputs a valid positive integer value between 0 and 10 for quantity. 
@@ -28,7 +28,7 @@ public class MenuItem {
 		setAmount(amountItemAsString);
 		setPrice(priceItem);
 	}
-	
+
 	/**
 	 * This getter method is an accessor method that allows for the amount instance variable to be accessed throughout the class
 	 * and its child class, Drinks. 
@@ -46,7 +46,7 @@ public class MenuItem {
 	 */
 	public void setAmount(String amountItemAsString) throws InvalidUserInputException {
 		int amountItem = 0;
-		
+
 		int decimalCounter = 0;
 		boolean validAmount = true;
 		if (amountItemAsString != "" || amountItemAsString != null) {
@@ -59,12 +59,12 @@ public class MenuItem {
 			amountItem = 0;
 			throw new InvalidUserInputException("Please input a value in this field.");
 		}
-		
+
 		//user cannot order negative amount
 		if (amountItem < 0) {
 			throw new InvalidUserInputException("Please enter a positive number between 0 and 10");
 		}
-		
+
 		//non-numeric value for the amount will throw an exception
 		if (validAmount == true && amountItemAsString != "") {
 			amountItem = Integer.parseInt(amountItemAsString);
@@ -73,12 +73,12 @@ public class MenuItem {
 		} else if (validAmount == false && decimalCounter == 0) {
 			throw new InvalidUserInputException("Order quantity cannot contain non-numeric characters. Please enter a numeric value.");
 		}
-		
+
 		//let's assume that the max amount an user can order of a quantity is 10
 		if (amountItem > 10) {
 			throw new InvalidUserInputException("To order a quantity of more than 10, please contact us directly by phone or in-person.");
 		}
-		
+
 		this.amount = amountItem;
 	}
 

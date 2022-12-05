@@ -12,104 +12,234 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ViewMenuController">
-   <children>
-      <Label text="Menu">
-         <font>
-            <Font size="24.0" />
-         </font>
-         <padding>
-            <Insets bottom="20.0" />
-         </padding></Label>
-      <Label text="Appetizers">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <padding>
-            <Insets bottom="10.0" />
-         </padding></Label>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label prefHeight="17.0" prefWidth="224.0" text="Samosa(2pc.)">
-               <padding>
-                  <Insets left="5.0" />
-               </padding></Label>
-            <Label text="\$5.99" />
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label prefHeight="17.0" prefWidth="222.0" text="Pani Puri">
-               <padding>
-                  <Insets left="5.0" />
-               </padding></Label>
-            <Label text="\$8.99" />
-         </children>
-      </HBox>
-      <Label prefHeight="23.0" prefWidth="101.0" text="Main Course">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <padding>
-            <Insets bottom="10.0" />
-         </padding></Label>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label prefHeight="17.0" prefWidth="222.0" text="Butter Chicken and Rice Meal">
-               <padding>
-                  <Insets left="5.0" />
-               </padding></Label>
-            <Label text="\$17.99" />
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label prefHeight="17.0" prefWidth="221.0" text="Chef's Choice Lentil and Rice Meal">
-               <padding>
-                  <Insets left="5.0" />
-               </padding></Label>
-            <Label text="\$14.99" />
-         </children>
-      </HBox>
-      <Label text="Desserts">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <padding>
-            <Insets bottom="10.0" />
-         </padding></Label>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label prefHeight="17.0" prefWidth="224.0" text="Gulab Jamun">
-               <padding>
-                  <Insets left="5.0" />
-               </padding></Label>
-            <Label text="\$6.99" />
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label prefHeight="17.0" prefWidth="225.0" text="Sizzling Brownie">
-               <padding>
-                  <Insets left="5.0" />
-               </padding></Label>
-            <Label text="\$4.99" />
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#switchtoHomePage" prefHeight="26.0" prefWidth="252.0" text="Return to Home">
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets left="10.0" right="20.0" />
-               </HBox.margin></Button>
-            <Button mnemonicParsing="false" onAction="#switchtoOrderMenu" prefHeight="26.0" prefWidth="241.0" text="Order Now" translateX="65.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets></Button>
-         </children>
-      </HBox>
-   </children>
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity"
+	maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+	prefHeight="710.0" prefWidth="622.0" xmlns="http://javafx.com/javafx/8"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="application.ViewMenuController">
+	<children>
+		<Label text="Menu">
+			<font>
+				<Font size="24.0" />
+			</font>
+			<padding>
+				<Insets bottom="20.0" />
+			</padding>
+		</Label>
+		<Label text="Appetizers">
+			<font>
+				<Font size="18.0" />
+			</font>
+			<padding>
+				<Insets bottom="10.0" />
+			</padding>
+		</Label>
+		<HBox prefHeight="23.0" prefWidth="622.0">
+			<children>
+				<Label prefHeight="17.0" prefWidth="224.0" text="Samosa(2pc.)">
+					<padding>
+						<Insets left="5.0" />
+					</padding>
+					<font>
+						<Font size="13.0" />
+					</font>
+				</Label>
+				<Label text="\$5.99" />
+			</children>
+		</HBox>
+		<Label prefHeight="17.0" prefWidth="636.0"
+			text="(Deep fried crispy flour pastry stuffed with seasoned potato and peas )" />
+		<HBox prefHeight="23.0" prefWidth="622.0">
+			<children>
+				<Label prefHeight="17.0" prefWidth="222.0" text="Pani Puri">
+					<padding>
+						<Insets left="5.0" top="5.0" />
+					</padding>
+					<font>
+						<Font size="13.0" />
+					</font>
+				</Label>
+				<Label text="\$8.99">
+					<padding>
+						<Insets top="5.0" />
+					</padding>
+				</Label>
+			</children>
+		</HBox>
+		<Label prefHeight="17.0" prefWidth="629.0"
+			text="(Potato, onion, chickpeas, coriander chutney stuffed crispy puri drenched in sour and spicy mint flavored water .)"
+			wrapText="true" />
+		<Label prefHeight="23.0" prefWidth="101.0" text="Main Course">
+			<font>
+				<Font size="18.0" />
+			</font>
+			<padding>
+				<Insets bottom="10.0" />
+			</padding>
+		</Label>
+		<HBox prefHeight="21.0" prefWidth="622.0">
+			<children>
+				<Label prefHeight="17.0" prefWidth="222.0"
+					text="Butter Chicken and Rice Meal">
+					<padding>
+						<Insets left="5.0" />
+					</padding>
+					<font>
+						<Font size="13.0" />
+					</font>
+				</Label>
+				<Label text="\$17.99" />
+			</children>
+		</HBox>
+		<Label prefHeight="12.0" prefWidth="622.0"
+			text="(Boneless pieces of chicken marinated and barbequed tomatoes based gravy finished with cream"
+			wrapText="true" />
+		<Label prefHeight="17.0" prefWidth="616.0"
+			text=" &amp; exotic spices, served with Basmati rice cooked with cilantro and green peas)" />
+		<HBox prefHeight="37.0" prefWidth="622.0">
+			<children>
+				<Label prefHeight="17.0" prefWidth="221.0"
+					text="Chef's Choice Lentil and Rice Meal">
+					<padding>
+						<Insets left="5.0" top="5.0" />
+					</padding>
+					<font>
+						<Font size="13.0" />
+					</font>
+				</Label>
+				<Label text="\$14.99">
+					<padding>
+						<Insets top="5.0" />
+					</padding>
+				</Label>
+			</children>
+		</HBox>
+		<Label prefHeight="18.0" prefWidth="622.0"
+			text="(Yellow lentils simmered with onion, tomatoes, cilantro &amp; cream, "
+			wrapText="true" />
+		<Label prefHeight="12.0" prefWidth="619.0"
+			text="served with Basmati rice cooked with exotic spices, cilantro and green peas)" />
+		<Label prefHeight="25.0" prefWidth="67.0" text="Desserts">
+			<font>
+				<Font size="18.0" />
+			</font>
+			<padding>
+				<Insets bottom="10.0" />
+			</padding>
+		</Label>
+		<HBox prefHeight="18.0" prefWidth="622.0">
+			<children>
+				<Label prefHeight="17.0" prefWidth="224.0" text="Gulab Jamun">
+					<padding>
+						<Insets left="5.0" />
+					</padding>
+					<font>
+						<Font size="13.0" />
+					</font>
+				</Label>
+				<Label text="\$6.99" />
+			</children>
+		</HBox>
+		<Label prefHeight="17.0" prefWidth="622.0"
+			text="(Round and spongy milk ball soaked in syrup with Cardamom)" />
+		<HBox prefHeight="16.0" prefWidth="622.0">
+			<children>
+				<Label prefHeight="17.0" prefWidth="225.0"
+					text="Sizzling Brownie">
+					<padding>
+						<Insets left="5.0" top="5.0" />
+					</padding>
+					<font>
+						<Font size="13.0" />
+					</font>
+				</Label>
+				<Label text="\$4.99">
+					<padding>
+						<Insets top="5.0" />
+					</padding>
+				</Label>
+			</children>
+		</HBox>
+		<Label prefHeight="45.0" prefWidth="622.0"
+			text="(Our sizzling brownie recipe is made from brownies, homemade hot chocolate sauce, powdered sugar and vanilla ice cream)"
+			wrapText="true" />
+		<Label prefHeight="36.0" prefWidth="57.0" text="Drinks"
+			wrapText="true">
+			<font>
+				<Font size="18.0" />
+			</font>
+		</Label>
+		<HBox prefHeight="16.0" prefWidth="622.0">
+			<children>
+				<Label prefHeight="17.0" prefWidth="225.0" text="Masala Chai">
+					<font>
+						<Font size="13.0" />
+					</font>
+					<padding>
+						<Insets left="5.0" />
+					</padding>
+				</Label>
+				<Label prefHeight="17.0" prefWidth="142.0" text="Small: $1.49" />
+				<Label prefHeight="17.0" prefWidth="127.0"
+					text="Medium: $1.99" />
+				<Label text="Large: $2.49" />
+			</children>
+		</HBox>
+		<Label prefHeight="17.0" prefWidth="622.0"
+			text="(Round and spongy milk ball soaked in syrup with Cardamom)" />
+		<HBox prefHeight="18.0" prefWidth="622.0">
+			<children>
+				<Label prefHeight="17.0" prefWidth="224.0" text="Rose Sherbet">
+					<font>
+						<Font size="13.0" />
+					</font>
+					<padding>
+						<Insets left="5.0" top="5.0" />
+					</padding>
+				</Label>
+				<Label prefHeight="17.0" prefWidth="142.0" text="Small: $1.49">
+					<padding>
+						<Insets top="5.0" />
+					</padding>
+				</Label>
+				<Label layoutX="234.0" layoutY="10.0" prefHeight="17.0"
+					prefWidth="128.0" text="Medium: $1.99">
+					<padding>
+						<Insets top="5.0" />
+					</padding>
+				</Label>
+				<Label layoutX="297.0" layoutY="10.0" text="Large: $2.49">
+					<padding>
+						<Insets top="5.0" />
+					</padding>
+				</Label>
+			</children>
+		</HBox>
+		<Label alignment="TOP_LEFT" prefHeight="44.0" prefWidth="622.0"
+			text="(Rose-flavored simple syrup mixed with milk and served chill.)">
+			<padding>
+				<Insets bottom="10.0" />
+			</padding>
+		</Label>
+		<HBox prefHeight="89.0" prefWidth="622.0">
+			<children>
+				<Button mnemonicParsing="false" onAction="#switchtoHomePage"
+					prefHeight="26.0" prefWidth="252.0" text="Return to Home">
+					<padding>
+						<Insets left="10.0" />
+					</padding>
+					<HBox.margin>
+						<Insets left="10.0" right="20.0" />
+					</HBox.margin>
+				</Button>
+				<Button mnemonicParsing="false" onAction="#switchtoOrderMenu"
+					prefHeight="26.0" prefWidth="241.0" text="Order Now"
+					translateX="65.0">
+					<opaqueInsets>
+						<Insets />
+					</opaqueInsets>
+				</Button>
+			</children>
+		</HBox>
+	</children>
 </VBox>

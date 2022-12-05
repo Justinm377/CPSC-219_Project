@@ -19,7 +19,7 @@ public class PaymentSummaryController {
 	private Scene myScene;
 	private OrderMenuController orderMenuSceneController; 
 	private PaymentInfoController paymentInfoController;
-	
+
 	@FXML
 	private Label totalPriceLabel;
 	@FXML
@@ -28,6 +28,7 @@ public class PaymentSummaryController {
 	private ChoiceBox<String> paymentTypeChoiceBox;
 	@FXML
 	private Label errorLabelChoiceBox;
+
 	
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -44,11 +45,11 @@ public class PaymentSummaryController {
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
 	}
-	
+
 	public void setTotalPrice(double totalPrice) {
 		totalPriceLabel.setText(String.format("%.2f", totalPrice)); //getting total price from user's order menu and setting the label with the total price
 	}
-	
+
 	public void setTotalPriceWithTax(double totalPriceWithTax) {
 		totalPriceWithTaxLabel.setText(String.format("%.2f", totalPriceWithTax)); //getting the total price with tax from the user's order menu and setting the label to that value
 	}
@@ -59,10 +60,9 @@ public class PaymentSummaryController {
 			orderMenuSceneController.takeFocus();
 		} 
 	}
-	
+
 	@FXML
 	public void switchtoPaymentInfo(ActionEvent event) {
-		
 		if (paymentTypeChoiceBox.getValue() != null) {
 			if (paymentInfoController == null) {
 				try {

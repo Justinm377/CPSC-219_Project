@@ -19,6 +19,7 @@ public class PaymentInfoController {
 	private Scene myScene;
 	
 	private OrderConfirmationController orderConfirmationController;
+	private PaymentSummaryController paymentSummaryController;
 	
 	@FXML
 	private Label firstNameErrorLabel;
@@ -58,6 +59,10 @@ public class PaymentInfoController {
 	private TextField postalCodeTextField;
 	@FXML
 	private Label lengthErrorLabel;
+	@FXML
+	private TextField cvvTextField;
+	@FXML
+	private Label cvvErrorLabel;
 	
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -68,151 +73,102 @@ public class PaymentInfoController {
 	}
 
 	public void setNextController(PaymentSummaryController next) {
-		//paymentSummaryController = next;
+		paymentSummaryController = next;
 	}
 
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
 	}
 	
-
-	
-	
-//	public void isAlphabeticValidation (TextField stringInputToValidate ) throws InvalidUserInputException {
-//    	String infoToValidate = stringInputToValidate.getText();
-//    	
-//		if (infoToValidate == "") {throw new InvalidUserInputException ("Please enter a value");}		
-//		for(char c : infoToValidate.toCharArray()) {
-//			if(!Character.isLetter(c)&& c!=' ') {
-//				throw new InvalidUserInputException ( "Do not include non alphabetical characters.");
-//			}
-//		}
-//    }
-//	
-//	public void isNumeric (TextField integerToValidate) throws InvalidUserInputException{
-//		String infoToValidate = integerToValidate.getText();  	
-//    	if (infoToValidate == "") {throw new InvalidUserInputException ("Please enter a value");}
-//    	for (char c : infoToValidate.toCharArray()){
-//    		if (!Character.isDigit(c)&& c!=' ') {
-//    			throw new InvalidUserInputException ("Please input numerical values only");
-//    		}
-//    	}
-//	}
-//	
-//	public void noSpecialCharacters ( TextField argumentToValidate) throws InvalidUserInputException{
-//		String infoToValidate = argumentToValidate.getText();  	
-//		if (infoToValidate == "") {throw new InvalidUserInputException ("Please enter a value");}
-//		for (char c : infoToValidate.toCharArray()){
-//    		if (!Character.isDigit(c)&& !Character.isLetter(c)&& c!= ' ') {
-//    			throw new InvalidUserInputException ("Please do not input special characters.");
-//    		}
-//    	}
-//	}
-	public void isUserInputValid (TextField userInput, int typeOfValidation) throws InvalidUserInputException{
-		String infoToValidate = userInput.getText();
-    	if (infoToValidate == "") {throw new InvalidUserInputException ("Please enter a value");}	
-    	if ( typeOfValidation == 1) {
-    		for (char c : infoToValidate.toCharArray()){
-        		if (!Character.isDigit(c)&& c!=' ') {
-        			throw new InvalidUserInputException ("Please input numerical values only");
-        		}
-        	}
-    	}else if (typeOfValidation == 2) {
-    		for(char c : infoToValidate.toCharArray()) {
-    			if(!Character.isLetter(c)&& c!=' ') {
-    				throw new InvalidUserInputException ( "Do not include non alphabetical characters.");
-    			}
-    		}
-    	}else if ( typeOfValidation == 3) {
-    		for (char c : infoToValidate.toCharArray()){
-        		if (!Character.isDigit(c)&& !Character.isLetter(c)&& c!= ' ') {
-        			throw new InvalidUserInputException ("Please do not input special characters.");
-        		}
-        	}
-    	}
-	}
-	
-	public void checkInputLength() throws InvalidUserInputException{
-		if (phoneNumberTextField.getText().length() != 10 && phoneNumberTextField.getText().length() != 0) {throw new InvalidUserInputException ("Phone number input should be 10 digits.");}
-		if(expireMonthTextField.getText().length() != 2 && expireMonthTextField.getText().length() != 0) {throw new InvalidUserInputException ("Month of expiry input should be 2 digits.");}
-		if(expiryYearTextField.getText().length() != 2 && expiryYearTextField.getText().length() != 0) {throw new InvalidUserInputException ("Year of expiry input should be 2 digits.");}
-		if(cardNumberTextField.getText().length() != 12 && cardNumberTextField.getText().length() != 0) {throw new InvalidUserInputException ("Card number input should be 12 digits.");}
-		if(postalCodeTextField.getText().length() != 6 && postalCodeTextField.getText().length() != 0) {throw new InvalidUserInputException ("Postal code input should be 6 digits.");}
-	}
-	
 	public void switchtoOrderConfirmation(ActionEvent event) {
-		boolean allValidationPassed = true;		
+		boolean allValidationPassed = true;
 		
+		//creating a new instance of an user, using User class
+		User user = new User();
+		
+		//attempting to set personal user information (first name, last name, address, phone number) based on user input
+		// and if input is invalid, a proper error message will be set
 		try {
 			firstNameErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(firstNameTextField,2);			
-		}catch (InvalidUserInputException iuie){
+			user.setFirstName(firstNameTextField.getText());			
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			firstNameErrorLabel.setText(iuie.getMessage());
-		}		
+		}
+		
 		try {
 			lastNameErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(lastNameTextField, 2);			
-		}catch (InvalidUserInputException iuie){
+			user.setLastName(lastNameTextField.getText());			
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			lastNameErrorLabel.setText(iuie.getMessage());
 		}
+		
 		try {
 			addressErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(addressTextField,3);			
-		}catch (InvalidUserInputException iuie){
+			user.setAddress(addressTextField.getText());			
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			addressErrorLabel.setText(iuie.getMessage());
 		}
-		try {
-			phoneNumberErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(phoneNumberTextField,1);			
-		}catch (InvalidUserInputException iuie){
-			allValidationPassed = false;
-			phoneNumberErrorLabel.setText(iuie.getMessage());
-		}
-		try {
-			nameErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(nameOnCardTextField,2);			
-		}catch (InvalidUserInputException iuie){
-			allValidationPassed = false;
-			nameErrorLabel.setText(iuie.getMessage());
-		}		
-		try {
-			cardNumberErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(cardNumberTextField,1);			
-		}catch (InvalidUserInputException iuie){
-			allValidationPassed = false;
-			cardNumberErrorLabel.setText(iuie.getMessage());
-		}
-		try {
-			expiryMonthErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(expireMonthTextField,1);			
-		}catch (InvalidUserInputException iuie){
-			allValidationPassed = false;
-			expiryMonthErrorLabel.setText(iuie.getMessage());
-		}
-		try {
-			expiryYearErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(expiryYearTextField,1);			
-		}catch (InvalidUserInputException iuie){
-			allValidationPassed = false;
-			expiryYearErrorLabel.setText(iuie.getMessage());
-		}
+		
 		try {
 			postalCodeErrorLabel.setText(""); //clear text once error is gone
-			isUserInputValid(postalCodeTextField,3);			
-		}catch (InvalidUserInputException iuie){
+			user.setPostalCode(postalCodeTextField.getText());			
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			postalCodeErrorLabel.setText(iuie.getMessage());
 		}
 		
 		try {
-			checkInputLength();
-		}catch (InvalidUserInputException iuie) {
+			phoneNumberErrorLabel.setText(""); //clear text once error is gone
+			user.setPhoneNumber(phoneNumberTextField.getText());			
+		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
-			lengthErrorLabel.setText(iuie.getMessage());
-
+			phoneNumberErrorLabel.setText(iuie.getMessage());
+		}
+		
+		//creating the user's credit or debit card
+		Card userPaymentCard = new Card();
+		
+		try {
+			nameErrorLabel.setText(""); //clear text once error is gone
+			userPaymentCard.setCardName(nameOnCardTextField.getText());			
+		} catch (InvalidUserInputException iuie){
+			allValidationPassed = false;
+			nameErrorLabel.setText(iuie.getMessage());
+		}
+		
+		try {
+			cardNumberErrorLabel.setText(""); //clear text once error is gone
+			userPaymentCard.setCardNumber(cardNumberTextField.getText());			
+		} catch (InvalidUserInputException iuie){
+			allValidationPassed = false;
+			cardNumberErrorLabel.setText(iuie.getMessage());
+		}
+		
+		try {
+			expiryMonthErrorLabel.setText(""); //clear text once error is gone
+			userPaymentCard.setExpiryMonth(expireMonthTextField.getText());
+		} catch (InvalidUserInputException iuie){
+			allValidationPassed = false;
+			expiryMonthErrorLabel.setText(iuie.getMessage());
+		}
+		
+		try {
+			expiryYearErrorLabel.setText(""); //clear text once error is gone
+			userPaymentCard.setExpiryYear(expiryYearTextField.getText());			
+		} catch (InvalidUserInputException iuie){
+			allValidationPassed = false;
+			expiryYearErrorLabel.setText(iuie.getMessage());
+		}
+		
+		try {
+			cvvErrorLabel.setText(""); //clear text once error is gone
+			userPaymentCard.setCvv(cvvTextField.getText());			
+		} catch (InvalidUserInputException iuie){
+			allValidationPassed = false;
+			cvvErrorLabel.setText(iuie.getMessage());
 		}
 		
 		if (orderConfirmationController == null && allValidationPassed == true) {

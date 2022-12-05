@@ -21,16 +21,13 @@ public class PaymentSummaryController {
 	private PaymentInfoController paymentInfoController;
 	
 	@FXML
-	private Label totalPriceTextField;
-	
+	private Label totalPriceLabel;
 	@FXML
-	private ChoiceBox paymentTypeChoiceBox;
-	
+	private Label totalPriceWithTaxLabel;
 	@FXML
-	private Label errorLabelChoicebox;
-	
-	
-	private double totalPrice;
+	private ChoiceBox<String> paymentTypeChoiceBox;
+	@FXML
+	private Label errorLabelChoiceBox;
 	
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
@@ -47,6 +44,14 @@ public class PaymentSummaryController {
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
 	}
+	
+	public void setTotalPrice(double totalPrice) {
+		totalPriceLabel.setText(String.format("%.2f", totalPrice)); //getting total price from user's order menu and setting the label with the total price
+	}
+	
+	public void setTotalPriceWithTax(double totalPriceWithTax) {
+		totalPriceWithTaxLabel.setText(String.format("%.2f", totalPriceWithTax)); //getting the total price with tax from the user's order menu and setting the label to that value
+	}
 
 	@FXML
 	public void switchtoOrderMenu(ActionEvent event) { 
@@ -58,7 +63,7 @@ public class PaymentSummaryController {
 	@FXML
 	public void switchtoPaymentInfo(ActionEvent event) {
 		
-		if ( paymentTypeChoiceBox.getValue() != null) {
+		if (paymentTypeChoiceBox.getValue() != null) {
 			if (paymentInfoController == null) {
 				try {
 					FXMLLoader loader = new FXMLLoader();
@@ -69,21 +74,14 @@ public class PaymentSummaryController {
 					paymentInfoController.setPrimaryStage(primaryStage);
 					paymentInfoController.setMyScene(scene);
 					paymentInfoController.setNextController(this);
-					errorLabelChoicebox.setText(null);
+					errorLabelChoiceBox.setText(null);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 			paymentInfoController.takeFocus();
 		} else {
-			errorLabelChoicebox.setText("Please select a type of payment.");
+			errorLabelChoiceBox.setText("Please select a type of payment."); //if user doesn't select a payment type, error message will be displayed
 		}
-		
 	}
-
-	public void setTotalPrice(double price) {
-		totalPrice = price;
-		totalPriceTextField.setText(String.format("%.2f", totalPrice));
-	}
-	
 }

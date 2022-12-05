@@ -18,8 +18,10 @@ public class Order {
 	 * @param foodItemList a list of all the MenuItems 
 	 * @param drinksItemList a list of all the Drinks
 	 */
-	public Order(ArrayList<MenuItem> foodItemList, ArrayList<Drinks> drinksItemList) {
-		setItemList(foodItemList);
+
+	public Order(ArrayList<MenuItem> menuItemList, ArrayList<Drinks> drinksItemList) {
+		// TODO Auto-generated constructor stub
+		setItemList(menuItemList);
 		setDrinksList(drinksItemList);
 	}
 
@@ -56,7 +58,7 @@ public class Order {
 			try {
 				priceToReturn = priceToReturn + getDrinksList().get(i).calculateDrinkTotalPrice();
 			} catch (InvalidUserInputException e) {
-				e.printStackTrace();
+			e.printStackTrace();
 			}
 		}
 		

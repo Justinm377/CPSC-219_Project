@@ -18,7 +18,7 @@
 <?import javafx.collections.FXCollections?>
 <?import javafx.collections.*?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OrderMenuController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OrderMenuController">
    <children>
       <Label text="Order Menu">
          <font>
@@ -114,44 +114,69 @@
             <TextField fx:id="brownieTextField" visible="false" />
          </children>
       </HBox>
+      <Separator prefWidth="200.0" />
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <CheckBox fx:id="drink1CheckBox" mnemonicParsing="false" onAction="#drink1TextFieldAppears" prefHeight="18.0" prefWidth="236.0" text="Drink1">
+            <CheckBox fx:id="drink1CheckBox" mnemonicParsing="false" onAction="#drink1RadioButtonAppearsForDrinks" prefHeight="18.0" prefWidth="236.0" text="Chai">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>
             </CheckBox>
-            <Label prefHeight="17.0" prefWidth="116.0" text="Size:" />
-            <ChoiceBox fx:id="drink1ChoiceBox" prefHeight="25.0" prefWidth="86.0">
-            	<items>
-            		<FXCollections fx:factory="observableArrayList">
-                    	<String fx:value="Small" />
-                       	<String fx:value="Medium" />
-                       	<String fx:value="Large" />
-                    </FXCollections>
-            	</items>
-            </ChoiceBox>
-            <TextField fx:id="drink1TextField" prefHeight="25.0" prefWidth="99.0" visible="false" />
+            <VBox prefHeight="75.0" prefWidth="345.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <CheckBox fx:id="drink1CBsmall" mnemonicParsing="false" onAction="#drink1RadioButtonAppearsForDrinks" prefHeight="17.0" prefWidth="121.0" text="Small" />
+                        <TextField fx:id="drink1TextFieldSmall" onAction="#drink1RadioButtonAppearsForDrinks" prefHeight="25.0" prefWidth="150.0" visible="false" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <CheckBox fx:id="drink1CBmed" mnemonicParsing="false" onAction="#drink1RadioButtonAppearsForDrinks" prefHeight="17.0" prefWidth="120.0" text="Medium" />
+                        <TextField fx:id="drink1TextFieldMed" onAction="#drink1RadioButtonAppearsForDrinks" visible="false" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <CheckBox fx:id="drink1CBlarge" mnemonicParsing="false" onAction="#drink1RadioButtonAppearsForDrinks" prefHeight="17.0" prefWidth="120.0" text="Large" />
+                        <TextField fx:id="drink1TextFieldLarge" onAction="#drink1RadioButtonAppearsForDrinks" visible="false" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
          </children>
       </HBox>
+      <Separator prefHeight="0.0" prefWidth="600.0" />
       <HBox prefHeight="100.0" prefWidth="200.0">
          <children>
-            <CheckBox fx:id="drink2CheckBox" mnemonicParsing="false" onAction="#drink2TextFieldAppears" prefHeight="18.0" prefWidth="236.0" text="Drink2">
+            <CheckBox fx:id="drink2CheckBox" mnemonicParsing="false" onAction="#drink2RadioButtonAppearsForDrinks" prefHeight="18.0" prefWidth="236.0" text="Rose Sherbet">
                <HBox.margin>
                   <Insets left="5.0" />
                </HBox.margin>
             </CheckBox>
-            <Label prefHeight="17.0" prefWidth="116.0" text="Size:" />
-            <ChoiceBox fx:id="drink2ChoiceBox" prefHeight="25.0" prefWidth="86.0"> 
-            <items>
-            	<FXCollections fx:factory="observableArrayList">
-                	<String fx:value="Small" />
-                    <String fx:value="Medium" />
-                    <String fx:value="Large" />
-               	</FXCollections>
-           	</items>
-            </ChoiceBox>
-            <TextField fx:id="drink2TextField" prefHeight="25.0" prefWidth="98.0" visible="false" />
+            <VBox prefHeight="75.0" prefWidth="308.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <CheckBox fx:id="drink2CBsmall" mnemonicParsing="false" onAction="#drink2RadioButtonAppearsForDrinks" prefHeight="17.0" prefWidth="120.0" text="Small" />
+                        <TextField fx:id="drink2TextFieldSmall" onAction="#drink2RadioButtonAppearsForDrinks" visible="false" />
+                        
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <CheckBox fx:id="drink2CBmed" mnemonicParsing="false" onAction="#drink2RadioButtonAppearsForDrinks" prefHeight="17.0" prefWidth="120.0" text="Medium" />
+                        <TextField fx:id="drink2TextFieldMed" onAction="#drink2RadioButtonAppearsForDrinks" visible="false" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <CheckBox fx:id="drink2CBlarge" mnemonicParsing="false" onAction="#drink2RadioButtonAppearsForDrinks" prefHeight="17.0" prefWidth="120.0" text="Large" />
+                        <TextField fx:id="drink2TextFieldLarge" onAction="#drink2RadioButtonAppearsForDrinks" visible="false" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
          </children>
       </HBox>
       <Label fx:id="inputErrorLabel" alignment="CENTER" prefHeight="19.0" prefWidth="558.0" text="" textFill="RED">

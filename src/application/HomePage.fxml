@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="347.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomePageController">
+<VBox prefHeight="489.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomePageController">
     <children>
        <Label text="Welcome To Taste of India" textFill="#289020">
          <font>
@@ -21,6 +22,49 @@
          <VBox.margin>
             <Insets left="10.0" right="10.0" />
          </VBox.margin></Label>
+      <Label text="We are glad to welcome you to our restaurant “TASTE OF INDIA ” online ordering portel.">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label text="We strive to bring you the very authentic and tasty delicacies from the Indian subcontinent. ">
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <Label text="We provide a classic combination of indisputable food taste, unique experience and tradition that holds worldwide recognition." wrapText="true">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label>
+         <font>
+            <Font size="13.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label text="Please come and enjoy a meal with your loved ones from our restaurant from the comfort of your home!">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
        <HBox prefHeight="100.0" prefWidth="200.0">
           <children>
              <Button mnemonicParsing="false" onAction="#switchtoViewMenu" text="View Our Menu">

@@ -45,9 +45,11 @@ public class OrderConfirmationController {
 			try {
 				FXMLLoader loader = new FXMLLoader();
 				Parent root = loader.load(new FileInputStream("src/application/HomePage.fxml"));
+				Scene scene = new Scene(root);
+				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 				homePageController = loader.getController();
 				homePageController.setPrimaryStage(primaryStage);
-				homePageController.setMyScene(new Scene(root));
+				homePageController.setMyScene(scene);
 				homePageController.setNextController2(this);	
 			} catch (IOException e) {
 				e.printStackTrace();

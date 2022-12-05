@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -51,16 +53,35 @@ public class OrderMenuController {
     private CheckBox brownieCheckBox; 
     @FXML
     private CheckBox drink1CheckBox;
+    
     @FXML
-    private TextField drink1TextField;
+    private CheckBox drink1CBsmall;
     @FXML
-    private ChoiceBox drink1ChoiceBox;
+    private CheckBox drink1CBmed;
+    @FXML
+    private CheckBox drink1CBlarge;
+    @FXML
+    private CheckBox drink2CBsmall;
+    @FXML
+    private CheckBox drink2CBmed;
+    @FXML
+    private CheckBox drink2CBlarge;
+    
     @FXML
     private CheckBox drink2CheckBox;
+   
     @FXML
-    private TextField drink2TextField;
+    private TextField drink2TextFieldSmall;
     @FXML
-    private ChoiceBox drink2ChoiceBox;
+    private TextField drink2TextFieldMed;
+    @FXML
+    private TextField drink2TextFieldLarge;
+    @FXML
+    private TextField drink1TextFieldSmall;
+    @FXML
+    private TextField drink1TextFieldMed;
+    @FXML
+    private TextField drink1TextFieldLarge;
     
     @FXML
     private Label inputErrorLabel;
@@ -114,8 +135,48 @@ public class OrderMenuController {
 	    	if (foodType.isVisible()) {
 	    		foodType.setVisible(false); 
 	    	}
-	    	foodType.clear(); //clear any text user may have inputed
+	    	foodType.clear();
+	    	//clear any text user may have inputed
 	    }
+	}
+	// for drink items
+	   // public void setTextFieldVisibilityForDrinks (CheckBox drinksChoiceBox, CheckBox drinkSize) {
+		//	if (drinksChoiceBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
+			//	if (!drinkSize.isVisible()) {
+		    	//	drinkSize.setVisible(true); 
+		    	//}
+		   // }
+		   // if (!drinksChoiceBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
+		    //	if (drinksChoiceBox.isVisible()) {
+		    //		drinkSize.setVisible(false); 
+		 //   	}
+		 
+		  //  }
+	/*
+	private void setTextFieldVisibilityForDrinks (CheckBox drinksChoiceBox, RadioButton rb,) {
+		if (drinksChoiceBox.isSelected()) { //if checkbox is selected, then radiobutton should appear, if radiobutton is selected then choice box should appear (assuming it's not visible)
+			if (!rb.isVisible()) {
+	    		rb.setVisible(true);
+	    		if (rb.isSelected()) {
+	    			if(!cb.isVisible()) {
+	    				cb.setVisible(true);
+	    			}
+	    		}
+	    		
+	    		
+	    }
+		}
+		*/
+		/*options I was going through:
+		if(drinksChoiceBox.isSelected()&& rb.isVisible()&& rb.isSelected() && !cb.isVisible()) {
+			
+	    		cb.setVisible(true);
+	}
+		if(drinksChoiceBox.isSelected()&& rb.isVisible()&& !rb.isSelected() && cb.isVisible()) {
+			
+	    		cb.setVisible(false);
+		
+	}*/
 	}
 	    
 	@FXML
@@ -149,27 +210,40 @@ public class OrderMenuController {
 	}
 	
 	@FXML
-	void drink1TextFieldAppears(ActionEvent event) {
-		setTextFieldVisibility(drink1CheckBox,drink1TextField);
+	void drink1RadioButtonAppearsForDrinks(ActionEvent event) {
+		if(drink1CheckBox.isSelected()) {
+			setTextFieldVisibility(drink1CBsmall, drink1TextFieldSmall);
+			setTextFieldVisibility(drink1CBmed, drink1TextFieldMed);
+			setTextFieldVisibility(drink1CBlarge, drink1TextFieldLarge);
+		}
+		
 	}
 	
 	@FXML
-	void drink2TextFieldAppears(ActionEvent event) {
-		setTextFieldVisibility(drink2CheckBox,drink2TextField);
+	void drink2RadioButtonAppearsForDrinks(ActionEvent event) {
+		if(drink2CheckBox.isSelected()) {
+			setTextFieldVisibility(drink2CBsmall, drink2TextFieldSmall);
+			setTextFieldVisibility(drink2CBmed, drink2TextFieldMed);
+			setTextFieldVisibility(drink2CBlarge, drink2TextFieldLarge);
+		}
+		
 	}
-	public void ifAnySelected () throws InvalidUserInputException {
+	
+	
+	public void ifAnySelected() throws InvalidUserInputException {
 		if (samosaCheckBox.isSelected() == false && paniPuriCheckBox.isSelected() == false && butterChickenCheckBox.isSelected()==false
-				&& chefsChoiceCheckBox.isSelected() == false && gulabJamunCheckBox.isSelected()==false && brownieCheckBox.isSelected()==false) {
+			&& chefsChoiceCheckBox.isSelected() == false && gulabJamunCheckBox.isSelected()==false && brownieCheckBox.isSelected()==false
+			&& drink1CheckBox.isSelected() == false && drink2CheckBox.isSelected() == false) {
 			throw new InvalidUserInputException ("Please select at least one item to continue.");
 		}		 
 	}
 	
-	public boolean ifSelected(CheckBox itemSelected, TextField inputQuantity) throws InvalidUserInputException{
+	public boolean ifItemIsSelected(CheckBox itemSelected, TextField inputQuantity) throws InvalidUserInputException{
 		boolean empty = false;
-		if ( itemSelected.isSelected() == true && inputQuantity.getText() == "") {
+		if (itemSelected.isSelected() == true && inputQuantity.getText() == "") {
 			empty = true;
 			throw new InvalidUserInputException ("Please input a quantity.");
-		}else if ( itemSelected.isSelected()== true && inputQuantity.getText() != "") {
+		} else if (itemSelected.isSelected()== true && inputQuantity.getText() != "") {
 			empty = false;
 		}
 		return empty;
@@ -177,8 +251,9 @@ public class OrderMenuController {
 	
 	@FXML  
 	public void switchtoPaymentSummary(ActionEvent event) {
-		boolean errorPresent = false;
+		boolean errorPresent = false; //no errors present in user input
 		
+		//setting the price of each menu item 
 		double priceSamosa = 5.99;
 		double pricePaniPuri = 8.99;
 		double priceButterChicken = 17.99;
@@ -186,12 +261,11 @@ public class OrderMenuController {
 		double priceGulabJamun = 6.99;
 		double priceBrownie = 4.99;
 		
-		ArrayList<MenuItem> foodItemList = new ArrayList<MenuItem>();
-		ArrayList<Drinks> drinksItemList = new ArrayList<Drinks>();
-
+		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>(); //list of MenuItems (appetizer, main course, dessert)
+		ArrayList<Drinks> drinksItemList = new ArrayList<Drinks>(); //list of Drinks
 	
-		try {
-							
+		try {	
+			//creating MenuItem objects for each menu item 
 			MenuItem samosa = new MenuItem(samosaTextField.getText(), priceSamosa);			
 			MenuItem paniPuri = new MenuItem(paniPuriTextField.getText(), pricePaniPuri);
 			MenuItem butterChicken = new MenuItem(butterChickenTextField.getText(), priceButterChicken);
@@ -199,32 +273,51 @@ public class OrderMenuController {
 			MenuItem gulabJamun = new MenuItem(gulabJamunTextField.getText(), priceGulabJamun);
 			MenuItem brownie = new MenuItem(brownieTextField.getText(), priceBrownie);
 			
-			Drinks drink1 = new Drinks(drink1ChoiceBox.getValue().toString(), drink1TextField.getText());
-			Drinks drink2 = new Drinks(drink2ChoiceBox.getValue().toString(), drink2TextField.getText());
+			//creating Drinks objects for each drink item
+			Drinks drink1small = new Drinks("Small",drink1TextFieldSmall.getText());
+			
+			Drinks drink1med = new Drinks("Medium",drink1TextFieldMed.getText());
+			
+			Drinks drink1large = new Drinks("Large",drink1TextFieldLarge.getText());
 			
 			
-			foodItemList.add(samosa);
-			foodItemList.add(paniPuri);
-			foodItemList.add(butterChicken);
-			foodItemList.add(chefsChoice);
-			foodItemList.add(gulabJamun);
-			foodItemList.add(brownie);
+			Drinks drink2small = new Drinks("Small",(String)drink1TextFieldSmall.getText());
 			
-			drinksItemList.add(drink1);
-			drinksItemList.add(drink2);
+			Drinks drink2med = new Drinks("Medium",(String)drink2TextFieldMed.getText());
+			
+			Drinks drink2large = new Drinks("Large",(String)drink2TextFieldLarge.getText());
+			
+			
+			//adding all the menu items to the list
+			menuItemList.add(samosa);
+			menuItemList.add(paniPuri);
+			menuItemList.add(butterChicken);
+			menuItemList.add(chefsChoice);
+			menuItemList.add(gulabJamun);
+			menuItemList.add(brownie);
+			
+			//adding all the drinks to the list
+			drinksItemList.add(drink1small);
+			drinksItemList.add(drink2small);
+			drinksItemList.add(drink1med);
+			drinksItemList.add(drink2med);
+			drinksItemList.add(drink1large);
+			drinksItemList.add(drink2large);
 		} catch (InvalidUserInputException iuie) {
-			inputErrorLabel.setText(iuie.getMessage());
-			errorPresent = true;			
+			inputErrorLabel.setText(iuie.getMessage()); //if exception is caught because of invalid user input, an appropriate error message will be displayed
+			errorPresent = true; //errors are present in user input			
+		}catch (NullPointerException npe) {
+			
 		}
 		
 		try {
 			ifAnySelected();
-			ifSelected(samosaCheckBox,samosaTextField);	
-			ifSelected(paniPuriCheckBox,paniPuriTextField);	
-			ifSelected(butterChickenCheckBox,butterChickenTextField);	
-			ifSelected(chefsChoiceCheckBox,chefsChoiceTextField);	
-			ifSelected(gulabJamunCheckBox,gulabJamunTextField);	
-			ifSelected(brownieCheckBox,brownieTextField);	
+			ifItemIsSelected(samosaCheckBox,samosaTextField);	
+			ifItemIsSelected(paniPuriCheckBox,paniPuriTextField);	
+			ifItemIsSelected(butterChickenCheckBox,butterChickenTextField);	
+			ifItemIsSelected(chefsChoiceCheckBox,chefsChoiceTextField);	
+			ifItemIsSelected(gulabJamunCheckBox,gulabJamunTextField);	
+			ifItemIsSelected(brownieCheckBox,brownieTextField);	
 		} catch (InvalidUserInputException iuie) {
 			errorPresent = true;
 			inputErrorLabel.setText(iuie.getMessage());
@@ -242,8 +335,9 @@ public class OrderMenuController {
 				paymentController.setNextController(this);
 				
 				inputErrorLabel.setText(""); //clears error label text
-				Order finalPrice = new Order(foodItemList, drinksItemList); //created TotalPrice object to contain all the MenuItems 
-				paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing that information to the PaymentSummaryController		
+				Order finalPrice = new Order(menuItemList, drinksItemList); //created TotalPrice object to contain all the MenuItems and Drinks
+				paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing the total price information to the PaymentSummaryController		
+				paymentController.setTotalPriceWithTax(finalPrice.calculateTotalPriceWithTax()); //sharing the total price with tax information to the PaymentSummaryController
 				
 			} catch (IOException e) {
 				e.printStackTrace();

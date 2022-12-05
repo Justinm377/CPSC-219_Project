@@ -55,33 +55,33 @@ public class OrderMenuController {
     private CheckBox drink1CheckBox;
     
     @FXML
-    private RadioButton drink1RBsmall;
+    private CheckBox drink1CBsmall;
     @FXML
-    private RadioButton drink1RBmed;
+    private CheckBox drink1CBmed;
     @FXML
-    private RadioButton drink1RBlarge;
+    private CheckBox drink1CBlarge;
     @FXML
-    private RadioButton drink2RBsmall;
+    private CheckBox drink2CBsmall;
     @FXML
-    private RadioButton drink2RBmed;
+    private CheckBox drink2CBmed;
     @FXML
-    private RadioButton drink2RBlarge;
+    private CheckBox drink2CBlarge;
     
     @FXML
     private CheckBox drink2CheckBox;
    
     @FXML
-    private ChoiceBox drink2ChoiceBoxSmall;
+    private TextField drink2TextFieldSmall;
     @FXML
-    private ChoiceBox drink2ChoiceBoxMed;
+    private TextField drink2TextFieldMed;
     @FXML
-    private ChoiceBox drink2ChoiceBoxLarge;
+    private TextField drink2TextFieldLarge;
     @FXML
-    private ChoiceBox drink1ChoiceBoxSmall;
+    private TextField drink1TextFieldSmall;
     @FXML
-    private ChoiceBox drink1ChoiceBoxMed;
+    private TextField drink1TextFieldMed;
     @FXML
-    private ChoiceBox drink1ChoiceBoxLarge;
+    private TextField drink1TextFieldLarge;
     
     @FXML
     private Label inputErrorLabel;
@@ -135,11 +135,25 @@ public class OrderMenuController {
 	    	if (foodType.isVisible()) {
 	    		foodType.setVisible(false); 
 	    	}
-	    	foodType.clear(); //clear any text user may have inputed
+	    	foodType.clear();
+	    	//clear any text user may have inputed
 	    }
 	}
-	
-	private void setTextFieldVisibilityForDrinks (CheckBox drinksChoiceBox, RadioButton rb, ChoiceBox cb) {
+	// for drink items
+	   // public void setTextFieldVisibilityForDrinks (CheckBox drinksChoiceBox, CheckBox drinkSize) {
+		//	if (drinksChoiceBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
+			//	if (!drinkSize.isVisible()) {
+		    	//	drinkSize.setVisible(true); 
+		    	//}
+		   // }
+		   // if (!drinksChoiceBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
+		    //	if (drinksChoiceBox.isVisible()) {
+		    //		drinkSize.setVisible(false); 
+		 //   	}
+		 
+		  //  }
+	/*
+	private void setTextFieldVisibilityForDrinks (CheckBox drinksChoiceBox, RadioButton rb,) {
 		if (drinksChoiceBox.isSelected()) { //if checkbox is selected, then radiobutton should appear, if radiobutton is selected then choice box should appear (assuming it's not visible)
 			if (!rb.isVisible()) {
 	    		rb.setVisible(true);
@@ -152,6 +166,7 @@ public class OrderMenuController {
 	    		
 	    }
 		}
+		*/
 		/*options I was going through:
 		if(drinksChoiceBox.isSelected()&& rb.isVisible()&& rb.isSelected() && !cb.isVisible()) {
 			
@@ -162,12 +177,6 @@ public class OrderMenuController {
 	    		cb.setVisible(false);
 		
 	}*/
-	    if (!drinksChoiceBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
-	    	if (rb.isVisible()) {
-	    		rb.setVisible(false); 
-	    		cb.setVisible(false);
-	    	}
-	    }
 	}
 	    
 	@FXML
@@ -202,16 +211,22 @@ public class OrderMenuController {
 	
 	@FXML
 	void drink1RadioButtonAppearsForDrinks(ActionEvent event) {
-		setTextFieldVisibilityForDrinks(drink1CheckBox,drink1RBsmall, drink1ChoiceBoxSmall);
-		setTextFieldVisibilityForDrinks(drink1CheckBox,drink1RBmed, drink1ChoiceBoxMed);
-		setTextFieldVisibilityForDrinks(drink1CheckBox,drink1RBlarge, drink1ChoiceBoxLarge);
+		if(drink1CheckBox.isSelected()) {
+			setTextFieldVisibility(drink1CBsmall, drink1TextFieldSmall);
+			setTextFieldVisibility(drink1CBmed, drink1TextFieldMed);
+			setTextFieldVisibility(drink1CBlarge, drink1TextFieldLarge);
+		}
+		
 	}
 	
 	@FXML
 	void drink2RadioButtonAppearsForDrinks(ActionEvent event) {
-		setTextFieldVisibilityForDrinks(drink2CheckBox,drink2RBsmall, drink2ChoiceBoxSmall);
-		setTextFieldVisibilityForDrinks(drink2CheckBox,drink2RBmed, drink2ChoiceBoxMed);
-		setTextFieldVisibilityForDrinks(drink2CheckBox,drink2RBlarge, drink2ChoiceBoxLarge);
+		if(drink2CheckBox.isSelected()) {
+			setTextFieldVisibility(drink2CBsmall, drink2TextFieldSmall);
+			setTextFieldVisibility(drink2CBmed, drink2TextFieldMed);
+			setTextFieldVisibility(drink2CBlarge, drink2TextFieldLarge);
+		}
+		
 	}
 	
 	
@@ -259,37 +274,19 @@ public class OrderMenuController {
 			MenuItem brownie = new MenuItem(brownieTextField.getText(), priceBrownie);
 			
 			//creating Drinks objects for each drink item
-			Drinks drink1small = new Drinks(drink1RBsmall.getText(),(String)drink1ChoiceBoxSmall.getValue());
-			if((String)drink1ChoiceBoxSmall.getValue()==null) {
-				String a=(String)drink1ChoiceBoxSmall.getValue();
-				a="0";
-			}
-			Drinks drink1med = new Drinks(drink1RBmed.getText(),(String)drink1ChoiceBoxMed.getValue());
-			if((String)drink1ChoiceBoxMed.getValue()==null) {
-				String a=(String)drink1ChoiceBoxMed.getValue();
-				a="0";
-			}
-			Drinks drink1large = new Drinks(drink1RBlarge.getText(),(String)drink1ChoiceBoxSmall.getValue());
-			if((String)drink1ChoiceBoxLarge.getValue()==null) {
-				String a=(String)drink1ChoiceBoxLarge.getValue();
-				a="0";
-			}
+			Drinks drink1small = new Drinks("Small",drink1TextFieldSmall.getText());
 			
-			Drinks drink2small = new Drinks(drink2RBsmall.getText(),(String)drink2ChoiceBoxSmall.getValue());
-			if((String)drink2ChoiceBoxSmall.getValue()==null) {
-				String a=(String)drink2ChoiceBoxSmall.getValue();
-				a="0";
-			}
-			Drinks drink2med = new Drinks(drink2RBmed.getText(),(String)drink2ChoiceBoxMed.getValue());
-			if((String)drink2ChoiceBoxMed.getValue()==null) {
-				String a=(String)drink2ChoiceBoxMed.getValue();
-				a="0";
-			}
-			Drinks drink2large = new Drinks(drink2RBlarge.getText(),(String)drink2ChoiceBoxLarge.getValue());
-			if((String)drink2ChoiceBoxLarge.getValue()==null) {
-				String a=(String)drink2ChoiceBoxLarge.getValue();
-				a="0";
-			}
+			Drinks drink1med = new Drinks("Medium",drink1TextFieldMed.getText());
+			
+			Drinks drink1large = new Drinks("Large",drink1TextFieldLarge.getText());
+			
+			
+			Drinks drink2small = new Drinks("Small",(String)drink1TextFieldSmall.getText());
+			
+			Drinks drink2med = new Drinks("Medium",(String)drink2TextFieldMed.getText());
+			
+			Drinks drink2large = new Drinks("Large",(String)drink2TextFieldLarge.getText());
+			
 			
 			//adding all the menu items to the list
 			menuItemList.add(samosa);
@@ -309,6 +306,8 @@ public class OrderMenuController {
 		} catch (InvalidUserInputException iuie) {
 			inputErrorLabel.setText(iuie.getMessage()); //if exception is caught because of invalid user input, an appropriate error message will be displayed
 			errorPresent = true; //errors are present in user input			
+		}catch (NullPointerException npe) {
+			
 		}
 		
 		try {

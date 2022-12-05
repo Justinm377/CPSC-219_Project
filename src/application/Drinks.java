@@ -12,7 +12,7 @@ import javafx.scene.control.RadioButton;
  */
 
 public class Drinks extends MenuItem {
-	private RadioButton drinksize ;
+	private String size ;
 	
 	
 	
@@ -31,25 +31,17 @@ public class Drinks extends MenuItem {
 	 */
 
 	public Drinks(String drinkSize, String drinkAmount) throws InvalidUserInputException {
-		
 		setSize(drinkSize);
 		setAmount(drinkAmount);
 	}
 
-	
-
 	public String getSize() {
-		String size=drinksize.getText();
 		return size;
 	}
-	private void setSize(String drinkSize) {
-		// TODO Auto-generated method stub
-		this.drinksize=drinksize;
-	}
 
-	//public void setSize(String size) {
-		//this.size = size;
-	//}
+	public void setSize(String size) {
+		this.size = size;
+	}
 	
 	/**
 	 * This method calculates the total price of the drink selected by the user. 
@@ -72,13 +64,4 @@ public class Drinks extends MenuItem {
 		return calculateItemTotalPrice();
 	}
 
-	public RadioButton getDrinksize() {
-		return drinksize;
-	}
-
-	public void setDrinksize(RadioButton drinksize) {
-		this.drinksize = drinksize;
-	}
-	
-	
 }

@@ -32,7 +32,7 @@ public class Drinks extends MenuItem {
 
 	public Drinks(String drinkSize, String drinkAmount) throws InvalidUserInputException {
 		setSize(drinkSize);
-		setAmount(drinkAmount);
+		setQuantity(drinkAmount);
 	}
 
 	public String getSize() {
@@ -44,11 +44,10 @@ public class Drinks extends MenuItem {
 	}
 
 	/**
-	 * This method calculates the total price of the drink selected by the user. 
+	 * This method calculates the total price of the drink item selected by the user. 
 	 * @return the total price of the drink.
 	 * @throws InvalidUserInputException when no size is selected by user. 
 	 */
-
 	public double calculateDrinkTotalPrice() throws InvalidUserInputException {
 		if (getSize().equals("Small")) {
 			setPrice(1.99); //small is $1.99

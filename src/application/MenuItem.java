@@ -7,7 +7,7 @@ package application;
  *
  */
 public class MenuItem {
-	private int amount;
+	private int quantity;
 	private double price = 0.00;
 
 	/**
@@ -25,7 +25,7 @@ public class MenuItem {
 	 * @throws InvalidUserInputException is thrown when user input for amount of item is anything other than a positive integer between 0 and 10. 
 	 */
 	public MenuItem(String amountItemAsString, Double priceItem) throws InvalidUserInputException {
-		setAmount(amountItemAsString);
+		setQuantity(amountItemAsString);
 		setPrice(priceItem);
 	}
 
@@ -34,8 +34,8 @@ public class MenuItem {
 	 * and its child class, Drinks. 
 	 * @return the quantity entered by the user for the item, set by the constructor. 
 	 */
-	public int getAmount() {
-		return amount;
+	public int getQuantity() {
+		return quantity;
 	}
 
 	/**
@@ -44,7 +44,7 @@ public class MenuItem {
 	 * @param amountItemAsString a String intended to be a quantity value entered by the user. 
 	 * @throws InvalidUserInputException is thrown when quantity of item is anything other than a positive integer between 0 and 10.
 	 */
-	public void setAmount(String amountItemAsString) throws InvalidUserInputException {
+	public void setQuantity(String amountItemAsString) throws InvalidUserInputException {
 		int amountItem = 0;
 
 		int decimalCounter = 0;
@@ -79,7 +79,7 @@ public class MenuItem {
 			throw new InvalidUserInputException("To order a quantity of more than 10, please contact us directly by phone or in-person.");
 		}
 
-		this.amount = amountItem;
+		this.quantity = amountItem;
 	}
 
 	/**
@@ -105,7 +105,7 @@ public class MenuItem {
 	 * @return the total price of the item based on the quantity entered by the user and price of the item.
 	 */
 	public double calculateItemTotalPrice() {
-		double totalItemPrice = getAmount() * getPrice(); 
+		double totalItemPrice = getQuantity() * getPrice(); 
 		return totalItemPrice;
 	}
 

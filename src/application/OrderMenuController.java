@@ -140,8 +140,6 @@ public class OrderMenuController {
 		}
 	}
 
-
-
 	@FXML
 	void samosaTextFieldAppears(ActionEvent event) {
 		setTextFieldVisibility(samosaCheckBox,samosaTextField); 

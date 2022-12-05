@@ -247,7 +247,7 @@ public class OrderMenuController {
 		double priceBrownie = 4.99;
 		
 		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>(); //list of MenuItems (appetizer, main course, dessert)
-		//ArrayList<Drinks> drinksItemList = new ArrayList<Drinks>(); //list of Drinks
+		ArrayList<Drinks> drinksItemList = new ArrayList<Drinks>(); //list of Drinks
 	
 		try {	
 			//creating MenuItem objects for each menu item 
@@ -259,9 +259,37 @@ public class OrderMenuController {
 			MenuItem brownie = new MenuItem(brownieTextField.getText(), priceBrownie);
 			
 			//creating Drinks objects for each drink item
-			//Drinks drink1 = new Drinks(drink1ChoiceBox.getValue().toString(), );
+			Drinks drink1small = new Drinks(drink1RBsmall.getText(),(String)drink1ChoiceBoxSmall.getValue());
+			if((String)drink1ChoiceBoxSmall.getValue()==null) {
+				String a=(String)drink1ChoiceBoxSmall.getValue();
+				a="0";
+			}
+			Drinks drink1med = new Drinks(drink1RBmed.getText(),(String)drink1ChoiceBoxMed.getValue());
+			if((String)drink1ChoiceBoxMed.getValue()==null) {
+				String a=(String)drink1ChoiceBoxMed.getValue();
+				a="0";
+			}
+			Drinks drink1large = new Drinks(drink1RBlarge.getText(),(String)drink1ChoiceBoxSmall.getValue());
+			if((String)drink1ChoiceBoxLarge.getValue()==null) {
+				String a=(String)drink1ChoiceBoxLarge.getValue();
+				a="0";
+			}
 			
-			//Drinks drink2 = new Drinks(drink2ChoiceBox.getValue().toString(),);
+			Drinks drink2small = new Drinks(drink2RBsmall.getText(),(String)drink2ChoiceBoxSmall.getValue());
+			if((String)drink2ChoiceBoxSmall.getValue()==null) {
+				String a=(String)drink2ChoiceBoxSmall.getValue();
+				a="0";
+			}
+			Drinks drink2med = new Drinks(drink2RBmed.getText(),(String)drink2ChoiceBoxMed.getValue());
+			if((String)drink2ChoiceBoxMed.getValue()==null) {
+				String a=(String)drink2ChoiceBoxMed.getValue();
+				a="0";
+			}
+			Drinks drink2large = new Drinks(drink2RBlarge.getText(),(String)drink2ChoiceBoxLarge.getValue());
+			if((String)drink2ChoiceBoxLarge.getValue()==null) {
+				String a=(String)drink2ChoiceBoxLarge.getValue();
+				a="0";
+			}
 			
 			//adding all the menu items to the list
 			menuItemList.add(samosa);
@@ -272,8 +300,12 @@ public class OrderMenuController {
 			menuItemList.add(brownie);
 			
 			//adding all the drinks to the list
-			//drinksItemList.add(drink1);
-			//drinksItemList.add(drink2);
+			drinksItemList.add(drink1small);
+			drinksItemList.add(drink2small);
+			drinksItemList.add(drink1med);
+			drinksItemList.add(drink2med);
+			drinksItemList.add(drink1large);
+			drinksItemList.add(drink2large);
 		} catch (InvalidUserInputException iuie) {
 			inputErrorLabel.setText(iuie.getMessage()); //if exception is caught because of invalid user input, an appropriate error message will be displayed
 			errorPresent = true; //errors are present in user input			
@@ -304,7 +336,7 @@ public class OrderMenuController {
 				paymentController.setNextController(this);
 				
 				inputErrorLabel.setText(""); //clears error label text
-				Order finalPrice = new Order(menuItemList);//drinksItemList); //created TotalPrice object to contain all the MenuItems and Drinks
+				Order finalPrice = new Order(menuItemList, drinksItemList); //created TotalPrice object to contain all the MenuItems and Drinks
 				paymentController.setTotalPrice(finalPrice.calculateTotalPrice()); //sharing the total price information to the PaymentSummaryController		
 				paymentController.setTotalPriceWithTax(finalPrice.calculateTotalPriceWithTax()); //sharing the total price with tax information to the PaymentSummaryController
 				

@@ -127,19 +127,58 @@
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <RadioButton fx:id="drink1RBsmall" mnemonicParsing="false" prefHeight="17.0" prefWidth="145.0" text="Small" visible="false" />
-                        <ChoiceBox fx:id="drink1ChoiceBoxSmall" prefHeight="25.0" prefWidth="59.0" visible="false" />
+                        <ChoiceBox fx:id="drink1ChoiceBoxSmall" prefHeight="25.0" prefWidth="59.0" visible="false" >
+                        <items>
+                        
+                        		<FXCollections fx:factory="observableArrayList">
+                        			<String fx:value="1" />
+                        			<String fx:value="2" />
+                        			<String fx:value="3" />
+                        			<String fx:value="4" />
+                        			<String fx:value="5" />
+                        			
+                        		</FXCollections>
+                        	
+                        </items>
+                        </ChoiceBox>
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <RadioButton fx:id="drink1RBmed" mnemonicParsing="false" prefHeight="17.0" prefWidth="145.0" text="Medium" visible="false" />
-                        <ChoiceBox fx:id="drink1ChoiceBoxMed" prefHeight="25.0" prefWidth="59.0" visible="false" />
+                        <ChoiceBox fx:id="drink1ChoiceBoxMed" prefHeight="25.0" prefWidth="59.0" visible="false" >
+                        <items>
+                        
+                        		<FXCollections fx:factory="observableArrayList">
+                        			<String fx:value="1" />
+                        			<String fx:value="2" />
+                        			<String fx:value="3" />
+                        			<String fx:value="4" />
+                        			<String fx:value="5" />
+                        			
+                        		</FXCollections>
+                        	
+                        </items>
+                        </ChoiceBox>
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <RadioButton fx:id="drink1RBlarge" mnemonicParsing="false" prefHeight="17.0" prefWidth="146.0" text="Large" visible="false" />
-                        <ChoiceBox fx:id="drink1ChoiceBoxLarge" prefHeight="25.0" prefWidth="58.0" visible="false" />
+                        <ChoiceBox fx:id="drink1ChoiceBoxLarge" prefHeight="25.0" prefWidth="58.0" visible="false" >
+                        <items>
+                        
+                        		<FXCollections fx:factory="observableArrayList">
+                        			<String fx:value="1" />
+                        			<String fx:value="2" />
+                        			<String fx:value="3" />
+                        			<String fx:value="4" />
+                        			<String fx:value="5" />
+                        			
+                        		</FXCollections>
+                        	
+                        </items>
+                        </ChoiceBox>
                      </children>
                   </HBox>
                </children>
@@ -159,19 +198,59 @@
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <RadioButton fx:id="drink2RBsmall" mnemonicParsing="false" prefHeight="17.0" prefWidth="147.0" text="Small" visible="false" />
-                        <ChoiceBox fx:id="drink2ChoiceBoxSmall" prefHeight="25.0" prefWidth="59.0" visible="false" />
+                        <ChoiceBox fx:id="drink2ChoiceBoxSmall" prefHeight="25.0" prefWidth="59.0" visible="false" >
+                        <items>
+                        
+                        		<FXCollections fx:factory="observableArrayList">
+                        			<String fx:value="1" />
+                        			<String fx:value="2" />
+                        			<String fx:value="3" />
+                        			<String fx:value="4" />
+                        			<String fx:value="5" />
+                        			
+                        		</FXCollections>
+                        	
+                        </items>
+                        </ChoiceBox>
+                        
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <RadioButton fx:id="drink2RBmed" mnemonicParsing="false" prefHeight="17.0" prefWidth="148.0" text="Medium " visible="false" />
-                        <ChoiceBox fx:id="drink2ChoiceBoxMed" prefHeight="25.0" prefWidth="59.0" visible="false" />
+                        <ChoiceBox fx:id="drink2ChoiceBoxMed" prefHeight="25.0" prefWidth="59.0" visible="false" >
+                        <items>
+                        
+                        		<FXCollections fx:factory="observableArrayList">
+                        			<String fx:value="1" />
+                        			<String fx:value="2" />
+                        			<String fx:value="3" />
+                        			<String fx:value="4" />
+                        			<String fx:value="5" />
+                        			
+                        		</FXCollections>
+                        	
+                        </items>
+                        </ChoiceBox>
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0">
                      <children>
                         <RadioButton fx:id="drink2RBlarge" mnemonicParsing="false" prefHeight="17.0" prefWidth="148.0" text="Large" visible="false" />
-                        <ChoiceBox fx:id="drink2ChoiceBoxLarge" prefHeight="25.0" prefWidth="57.0" visible="false" />
+                        <ChoiceBox fx:id="drink2ChoiceBoxLarge" prefHeight="25.0" prefWidth="57.0" visible="false" >
+                        <items>
+                        
+                        		<FXCollections fx:factory="observableArrayList">
+                        			<String fx:value="1" />
+                        			<String fx:value="2" />
+                        			<String fx:value="3" />
+                        			<String fx:value="4" />
+                        			<String fx:value="5" />
+                        			
+                        		</FXCollections>
+                        	
+                        </items>
+                        </ChoiceBox>
                      </children>
                   </HBox>
                </children>

@@ -11,16 +11,18 @@ import java.util.ArrayList;
  */
 public class Order {
 	private ArrayList<MenuItem> itemList;
-	//private ArrayList<Drinks> drinksList;
+	private ArrayList<Drinks> drinksList;
 	
 	/**
 	 * This constructor takes lists of the menu items and drinks and sets the instance variables as those lists.
 	 * @param foodItemList a list of all the MenuItems 
 	 * @param drinksItemList a list of all the Drinks
 	 */
-	public Order(ArrayList<MenuItem> foodItemList){//,ArrayList<Drinks> drinksItemList) {
-		setItemList(foodItemList);
-		//setDrinksList(drinksItemList);
+
+	public Order(ArrayList<MenuItem> menuItemList, ArrayList<Drinks> drinksItemList) {
+		// TODO Auto-generated constructor stub
+		setItemList(menuItemList);
+		setDrinksList(drinksItemList);
 	}
 
 	public ArrayList<MenuItem> getItemList() {
@@ -31,13 +33,13 @@ public class Order {
 		this.itemList = itemList;
 	}
 
-	//public ArrayList<Drinks> getDrinksList() {
-	//	return drinksList;
-	//}
+	public ArrayList<Drinks> getDrinksList() {
+		return drinksList;
+	}
 
-	//public void setDrinksList(ArrayList<Drinks> drinksList) {
-	//	this.drinksList = drinksList;
-	//}
+	public void setDrinksList(ArrayList<Drinks> drinksList) {
+		this.drinksList = drinksList;
+	}
 
 	/**
 	 * This method calculates the total price of the user's order and returns that total price.
@@ -52,13 +54,13 @@ public class Order {
 		}
 		
 		//takes total price of each drink and adds them to a total order price
-		//for (int i = 0; i < getDrinksList().size(); i++) {
-		//	try {
-		//		priceToReturn = priceToReturn + getDrinksList().get(i).calculateDrinkTotalPrice();
-		//	} catch (InvalidUserInputException e) {
-		//		e.printStackTrace();
-		//	}
-		//}
+		for (int i = 0; i < getDrinksList().size(); i++) {
+			try {
+				priceToReturn = priceToReturn + getDrinksList().get(i).calculateDrinkTotalPrice();
+			} catch (InvalidUserInputException e) {
+			e.printStackTrace();
+			}
+		}
 		
 		return priceToReturn;
 	}

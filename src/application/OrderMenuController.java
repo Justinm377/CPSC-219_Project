@@ -86,22 +86,42 @@ public class OrderMenuController {
 	@FXML
 	private Label inputErrorLabel;
 
+	/**
+	 * This method sets the given stage as the primary stage of the application. 
+	 * @param aStage The stage to be set as the application's primary stage.
+	 */
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
 	}
 
+	/**
+	 * This method sets the given scene as the controller's scene. 
+	 * @param aScene The scene intended to be displayed to the user. 
+	 */
 	public void setMyScene(Scene aScene) {
 		myScene = aScene;
 	}
 
+	/**
+	 * This method switches the controller from OrderMenuController to HomePageController. 
+	 * @param next The controller that it is switching to. 
+	 */
 	public void setNextController(HomePageController next) {
 		homePageController = next;
 	}
 
+	/**
+	 * This method switches the controller from OrderMenuController to ViewMenuController.
+	 * @param next The controller that it is switching to. 
+	 */
 	public void setNextController2(ViewMenuController next) {
 		viewMenuController = next;
 	}
 
+	/**
+	 * This method sets the given scene as the primary stage's scene. This displays the given scene to the user
+	 * utilizing the application.
+	 */
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
 	}
@@ -125,17 +145,22 @@ public class OrderMenuController {
 		homePageController.takeFocus();
 	}
 
-	private void setTextFieldVisibility (CheckBox foodChoiceBox, TextField foodType) {
-		if (foodChoiceBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
-			if (!foodType.isVisible()) {
-				foodType.setVisible(true); 
+	/**
+	 * This method sets a text field visible when the user selects the respective check box for that text field. 
+	 * @param checkBox The check box that will be selected or unselected by user. 
+	 * @param textField The text field to set visible or invisible.
+	 */
+	private void setTextFieldVisibility(CheckBox checkBox, TextField textField) {
+		if (checkBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
+			if (!textField.isVisible()) {
+				textField.setVisible(true); 
 			}
 		}
-		if (!foodChoiceBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
-			if (foodType.isVisible()) {
-				foodType.setVisible(false); 
+		if (!checkBox.isSelected()) { //if checkbox is unselected by user, visible textfield disappears
+			if (textField.isVisible()) {
+				textField.setVisible(false); 
 			}
-			foodType.clear();
+			textField.clear();
 			//clear any text user may have inputed
 		}
 	}
@@ -177,6 +202,8 @@ public class OrderMenuController {
 			setTextFieldVisibility(drink1CBmed, drink1TextFieldMed);
 			setTextFieldVisibility(drink1CBlarge, drink1TextFieldLarge);
 		}
+		ifDrinkIsUnselectedWithSizeSelected(drink1CheckBox, drink1TextFieldSmall, drink1CBsmall, drink1TextFieldMed,
+				drink1CBmed, drink1TextFieldLarge, drink1CBlarge);
 	} 
 
 	@FXML
@@ -186,6 +213,8 @@ public class OrderMenuController {
 			setTextFieldVisibility(drink2CBmed, drink2TextFieldMed);
 			setTextFieldVisibility(drink2CBlarge, drink2TextFieldLarge);
 		}
+		ifDrinkIsUnselectedWithSizeSelected(drink2CheckBox, drink2TextFieldSmall, drink2CBsmall, drink2TextFieldMed,
+				drink2CBmed, drink2TextFieldLarge, drink2CBlarge);
 	}
 
 	/**
@@ -215,7 +244,7 @@ public class OrderMenuController {
 	}
 	
 	/**
-	 * This method checks if the user has selected a drinks check box, but selected no size. If they have selected no
+	 * This method checks if the user has selected a drinks check box, but has selected no size. If they have selected no
 	 * size but have selected a drink, an InvalidUserInputException is thrown. 
 	 * @param drinkSelected the drink that is selected by user
 	 * @param smallCB CheckBox of the small size of given drink
@@ -223,10 +252,36 @@ public class OrderMenuController {
 	 * @param largeCB CheckBox of the large size of given drink
 	 * @throws InvalidUserInputException is thrown when a drink is selected, but no size is selected by user. 
 	 */
-	public void ifDrinkIsSelected(CheckBox drinkSelected, CheckBox smallCB, CheckBox mediumCB, CheckBox largeCB) throws InvalidUserInputException {
+	public void ifDrinkIsSelectedWithNoSize(CheckBox drinkSelected, CheckBox smallCB, CheckBox mediumCB, CheckBox largeCB) throws InvalidUserInputException {
 		if (drinkSelected.isSelected() == true && smallCB.isSelected() == false && mediumCB.isSelected() == false
 				&& largeCB.isSelected() == false) {
 			throw new InvalidUserInputException("Please select a drink size.");
+		}
+	}
+	
+	/**
+	 * This method unselects the different size check boxes for a drink and their respective text fields when the user
+	 * unselects the main drink check box. 
+	 * @param drinkSelected CheckBox of the Drinks item. 
+	 * @param smallTF TextField for the small size option. 
+	 * @param smallCB CheckBox for the small size option. 
+	 * @param mediumTF TextField for the medium size option. 
+	 * @param mediumCB CheckBox for the medium size option. 
+	 * @param largeTF TextField for the large size option.
+	 * @param largeCB CheckBox for the large size option.
+	 */
+	public void ifDrinkIsUnselectedWithSizeSelected(CheckBox drinkSelected, TextField smallTF, CheckBox smallCB, 
+			TextField mediumTF, CheckBox mediumCB, TextField largeTF, CheckBox largeCB) {
+		if (drinkSelected.isSelected() == false && (smallTF.isVisible() == true || mediumTF.isVisible() == true 
+				|| smallTF.isVisible() == true)) {
+			smallTF.setVisible(false);
+			mediumTF.setVisible(false);
+			largeTF.setVisible(false);
+			smallCB.setSelected(false);
+			mediumCB.setSelected(false);
+			largeCB.setSelected(false);
+			//if drink check box is unselected, and a quantity textfield is visible for any of the size options, it
+			//will be set unvisible and its checkbox will be unselected. 
 		}
 	}
 
@@ -292,9 +347,9 @@ public class OrderMenuController {
 			ifItemIsSelected(gulabJamunCheckBox,gulabJamunTextField);	
 			ifItemIsSelected(brownieCheckBox,brownieTextField);
 			
-			//checks if drink is selected, but no size is selected
-			ifDrinkIsSelected(drink1CheckBox, drink1CBsmall, drink1CBmed, drink1CBlarge);
-			ifDrinkIsSelected(drink2CheckBox, drink2CBsmall, drink2CBmed, drink2CBlarge);
+			//checks if drink is selected, but no size is selected, and if a size isn't selected, user is given error message 
+			ifDrinkIsSelectedWithNoSize(drink1CheckBox, drink1CBsmall, drink1CBmed, drink1CBlarge);
+			ifDrinkIsSelectedWithNoSize(drink2CheckBox, drink2CBsmall, drink2CBmed, drink2CBlarge);
 			
 			//checks if the check box is selected for the different sizes of the drinks, and if one is, but text field is empty, user is given error message when they attempt to continue
 			ifItemIsSelected(drink1CBsmall, drink1TextFieldSmall);

@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PaymentInfoController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="634.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PaymentInfoController">
 	<children>
 		<Label text="Personal Information">
 			<font>
@@ -28,7 +28,7 @@
 					</padding>
 				</Label>
 				<TextField fx:id="firstNameTextField" translateX="10.0" />
-				<Label fx:id="firstNameErrorLabel" prefHeight="17.0" prefWidth="292.0" textFill="RED" translateY="3.0">
+				<Label fx:id="firstNameErrorLabel" prefHeight="17.0" prefWidth="292.0" textFill="RED" translateX="15.0" translateY="3.0">
 					<padding>
 						<Insets left="5.0" />
 					</padding>
@@ -49,7 +49,7 @@
 					</padding>
 				</Label>
 				<TextField fx:id="lastNameTextField" translateX="10.0" />
-				<Label fx:id="lastNameErrorLabel" prefHeight="17.0" prefWidth="289.0" text="" textFill="#f80000" translateY="4.0">
+				<Label fx:id="lastNameErrorLabel" prefHeight="17.0" prefWidth="289.0" text="" textFill="#f80000" translateX="15.0" translateY="4.0">
 					<padding>
 						<Insets left="5.0" />
 					</padding>
@@ -64,7 +64,7 @@
 					</padding>
 				</Label>
 				<TextField fx:id="addressTextField" translateX="10.0" />
-				<Label fx:id="addressErrorLabel" prefHeight="17.0" prefWidth="276.0" text="" textFill="#f50000" translateY="4.0">
+				<Label fx:id="addressErrorLabel" prefHeight="17.0" prefWidth="276.0" text="" textFill="#f50000" translateX="15.0" translateY="4.0">
 					<HBox.margin>
 						<Insets />
 					</HBox.margin>
@@ -82,7 +82,7 @@
 					</padding>
 				</Label>
 				<TextField fx:id="postalCodeTextField" translateX="10.0" />
-				<Label fx:id="postalCodeErrorLabel" prefHeight="17.0" prefWidth="286.0" text="" textFill="RED" translateY="4.0">
+				<Label fx:id="postalCodeErrorLabel" prefHeight="17.0" prefWidth="286.0" text="" textFill="RED" translateX="15.0" translateY="4.0">
 					<padding>
 						<Insets left="5.0" />
 					</padding>
@@ -97,7 +97,7 @@
 					</padding>
 				</Label>
 				<TextField fx:id="phoneNumberTextField" translateX="5.0" />
-				<Label fx:id="phoneNumberErrorLabel" prefHeight="17.0" prefWidth="291.0" text="" textFill="RED" translateY="4.0">
+				<Label fx:id="phoneNumberErrorLabel" prefHeight="17.0" prefWidth="291.0" text="" textFill="RED" translateX="15.0" translateY="4.0">
 					<padding>
 						<Insets left="5.0" />
 					</padding>
@@ -117,7 +117,7 @@
 					</padding>
 				</Label>
 				<TextField fx:id="nameOnCardTextField" translateX="10.0" />
-				<Label fx:id="nameErrorLabel" prefHeight="17.0" prefWidth="289.0" text="" textFill="RED" translateY="4.0">
+				<Label fx:id="nameErrorLabel" prefHeight="17.0" prefWidth="289.0" text="" textFill="RED" translateX="15.0" translateY="4.0">
 					<padding>
 						<Insets left="5.0" />
 					</padding>
@@ -132,7 +132,7 @@
 					</padding>
 				</Label>
 				<TextField fx:id="cardNumberTextField" translateX="10.0" />
-				<Label fx:id="cardNumberErrorLabel" prefHeight="17.0" prefWidth="289.0" text="" textFill="RED" translateY="4.0">
+				<Label fx:id="cardNumberErrorLabel" prefHeight="17.0" prefWidth="289.0" text="" textFill="RED" translateX="15.0" translateY="4.0">
 					<padding>
 						<Insets left="5.0" />
 					</padding>
@@ -153,13 +153,13 @@
 					</padding>
 				</Label>
 				<TextField fx:id="expiryYearTextField" prefHeight="25.0" prefWidth="70.0" translateX="10.0" />
-				<VBox prefHeight="35.0" prefWidth="287.0">
+				<VBox minWidth="-Infinity" prefHeight="34.0" prefWidth="316.0" translateX="10.0">
 					<children>
-						<Label fx:id="expiryMonthErrorLabel" prefHeight="17.0" prefWidth="254.0" textFill="RED" translateX="-120.0" translateY="-2.0" />
-						<Label fx:id="expiryYearErrorLabel" prefHeight="17.0" prefWidth="152.0" textFill="RED" translateX="-120.0" translateY="-4.0" />
+						<Label fx:id="expiryMonthErrorLabel" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="289.0" textFill="RED" translateX="-135.0" translateY="-2.0" />
+						<Label fx:id="expiryYearErrorLabel" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="289.0" textFill="RED" translateX="-135.0" translateY="-4.0" />
 					</children>
 					<padding>
-						<Insets left="125.0" />
+						<Insets left="140.0" />
 					</padding>
 				</VBox>
 			</children>
@@ -172,7 +172,7 @@
 					</padding>
 				</Label>
 				<TextField fx:id="cvvTextField" translateX="6.0" />
-				<Label fx:id="cvvErrorLabel" prefHeight="17.0" prefWidth="289.0" text="" textFill="RED" translateY="4.0">
+				<Label fx:id="cvvErrorLabel" prefHeight="17.0" prefWidth="289.0" text="" textFill="RED" translateX="15.0" translateY="4.0">
 					<padding>
 						<Insets left="5.0" />
 					</padding>

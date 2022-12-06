@@ -182,7 +182,7 @@
 		<Label fx:id="lengthErrorLabel" alignment="CENTER" prefHeight="17.0" prefWidth="550.0" text="" textFill="RED" />
 		<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
 			<children>
-				<Button mnemonicParsing="false" onAction="#switchtoOrderConfirmation" text="Submit" />
+				<Button mnemonicParsing="false" onAction="#switchToOrderConfirmation" text="Submit" />
 			</children>
 		</HBox>
 	</children>

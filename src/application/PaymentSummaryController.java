@@ -55,14 +55,14 @@ public class PaymentSummaryController {
 	}
 
 	@FXML
-	public void switchtoOrderMenu(ActionEvent event) { 
+	public void switchToOrderMenu(ActionEvent event) { 
 		if (orderMenuSceneController != null) {
 			orderMenuSceneController.takeFocus();
 		} 
 	}
 
 	@FXML
-	public void switchtoPaymentInfo(ActionEvent event) {
+	public void switchToPaymentInfo(ActionEvent event) {
 		if (paymentTypeChoiceBox.getValue() != null) {
 			if (paymentInfoController == null) {
 				try {

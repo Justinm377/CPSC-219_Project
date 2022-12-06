@@ -34,14 +34,14 @@ public class ViewMenuController {
 	}
 
 	@FXML
-	public void switchtoHomePage(ActionEvent event) {
+	public void switchToHomePage(ActionEvent event) {
 		if (homePageController != null) {
 			homePageController.takeFocus();
 		} 
 	}
 
 	@FXML
-	public void switchtoOrderMenu(ActionEvent event) {
+	public void switchToOrderMenu(ActionEvent event) {
 		if (orderMenuSceneController == null) {
 			try {
 				FXMLLoader loader = new FXMLLoader();

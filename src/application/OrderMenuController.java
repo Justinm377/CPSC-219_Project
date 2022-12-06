@@ -133,7 +133,7 @@ public class OrderMenuController {
 	 * @param event Represents the action of the user pressing the button to return to the home page.
 	 */
 	@FXML
-	public void switchtoHomePage(ActionEvent event) {
+	public void switchToHomePage(ActionEvent event) {
 		if (homePageController == null) {
 			try {
 				FXMLLoader loader = new FXMLLoader();
@@ -344,7 +344,7 @@ public class OrderMenuController {
 	 * @param event Represents the action of the user pressing the button to continue to payment summary. 
 	 */
 	@FXML  
-	public void switchtoPaymentSummary(ActionEvent event) {
+	public void switchToPaymentSummary(ActionEvent event) {
 		boolean errorPresent = false; //currently no errors present in user input
 
 		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>(); //list of MenuItems (appetizer, main course, dessert)

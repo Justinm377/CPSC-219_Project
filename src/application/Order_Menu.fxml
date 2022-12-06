@@ -219,12 +219,12 @@
 		</Label>
 		<HBox prefHeight="100.0" prefWidth="200.0">
 			<children>
-				<Button mnemonicParsing="false" onAction="#switchtoHomePage" prefHeight="26.0" prefWidth="236.0" text="Return to Home Page" translateX="15.0">
+				<Button mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="26.0" prefWidth="236.0" text="Return to Home Page" translateX="15.0">
 					<HBox.margin>
 						<Insets bottom="5.0" left="10.0" right="20.0" />
 					</HBox.margin>
 				</Button>
-				<Button mnemonicParsing="false" onAction="#switchtoPaymentSummary" prefHeight="26.0" prefWidth="236.0" text="Continue to Payment" translateX="77.0">
+				<Button mnemonicParsing="false" onAction="#switchToPaymentSummary" prefHeight="26.0" prefWidth="236.0" text="Continue to Payment" translateX="77.0">
                <HBox.margin>
                   <Insets bottom="5.0" />
                </HBox.margin></Button>

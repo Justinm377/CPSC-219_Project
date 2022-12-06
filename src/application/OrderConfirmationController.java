@@ -39,7 +39,7 @@ public class OrderConfirmationController {
 	}
 
 	@FXML
-	public void switchtoHomePage(ActionEvent event) { 
+	public void switchToHomePage(ActionEvent event) { 
 		if (homePageController == null) {
 			try {
 				FXMLLoader loader = new FXMLLoader();

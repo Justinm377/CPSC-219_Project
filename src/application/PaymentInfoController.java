@@ -81,15 +81,15 @@ public class PaymentInfoController {
 		primaryStage.setScene(myScene);
 	}
 
-	
-	public void switchtoOrderConfirmation(ActionEvent event) {
+	@FXML
+	public void switchToOrderConfirmation(ActionEvent event) {
 		boolean allValidationPassed = true;
 
 		//creating a new instance of an user, using User class
 		User user = new User();
 
 		//attempting to set personal user information (first name, last name, address, phone number) based on user input
-		// and if input is invalid, a proper error message will be set
+		//and if input is invalid, a proper error message will be displayed to the user
 		try {
 			firstNameErrorLabel.setText(""); //clear text once error is gone
 			user.setFirstName(firstNameTextField.getText());			
@@ -133,6 +133,8 @@ public class PaymentInfoController {
 		//creating the user's credit or debit card
 		Card userPaymentCard = new Card();
 
+		//attempting to set user's card name, card number, expiry date, and cvv in their Card. if invalid input is detected,
+		// user is displayed an appropriate error message. 
 		try {
 			nameErrorLabel.setText(""); //clear text once error is gone
 			userPaymentCard.setCardName(nameOnCardTextField.getText());			
@@ -193,7 +195,7 @@ public class PaymentInfoController {
 					number = randomNumbers.nextInt(10);
 					orderNumberAsString = orderNumberAsString + Integer.toString(number);
 				}
-				orderConfirmationController.setLabelText(orderNumberAsString);
+				orderConfirmationController.setLabelText(orderNumberAsString); //set order number as this number
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

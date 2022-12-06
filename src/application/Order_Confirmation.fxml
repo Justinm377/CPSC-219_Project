@@ -11,11 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity"
-	maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-	prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"
-	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="application.OrderConfirmationController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OrderConfirmationController">
 	<children>
 		<Label text="Thank you for your order!">
 			<font>
@@ -32,15 +28,13 @@
 						<Font size="24.0" />
 					</font>
 				</Label>
-				<Label text="label" fx:id="orderNumber">
+				<Label fx:id="orderNumber" text="label">
 					<font>
 						<Font size="24.0" />
 					</font>
 				</Label>
 			</children>
 		</HBox>
-		<Button mnemonicParsing="false" onAction="#switchtoHomePage"
-			text="Return to Home Page" />
+		<Button mnemonicParsing="false" onAction="#switchToHomePage" text="Return to Home Page" />
 	</children>
 </VBox>
-

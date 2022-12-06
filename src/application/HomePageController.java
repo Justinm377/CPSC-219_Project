@@ -41,7 +41,7 @@ public class HomePageController {
 	}
 	
 	@FXML
-	public void switchtoViewMenu(ActionEvent event) {
+	public void switchToViewMenu(ActionEvent event) {
 		if (viewMenuController == null) {
 			try {
 				FXMLLoader loader = new FXMLLoader();
@@ -61,7 +61,7 @@ public class HomePageController {
 	}
 
 	@FXML
-	public void switchtoOrderMenu(ActionEvent event) {
+	public void switchToOrderMenu(ActionEvent event) {
 		if (orderMenuSceneController == null) {
 			try {
 				FXMLLoader loader = new FXMLLoader();

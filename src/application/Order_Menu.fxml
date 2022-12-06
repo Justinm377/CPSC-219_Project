@@ -126,7 +126,7 @@
 			<children>
             <VBox prefHeight="75.0" prefWidth="240.0">
                <children>
-      				<CheckBox fx:id="drink1CheckBox" mnemonicParsing="false" onAction="#chaiTextFieldsAppear" prefHeight="18.0" prefWidth="236.0" text="Chai">
+      				<CheckBox fx:id="chaiMainCheckBox" mnemonicParsing="false" onAction="#chaiTextFieldsAppear" prefHeight="18.0" prefWidth="236.0" text="Masala Chai">
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
@@ -146,20 +146,20 @@
 					<children>
 						<HBox prefHeight="100.0" prefWidth="200.0">
 							<children>
-								<CheckBox fx:id="drink1CBsmall" mnemonicParsing="false" onAction="#chaiTextFieldsAppear" prefHeight="17.0" prefWidth="121.0" text="Small ($1.99)" />
-								<TextField fx:id="drink1TextFieldSmall" onAction="#chaiTextFieldsAppear" prefHeight="25.0" prefWidth="150.0" visible="false" />
+								<CheckBox fx:id="chaiCheckBoxSmall" mnemonicParsing="false" onAction="#chaiTextFieldsAppear" prefHeight="17.0" prefWidth="121.0" text="Small ($1.99)" />
+								<TextField fx:id="chaiTextFieldSmall" onAction="#chaiTextFieldsAppear" prefHeight="25.0" prefWidth="150.0" visible="false" />
 							</children>
 						</HBox>
 						<HBox prefHeight="100.0" prefWidth="200.0">
 							<children>
-								<CheckBox fx:id="drink1CBmed" mnemonicParsing="false" onAction="#chaiTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Medium ($2.49)" />
-								<TextField fx:id="drink1TextFieldMed" onAction="#chaiTextFieldsAppear" visible="false" />
+								<CheckBox fx:id="chaiCheckBoxMedium" mnemonicParsing="false" onAction="#chaiTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Medium ($2.49)" />
+								<TextField fx:id="chaiTextFieldMedium" onAction="#chaiTextFieldsAppear" visible="false" />
 							</children>
 						</HBox>
 						<HBox prefHeight="100.0" prefWidth="200.0">
 							<children>
-								<CheckBox fx:id="drink1CBlarge" mnemonicParsing="false" onAction="#chaiTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Large ($2.99)" />
-								<TextField fx:id="drink1TextFieldLarge" onAction="#chaiTextFieldsAppear" visible="false" />
+								<CheckBox fx:id="chaiCheckBoxLarge" mnemonicParsing="false" onAction="#chaiTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Large ($2.99)" />
+								<TextField fx:id="chaiTextFieldLarge" onAction="#chaiTextFieldsAppear" visible="false" />
 							</children>
 						</HBox>
 					</children>
@@ -171,7 +171,7 @@
 			<children>
             <VBox prefHeight="75.0" prefWidth="240.0">
                <children>
-      				<CheckBox fx:id="drink2CheckBox" mnemonicParsing="false" onAction="#roseSherbetTextFieldsAppear" prefHeight="18.0" prefWidth="236.0" text="Rose Sherbet">
+      				<CheckBox fx:id="sherbetMainCheckBox" mnemonicParsing="false" onAction="#sherbetTextFieldsAppear" prefHeight="18.0" prefWidth="236.0" text="Rose Sherbet">
                      <padding>
                         <Insets left="5.0" />
                      </padding></CheckBox>
@@ -188,21 +188,21 @@
 					<children>
 						<HBox prefHeight="100.0" prefWidth="200.0">
 							<children>
-								<CheckBox fx:id="drink2CBsmall" mnemonicParsing="false" onAction="#roseSherbetTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Small ($1.99)" />
-								<TextField fx:id="drink2TextFieldSmall" onAction="#roseSherbetTextFieldsAppear" visible="false" />
+								<CheckBox fx:id="sherbetCheckBoxSmall" mnemonicParsing="false" onAction="#sherbetTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Small ($1.99)" />
+								<TextField fx:id="sherbetTextFieldSmall" onAction="#sherbetTextFieldsAppear" visible="false" />
 
 							</children>
 						</HBox>
 						<HBox prefHeight="100.0" prefWidth="200.0">
 							<children>
-								<CheckBox fx:id="drink2CBmed" mnemonicParsing="false" onAction="#roseSherbetTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Medium ($2.49)" />
-								<TextField fx:id="drink2TextFieldMed" onAction="#roseSherbetTextFieldsAppear" visible="false" />
+								<CheckBox fx:id="sherbetCheckBoxMedium" mnemonicParsing="false" onAction="#sherbetTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Medium ($2.49)" />
+								<TextField fx:id="sherbetTextFieldMedium" onAction="#sherbetTextFieldsAppear" visible="false" />
 							</children>
 						</HBox>
 						<HBox prefHeight="100.0" prefWidth="200.0">
 							<children>
-								<CheckBox fx:id="drink2CBlarge" mnemonicParsing="false" onAction="#roseSherbetTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Large ($2.99)" />
-								<TextField fx:id="drink2TextFieldLarge" onAction="#roseSherbetTextFieldsAppear" visible="false" />
+								<CheckBox fx:id="sherbetCheckBoxLarge" mnemonicParsing="false" onAction="#sherbetTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Large ($2.99)" />
+								<TextField fx:id="sherbetTextFieldLarge" onAction="#sherbetTextFieldsAppear" visible="false" />
 							</children>
 						</HBox>
 					</children>

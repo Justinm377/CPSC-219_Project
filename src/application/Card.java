@@ -85,7 +85,7 @@ public class Card {
 	public void setExpiryMonth(String expiryMonth) throws InvalidUserInputException {
 		//sets user input for expiry month, only if it is between 1 and 12 and contains only digits, else it throws an exception
 		if (expiryMonth == "") {
-			throw new InvalidUserInputException("Please input your card's expiry month in this field."); //if user enters no expiry month, exception is thrown
+			throw new InvalidUserInputException("Please input your card's expiry month in the first field."); //if user enters no expiry month, exception is thrown
 		} else if (expiryMonth != "") {
 			for (char c : expiryMonth.toCharArray()){
 				if (expiryMonth.length() != 2 && Character.isDigit(c)) {
@@ -117,7 +117,7 @@ public class Card {
 	public void setExpiryYear(String expiryYear) throws InvalidUserInputException {
 		//sets user input for expiry year as long as its a digit and 22 or later, else it throws an exception
 		if (expiryYear == "") {
-			throw new InvalidUserInputException("Please input your card's expiry year in this field."); //if user enters no expiry year, exception is thrown
+			throw new InvalidUserInputException("Please input your card's expiry year in the second field."); //if user enters no expiry year, exception is thrown
 		} else if (expiryYear != "") {
 			for (char c : expiryYear.toCharArray()){
 				if (expiryYear.length() != 2 && Character.isDigit(c)) {

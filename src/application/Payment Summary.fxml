@@ -111,11 +111,7 @@
 			</children>
 		</HBox>
 		<Label text="To pay in cash, please visit us in person or give us a call on our phone number: 202-225-4965" />
-		<Label fx:id="errorLabelChoiceBox" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" prefHeight="15.0" prefWidth="389.0" text="" textFill="RED">
-			<padding>
-				<Insets bottom="30.0" />
-			</padding>
-		</Label>
+		<Label fx:id="errorLabelPaymentType" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" prefHeight="38.0" prefWidth="389.0" textFill="RED" />
 		<HBox prefHeight="51.0" prefWidth="600.0">
 			<children>
 				<Button mnemonicParsing="false" onAction="#switchtoOrderMenu" prefHeight="26.0" prefWidth="305.0" text="Return to Order">

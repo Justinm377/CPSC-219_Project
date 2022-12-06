@@ -19,6 +19,14 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * The OrderMenuController switches scenes from order menu to home page or payment summary. It reacts accordingly to
+ * the user's selection of check boxes for each menu item and drink sizes, making text fields visible when check boxes
+ * are selected and vice versa. It also validates user input in text fields. It only switches scenes to payment summary
+ * when valid user input is provided. 
+ * @author CS219-user Group 5
+ *
+ */
 public class OrderMenuController {
 
 	private Stage primaryStage;
@@ -51,37 +59,36 @@ public class OrderMenuController {
 	private TextField brownieTextField;
 	@FXML
 	private CheckBox brownieCheckBox; 
+	
 	@FXML
-	private CheckBox drink1CheckBox;
-
+	private CheckBox chaiMainCheckBox;
 	@FXML
-	private CheckBox drink1CBsmall;
+	private CheckBox chaiCheckBoxSmall;
 	@FXML
-	private CheckBox drink1CBmed;
+	private CheckBox chaiCheckBoxMedium;
 	@FXML
-	private CheckBox drink1CBlarge;
+	private CheckBox chaiCheckBoxLarge;
 	@FXML
-	private CheckBox drink2CBsmall;
+	private TextField chaiTextFieldSmall;
 	@FXML
-	private CheckBox drink2CBmed;
+	private TextField chaiTextFieldMedium;
 	@FXML
-	private CheckBox drink2CBlarge;
-
+	private TextField chaiTextFieldLarge;
+	
 	@FXML
-	private CheckBox drink2CheckBox;
-
+	private CheckBox sherbetMainCheckBox;
 	@FXML
-	private TextField drink2TextFieldSmall;
+	private CheckBox sherbetCheckBoxSmall;
 	@FXML
-	private TextField drink2TextFieldMed;
+	private CheckBox sherbetCheckBoxMedium;
 	@FXML
-	private TextField drink2TextFieldLarge;
+	private CheckBox sherbetCheckBoxLarge;
 	@FXML
-	private TextField drink1TextFieldSmall;
+	private TextField sherbetTextFieldSmall;
 	@FXML
-	private TextField drink1TextFieldMed;
+	private TextField sherbetTextFieldMedium;
 	@FXML
-	private TextField drink1TextFieldLarge;
+	private TextField sherbetTextFieldLarge;
 
 	@FXML
 	private Label inputErrorLabel;
@@ -126,6 +133,10 @@ public class OrderMenuController {
 		primaryStage.setScene(myScene);
 	}
 
+	/**
+	 * This method sets the home page as the scene when the user decides to return to the home page. 
+	 * @param event Represents the action of the user pressing the button to return to the home page.
+	 */
 	@FXML
 	public void switchtoHomePage(ActionEvent event) {
 		if (homePageController == null) {
@@ -146,7 +157,8 @@ public class OrderMenuController {
 	}
 
 	/**
-	 * This method sets a text field visible when the user selects the respective check box for that text field. 
+	 * This method sets a text field visible when the user selects the respective check box for that text field. When
+	 * the user deselects the check box, the text field will be invisible. 
 	 * @param checkBox The check box that will be selected or unselected by user. 
 	 * @param textField The text field to set visible or invisible.
 	 */
@@ -165,56 +177,100 @@ public class OrderMenuController {
 		}
 	}
 
+	/**
+	 * Upon selecting the check box for the samosa menu item, its quantity text field will be visible. Deselecting 
+	 * the check box will make the quantity text field invisible.
+	 * @param event The user selecting or deselecting the check box for the samosa menu item. 
+	 */
 	@FXML
 	void samosaTextFieldAppears(ActionEvent event) {
 		setTextFieldVisibility(samosaCheckBox,samosaTextField); 
 	}   
 
+	/**
+	 * Upon selecting the check box for the pani puri menu item, its quantity text field will be visible. Deselecting
+	 * the check box will make the quantity text field invisible.
+	 * @param event The user selecting or deselecting the check box for the pani puri menu item. 
+	 */
 	@FXML
 	void paniPuriTextFieldAppears(ActionEvent event) {
 		setTextFieldVisibility(paniPuriCheckBox,paniPuriTextField);
 	}
 
+	/**
+	 * Upon selecting the check box for the butter chicken meal menu item, its quantity text field will be visible.
+	 * Deselecting the check box will make the quantity text field invisible.
+	 * @param event The user selecting or deselecting the check box for the butter chicken meal menu item. 
+	 */
 	@FXML
 	void butterChickenTextFieldAppears(ActionEvent event) {
 		setTextFieldVisibility(butterChickenCheckBox,butterChickenTextField);
 	}
 
+	/**
+	 * Upon selecting the check box for the chef's choice meal menu item, its quantity text field will be visible. 
+	 * Deselecting the check box will make the quantity text field invisible. 
+	 * @param event The user selecting or deselecting the check box for the chef's choice meal menu item. 
+	 */
 	@FXML
 	void chefsChoiceTextFieldAppears(ActionEvent event) {   	
 		setTextFieldVisibility(chefsChoiceCheckBox,chefsChoiceTextField);
 	}
 
+	/**
+	 * Upon selecting the check box for the gulab jamun menu item, its quantity text field will be visible.
+	 * Deselecting the check box will make the quantity text field invisible.
+	 * @param event The user selecting or deselecting the check box for the gulab jamun menu item. 
+	 */
 	@FXML
 	void gulabJamunTextFieldAppears(ActionEvent event) {   	
 		setTextFieldVisibility(gulabJamunCheckBox,gulabJamunTextField);
 	}
 
+	/**
+	 * Upon selecting the check box for the brownie menu item, its quantity text field will be visible. Deselecting
+	 * the check box will make the quantity text field invisible. 
+	 * @param event The user selecting or deselecting the check box for brownie menu item. 
+	 */
 	@FXML
 	void brownieTextFieldAppears(ActionEvent event) {
 		setTextFieldVisibility(brownieCheckBox,brownieTextField);
 	}
 
+	/**
+	 * This method makes quantity text fields visible when its respective size check box is selected for a drink,
+	 * only if the main drink check box is selected. If the size check box is deselected, the text field will be 
+	 * invisible. If user deselects the main drink item check box, all the size check boxes will be deselected and 
+	 * all its text fields will become invisible.
+	 * @param event The action of the user selecting the chai check box and its size check boxes. 
+	 */
 	@FXML
 	void chaiTextFieldsAppear(ActionEvent event) {
-		if(drink1CheckBox.isSelected()) {
-			setTextFieldVisibility(drink1CBsmall, drink1TextFieldSmall);
-			setTextFieldVisibility(drink1CBmed, drink1TextFieldMed);
-			setTextFieldVisibility(drink1CBlarge, drink1TextFieldLarge);
+		if(chaiMainCheckBox.isSelected()) {
+			setTextFieldVisibility(chaiCheckBoxSmall, chaiTextFieldSmall);
+			setTextFieldVisibility(chaiCheckBoxMedium, chaiTextFieldMedium);
+			setTextFieldVisibility(chaiCheckBoxLarge, chaiTextFieldLarge);
 		}
-		ifDrinkIsUnselectedWithSizeSelected(drink1CheckBox, drink1TextFieldSmall, drink1CBsmall, drink1TextFieldMed,
-				drink1CBmed, drink1TextFieldLarge, drink1CBlarge);
+		ifDrinkIsUnselectedWithSizeSelected(chaiMainCheckBox, chaiTextFieldSmall, chaiCheckBoxSmall, chaiTextFieldMedium,
+				chaiCheckBoxMedium, chaiTextFieldLarge, chaiCheckBoxLarge); //if user decides to unselect  a drink, the size check boxes will be unselected and the text fields will not be visible
 	} 
 
+	/**
+	 * This method makes quantity text fields visible when its respective size check box is selected for a drink,
+	 * only if the main drink check box is selected. If the size check box is deselected, the text field will be 
+	 * invisible. If user deselects the main drink item check box, all the size check boxes will be deselected and 
+	 * all its text fields will become invisible.
+	 * @param event The action of the user selecting the rose sherbet check box and its size check boxes.
+	 */
 	@FXML
-	void roseSherbetTextFieldsAppear(ActionEvent event) {
-		if(drink2CheckBox.isSelected()) {
-			setTextFieldVisibility(drink2CBsmall, drink2TextFieldSmall);
-			setTextFieldVisibility(drink2CBmed, drink2TextFieldMed);
-			setTextFieldVisibility(drink2CBlarge, drink2TextFieldLarge);
+	void sherbetTextFieldsAppear(ActionEvent event) {
+		if(sherbetMainCheckBox.isSelected()) {
+			setTextFieldVisibility(sherbetCheckBoxSmall, sherbetTextFieldSmall);
+			setTextFieldVisibility(sherbetCheckBoxMedium, sherbetTextFieldMedium);
+			setTextFieldVisibility(sherbetCheckBoxLarge, sherbetTextFieldLarge);
 		}
-		ifDrinkIsUnselectedWithSizeSelected(drink2CheckBox, drink2TextFieldSmall, drink2CBsmall, drink2TextFieldMed,
-				drink2CBmed, drink2TextFieldLarge, drink2CBlarge);
+		ifDrinkIsUnselectedWithSizeSelected(sherbetMainCheckBox, sherbetTextFieldSmall, sherbetCheckBoxSmall, sherbetTextFieldMedium,
+				sherbetCheckBoxMedium, sherbetTextFieldLarge, sherbetCheckBoxLarge);
 	}
 
 	/**
@@ -222,11 +278,11 @@ public class OrderMenuController {
 	 * InvalidUserInputException if no check boxes are selected.
 	 * @throws InvalidUserInputException if no check boxes are selected.
 	 */
-	public void ifAnySelected() throws InvalidUserInputException {
+	public void ifAnyItemsAreSelected() throws InvalidUserInputException {
 		// checks if any of the menu check boxes are selected.
 		if (samosaCheckBox.isSelected() == false && paniPuriCheckBox.isSelected() == false && butterChickenCheckBox.isSelected()==false
 				&& chefsChoiceCheckBox.isSelected() == false && gulabJamunCheckBox.isSelected()==false && brownieCheckBox.isSelected()==false
-				&& drink1CheckBox.isSelected() == false && drink2CheckBox.isSelected() == false) {
+				&& chaiMainCheckBox.isSelected() == false && sherbetMainCheckBox.isSelected() == false) {
 			throw new InvalidUserInputException ("Please select at least one item to continue.");
 		}		 
 	}
@@ -242,7 +298,7 @@ public class OrderMenuController {
 		// if the check box is selected and the corresponding quantity text field 
 		if (itemSelected.isSelected() == true && inputQuantity.getText() == "") throw new InvalidUserInputException ("Please input a quantity."); 
 	}
-	
+
 	/**
 	 * This method checks if the user has selected a drinks check box, but has selected no size. If they have selected no
 	 * size but have selected a drink, an InvalidUserInputException is thrown. 
@@ -258,7 +314,7 @@ public class OrderMenuController {
 			throw new InvalidUserInputException("Please select a drink size.");
 		}
 	}
-	
+
 	/**
 	 * This method unselects the different size check boxes for a drink and their respective text fields when the user
 	 * unselects the main drink check box. 
@@ -285,40 +341,38 @@ public class OrderMenuController {
 		}
 	}
 
+	/**
+	 * This method switches the scene to the Payment Summary scene after user places their order. Before switching,
+	 * it will validate user input for the quantity of items and the selection, and display an error message if 
+	 * invalid input is provided. It also displays an error message if user attempts to continue without selecting
+	 * an item, or selects a drink without a size. 
+	 * @param event Represents the action of the user pressing the button to continue to payment summary. 
+	 */
 	@FXML  
 	public void switchtoPaymentSummary(ActionEvent event) {
 		boolean errorPresent = false; //currently no errors present in user input
-
-		//setting the price of each menu item 
-		double priceSamosa = 5.99;
-		double pricePaniPuri = 8.99;
-		double priceButterChicken = 17.99;
-		double priceChefsChoice = 14.99;
-		double priceGulabJamun = 6.99;
-		double priceBrownie = 4.99;
 
 		ArrayList<MenuItem> menuItemList = new ArrayList<MenuItem>(); //list of MenuItems (appetizer, main course, dessert)
 		ArrayList<Drinks> drinksItemList = new ArrayList<Drinks>(); //list of Drinks
 
 		try {	
 			//creating MenuItem objects for each menu item 
-			MenuItem samosa = new MenuItem(samosaTextField.getText(), priceSamosa);			
-			MenuItem paniPuri = new MenuItem(paniPuriTextField.getText(), pricePaniPuri);
-			MenuItem butterChicken = new MenuItem(butterChickenTextField.getText(), priceButterChicken);
-			MenuItem chefsChoice = new MenuItem(chefsChoiceTextField.getText(), priceChefsChoice);
-			MenuItem gulabJamun = new MenuItem(gulabJamunTextField.getText(), priceGulabJamun);
-			MenuItem brownie = new MenuItem(brownieTextField.getText(), priceBrownie);
+			MenuItem samosa = new MenuItem(samosaTextField.getText(), 5.99);			
+			MenuItem paniPuri = new MenuItem(paniPuriTextField.getText(), 8.99);
+			MenuItem butterChicken = new MenuItem(butterChickenTextField.getText(), 17.99);
+			MenuItem chefsChoice = new MenuItem(chefsChoiceTextField.getText(), 14.99);
+			MenuItem gulabJamun = new MenuItem(gulabJamunTextField.getText(), 6.99);
+			MenuItem brownie = new MenuItem(brownieTextField.getText(), 4.99);
 
 			//creating Drinks objects for Chai, based on its different sizes
-			Drinks drink1small = new Drinks("Small",drink1TextFieldSmall.getText());
-			Drinks drink1med = new Drinks("Medium",drink1TextFieldMed.getText());
-			Drinks drink1large = new Drinks("Large",drink1TextFieldLarge.getText());
+			Drinks drink1small = new Drinks("Small",chaiTextFieldSmall.getText());
+			Drinks drink1med = new Drinks("Medium",chaiTextFieldMedium.getText());
+			Drinks drink1large = new Drinks("Large",chaiTextFieldLarge.getText());
 
 			//creating Drinks objects for Rose Sherbet, based on its different sizes
-			Drinks drink2small = new Drinks("Small",(String)drink1TextFieldSmall.getText());
-			Drinks drink2med = new Drinks("Medium",(String)drink2TextFieldMed.getText());
-			Drinks drink2large = new Drinks("Large",(String)drink2TextFieldLarge.getText());
-
+			Drinks drink2small = new Drinks("Small",sherbetTextFieldSmall.getText());
+			Drinks drink2med = new Drinks("Medium",sherbetTextFieldMedium.getText());
+			Drinks drink2large = new Drinks("Large",sherbetTextFieldLarge.getText());
 
 			//adding all the menu items to the list
 			menuItemList.add(samosa);
@@ -328,17 +382,17 @@ public class OrderMenuController {
 			menuItemList.add(gulabJamun);
 			menuItemList.add(brownie);
 
-			//adding all the drinks to the list
+			//adding all the drinks (specifically, their sizes) to the list
 			drinksItemList.add(drink1small);
 			drinksItemList.add(drink2small);
 			drinksItemList.add(drink1med);
 			drinksItemList.add(drink2med);
 			drinksItemList.add(drink1large);
 			drinksItemList.add(drink2large);
-			
+
 			//checks if any of the check boxes are not selected, and if none are, user is given an error message when they attempt to continue
-			ifAnySelected();
-			
+			ifAnyItemsAreSelected();
+
 			//checks if the check box is selected for the menu items, and if one is, but text field is empty, user is given error message when they attempt to continue
 			ifItemIsSelected(samosaCheckBox,samosaTextField);	
 			ifItemIsSelected(paniPuriCheckBox,paniPuriTextField);	
@@ -346,19 +400,19 @@ public class OrderMenuController {
 			ifItemIsSelected(chefsChoiceCheckBox,chefsChoiceTextField);	
 			ifItemIsSelected(gulabJamunCheckBox,gulabJamunTextField);	
 			ifItemIsSelected(brownieCheckBox,brownieTextField);
-			
+
 			//checks if drink is selected, but no size is selected, and if a size isn't selected, user is given error message 
-			ifDrinkIsSelectedWithNoSize(drink1CheckBox, drink1CBsmall, drink1CBmed, drink1CBlarge);
-			ifDrinkIsSelectedWithNoSize(drink2CheckBox, drink2CBsmall, drink2CBmed, drink2CBlarge);
-			
+			ifDrinkIsSelectedWithNoSize(chaiMainCheckBox, chaiCheckBoxSmall, chaiCheckBoxMedium, chaiCheckBoxLarge);
+			ifDrinkIsSelectedWithNoSize(sherbetMainCheckBox, sherbetCheckBoxSmall, sherbetCheckBoxMedium, sherbetCheckBoxLarge);
+
 			//checks if the check box is selected for the different sizes of the drinks, and if one is, but text field is empty, user is given error message when they attempt to continue
-			ifItemIsSelected(drink1CBsmall, drink1TextFieldSmall);
-			ifItemIsSelected(drink1CBmed, drink1TextFieldMed);
-			ifItemIsSelected(drink1CBlarge, drink1TextFieldLarge);
-			ifItemIsSelected(drink2CBsmall, drink2TextFieldSmall);
-			ifItemIsSelected(drink2CBmed, drink2TextFieldMed);
-			ifItemIsSelected(drink2CBlarge, drink2TextFieldLarge);
-			
+			ifItemIsSelected(chaiCheckBoxSmall, chaiTextFieldSmall);
+			ifItemIsSelected(chaiCheckBoxMedium, chaiTextFieldMedium);
+			ifItemIsSelected(chaiCheckBoxLarge, chaiTextFieldLarge);
+			ifItemIsSelected(sherbetCheckBoxSmall, sherbetTextFieldSmall);
+			ifItemIsSelected(sherbetCheckBoxMedium, sherbetTextFieldMedium);
+			ifItemIsSelected(sherbetCheckBoxLarge, sherbetTextFieldLarge);
+
 		} catch (InvalidUserInputException iuie) {
 			inputErrorLabel.setText(iuie.getMessage()); //if exception is caught because of invalid user input, an appropriate error message will be displayed
 			errorPresent = true; //errors are present in user input
@@ -386,4 +440,4 @@ public class OrderMenuController {
 		}
 	}
 }
-		
+

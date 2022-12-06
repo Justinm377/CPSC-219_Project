@@ -155,8 +155,8 @@
 				<TextField fx:id="expiryYearTextField" prefHeight="25.0" prefWidth="70.0" translateX="10.0" />
 				<VBox minWidth="-Infinity" prefHeight="34.0" prefWidth="316.0" translateX="10.0">
 					<children>
-						<Label fx:id="expiryMonthErrorLabel" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="289.0" textFill="RED" translateX="-135.0" translateY="-2.0" />
-						<Label fx:id="expiryYearErrorLabel" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="289.0" textFill="RED" translateX="-135.0" translateY="-4.0" />
+						<Label fx:id="expiryMonthErrorLabel" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="300.0" textFill="RED" translateX="-135.0" translateY="-2.0" />
+						<Label fx:id="expiryYearErrorLabel" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="300.0" textFill="RED" translateX="-135.0" translateY="-4.0" />
 					</children>
 					<padding>
 						<Insets left="140.0" />

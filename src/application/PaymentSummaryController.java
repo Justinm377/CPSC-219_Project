@@ -27,7 +27,7 @@ public class PaymentSummaryController {
 	@FXML
 	private ChoiceBox<String> paymentTypeChoiceBox;
 	@FXML
-	private Label errorLabelChoiceBox;
+	private Label errorLabelPaymentType;
 
 	
 	public void setPrimaryStage(Stage aStage) {
@@ -74,14 +74,14 @@ public class PaymentSummaryController {
 					paymentInfoController.setPrimaryStage(primaryStage);
 					paymentInfoController.setMyScene(scene);
 					paymentInfoController.setNextController(this);
-					errorLabelChoiceBox.setText(null);
+					errorLabelPaymentType.setText(null);
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
 			}
 			paymentInfoController.takeFocus();
 		} else {
-			errorLabelChoiceBox.setText("Please select a type of payment."); //if user doesn't select a payment type, error message will be displayed
+			errorLabelPaymentType.setText("Please select a type of payment."); //if user doesn't select a payment type, error message will be displayed
 		}
 	}
 }

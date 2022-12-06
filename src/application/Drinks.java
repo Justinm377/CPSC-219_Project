@@ -1,9 +1,6 @@
 
 package application;
 
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.RadioButton;
-
 /**
  * This class is a sub-class of the MenuItem class. It uses size to calculate total price of the drink and the quantity
  * of the drink.

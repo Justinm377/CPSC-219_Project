@@ -2,7 +2,6 @@ package application;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Random;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -33,27 +33,15 @@ public class HomePageController {
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
 	}
-
-	@FXML
-	public void switchtoOrderMenu(ActionEvent event) {
-
-		if (orderMenuSceneController == null) {
-			try {
-				FXMLLoader loader = new FXMLLoader();
-				Parent root = loader.load(new FileInputStream("src/application/Order_Menu.fxml"));
-				Scene scene = new Scene(root);
-				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-				orderMenuSceneController = loader.getController();
-				orderMenuSceneController.setPrimaryStage(primaryStage);
-				orderMenuSceneController.setMyScene(scene);
-				orderMenuSceneController.setNextController(this);	
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		orderMenuSceneController.takeFocus();
+	
+	public void setNextController(OrderMenuController next) {
+		orderMenuSceneController = next;
 	}
 
+	public void setNextController2(OrderConfirmationController next) {
+		orderConfirmationController = next;
+	}
+	
 	@FXML
 	public void switchtoViewMenu(ActionEvent event) {
 		if (viewMenuController == null) {
@@ -74,12 +62,23 @@ public class HomePageController {
 		viewMenuController.takeFocus();
 	}
 
-	public void setNextController(OrderMenuController next) {
-		orderMenuSceneController = next;
-	}
-
-	public void setNextController2(OrderConfirmationController next) {
-		orderConfirmationController = next;
+	@FXML
+	public void switchtoOrderMenu(ActionEvent event) {
+		if (orderMenuSceneController == null) {
+			try {
+				FXMLLoader loader = new FXMLLoader();
+				Parent root = loader.load(new FileInputStream("src/application/Order_Menu.fxml"));
+				Scene scene = new Scene(root);
+				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+				orderMenuSceneController = loader.getController();
+				orderMenuSceneController.setPrimaryStage(primaryStage);
+				orderMenuSceneController.setMyScene(scene);
+				orderMenuSceneController.setNextController(this);	
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		orderMenuSceneController.takeFocus();
 	}
 
 }

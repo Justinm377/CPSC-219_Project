@@ -98,7 +98,7 @@ public class User {
 			throw new InvalidUserInputException("Please input your address in this field.");
 		} else if (address != "") {	
 			for (char c : address.toCharArray()){
-				if (c == '#') hashCount++; 
+				if (c == '#') hashCount++; //counting the number of hashes in user input first
 			}
 			for (char c : address.toCharArray()){
 				if (hashCount > 1) { //more than 1 hash in input will cause exception to be thrown
@@ -129,20 +129,25 @@ public class User {
 	 */
 	public void setPostalCode(String postalCode) throws InvalidUserInputException {
 		if (postalCode == "") {
-			throw new InvalidUserInputException("Please input your postal code in this field.");
+			throw new InvalidUserInputException("Please input your postal code in this field."); //user cannot enter nothing in text field
 		} else if (postalCode != "") {	
 			for (char c : postalCode.toCharArray()){
-				if (c == ' ') { //user may have entered postal code in format "X1X 1X1", so an exception is thrown
+				//user may have entered postal code in format "X1X 1X1", but white spaces are not allowed, so exception is thrown
+				if (c == ' ') {
 					throw new InvalidUserInputException("Postal code should be in this format: X1X1X1");
 				}
-				if (postalCode.replace(" ", "").length() != 6 && c != ' ' && (Character.isDigit(c) || Character.isLetter(c))) { //user cannot input more or less than 6 characters 
+				
+				//user cannot input more or less than 6 characters, or exception is thrown
+				if (postalCode.replace(" ", "").length() != 6 && c != ' ' && (Character.isDigit(c) || Character.isLetter(c))) {
 					throw new InvalidUserInputException (String.format("Postal should have 6 characters, not %d characters.", postalCode.length()));
 				}
-				if (!Character.isDigit(c) && !Character.isLetter(c)) { //user can only input letters or numbers
+				
+				//user can only input letters or numbers, or exception is thrown
+				if (!Character.isDigit(c) && !Character.isLetter(c)) {
 					throw new InvalidUserInputException("Only include letters or numbers in this field, no whitespaces as well.");
 				}
 			}
-			//checks if postal code is in X1X1X1 format or not (alternating letters and numbers)
+			//checks if postal code is in X1X1X1 format or not (alternating letters and numbers), or exception is thrown
 			if (!(Character.isLetter(postalCode.toCharArray()[0]) && Character.isDigit(postalCode.toCharArray()[1])
 					&& Character.isLetter(postalCode.toCharArray()[2]) && Character.isDigit(postalCode.toCharArray()[3])
 					&& Character.isLetter(postalCode.toCharArray()[4]) && Character.isDigit(postalCode.toCharArray()[5]))) {
@@ -162,23 +167,30 @@ public class User {
 
 	/**
 	 * Sets the user's input of their phone number, if input is valid. Valid input contains 10 digits, and characters
-	 * that are only numbers. 
+	 * that are only numbers. The phone number is in the format "1112223333".
 	 * @param phoneNumber A string intended to be the phone number of the user. 
-	 * @throws InvalidUserInputException if the user inputs an phone number containing characters other than numbers,
-	 * more than or less than 10 digits, or inputs nothing. 
+	 * @throws InvalidUserInputException if the user inputs an phone number containing characters (including white spaces) other 
+	 * than numbers, more than or less than 10 digits, if phone number format is not "1112223333", or inputs nothing. 
 	 */
 	public void setPhoneNumber(String phoneNumber) throws InvalidUserInputException {
-
-		//checks if phone number input given by user has no letters and is 10 digits long
 		if (phoneNumber == "") {
 			throw new InvalidUserInputException("Please input your phone number in this field."); //user doesn't enter anything so exception is thrown
 		} else if (phoneNumber != "") {
 			for (char c : phoneNumber.toCharArray()){
-				if (phoneNumber.length() != 10 && Character.isDigit(c)) { //user cannot enter more than or less than 10 digits 
-					throw new InvalidUserInputException (String.format("Phone number should have 10 digits, not %d digits.", phoneNumber.length()));
+				//no dashes or whitespaces are allowed. if entered, exception is thrown
+				if (c == '-' || Character.isWhitespace(c)) {
+					throw new InvalidUserInputException("Phone number should not include '-' or whitespaces.");
 				}
-				if (!Character.isDigit(c) && c!=' ') { //user cannot enter non-digit characters 
-					throw new InvalidUserInputException("Only include numbers in this field.");
+				
+				//user cannot enter non-digit characters 
+				if (!Character.isDigit(c)) {
+					throw new InvalidUserInputException("Only include numbers in this field. No whitespaces should be included.");
+				}
+				
+				//user cannot enter more than or less than 10 digits 
+				if (phoneNumber.replace("-", "").length() != 10 && phoneNumber.contains("0123456789")) {
+					throw new InvalidUserInputException (String.format("Phone number should have 10 digits, not %d digits. "
+							+ "No whitespaces should be included.", phoneNumber.length()));
 				}
 			}
 		} else {

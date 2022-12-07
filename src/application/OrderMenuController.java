@@ -135,7 +135,7 @@ public class OrderMenuController {
 	 * @param textField The text field to set visible or invisible.
 	 */
 	private void setTextFieldVisibility(CheckBox checkBox, TextField textField) {
-		if (checkBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's not visible)
+		if (checkBox.isSelected()) { //if checkbox is selected, then the textfield appears (assuming it's +not visible)
 			if (!textField.isVisible()) {
 				textField.setVisible(true); 
 			}

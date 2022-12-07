@@ -14,7 +14,6 @@ public class HomePageController {
 
 	private Stage primaryStage;
 	private Scene myScene;
-
 	private OrderMenuController orderMenuSceneController;
 	private ViewMenuController viewMenuController;
 	private OrderConfirmationController orderConfirmationController;
@@ -27,10 +26,6 @@ public class HomePageController {
 	public void setMyScene(Scene aScene) {
 		myScene = aScene;
 	}
-
-	public void takeFocus() {
-		primaryStage.setScene(myScene);
-	}
 	
 	public void setNextControllerOrderMenu(OrderMenuController next) {
 		orderMenuSceneController = next;
@@ -38,6 +33,10 @@ public class HomePageController {
 
 	public void setNextControllerOrderConfirmation(OrderConfirmationController next) {
 		orderConfirmationController = next;
+	}
+	
+	public void takeFocus() {
+		primaryStage.setScene(myScene);
 	}
 	
 	@FXML

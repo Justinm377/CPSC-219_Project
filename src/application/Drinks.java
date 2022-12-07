@@ -11,10 +11,8 @@ package application;
 public class Drinks extends MenuItem {
 	private String size ;
 
-
-
 	/**
-	 * An empty constructor that utilizes super method to match its parent class, MenuItem. 
+	 * Constructs a new Drinks. 
 	 */
 	public Drinks() {
 		super();
@@ -32,10 +30,17 @@ public class Drinks extends MenuItem {
 		setQuantity(drinkAmount);
 	}
 
+	/**
+	 * @return The size of the drink.
+	 */
 	public String getSize() {
 		return size;
 	}
 
+	/**
+	 * Sets the size provided by the user's input.
+	 * @param size The size given by user input. 
+	 */
 	public void setSize(String size) {
 		this.size = size;
 	}

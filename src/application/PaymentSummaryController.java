@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 /**
  * The PaymentSummaryController switches scenes from the payment summary page to the ordering page or to the payment info page. It
  * also sets the total price and total price with tax labels and validates the payment type selection for the user. 
- * @author CS219-user
+ * @author CS219-user Group 5
  *
  */
 public class PaymentSummaryController {

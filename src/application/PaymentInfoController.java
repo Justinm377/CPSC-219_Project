@@ -13,11 +13,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+/**
+ * The PaymentInfoController switches scenes from the payment information page to the order confirmation page, provided that user 
+ * input for personal information and payment information is valid. 
+ * @author CS219-user Group 5
+ *
+ */
 public class PaymentInfoController {
 
 	private Stage primaryStage;
 	private Scene myScene;
-
 	private OrderConfirmationController orderConfirmationController;
 	private PaymentSummaryController paymentSummaryController;
 
@@ -48,7 +53,7 @@ public class PaymentInfoController {
 	@FXML
 	private Label expiryMonthErrorLabel;
 	@FXML
-	private TextField expireMonthTextField;
+	private TextField expiryMonthTextField;
 	@FXML
 	private Label expiryYearErrorLabel;
 	@FXML
@@ -64,23 +69,41 @@ public class PaymentInfoController {
 	@FXML
 	private Label cvvErrorLabel;
 
-	
+	/**
+	 * Sets the given stage as the primary stage of the application.
+	 * @param aStage The stage to be set as the application's primary stage.
+	 */
 	public void setPrimaryStage(Stage aStage) {
 		primaryStage = aStage;
 	}
 
+	/**
+	 * Sets the given scene as the controller's scene.
+	 * @param aScene The scene intended to be displayed to the user.
+	 */
 	public void setMyScene(Scene aScene) { 
 		myScene = aScene;
 	}
 
+	/**
+	 * Switches the controller from the PaymentSummaryController to the PaymentInfoController. 
+	 * @param next The next controller. 
+	 */
 	public void setNextController(PaymentSummaryController next) {
 		paymentSummaryController = next;
 	}
 
+	/**
+	 * Sets the given scene as the primary stage's scene. This displays the given scene to the user utilizing the application.
+	 */
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
 	}
 
+	/**
+	 * Switches scenes from the payment information page to the order confirmation page.
+	 * @param event Represents the action of the user pressing the submit button in the payment information page. 
+	 */
 	@FXML
 	public void switchToOrderConfirmation(ActionEvent event) {
 		boolean allValidationPassed = true;
@@ -153,7 +176,7 @@ public class PaymentInfoController {
 
 		try {
 			expiryMonthErrorLabel.setText(""); //clear text once error is gone
-			userPaymentCard.setExpiryMonth(expireMonthTextField.getText());
+			userPaymentCard.setExpiryMonth(expiryMonthTextField.getText());
 		} catch (InvalidUserInputException iuie) {
 			allValidationPassed = false;
 			expiryMonthErrorLabel.setText(iuie.getMessage());
@@ -166,6 +189,14 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			expiryYearErrorLabel.setText(iuie.getMessage());
 		}
+		
+		try { //checking that if user enters year 22, month is not before 12. if it is, error message is displayed to user. 
+			expiryMonthErrorLabel.setText("");
+			userPaymentCard.checkIfExpiryDateIsValid(expiryMonthTextField.getText(), expiryYearTextField.getText());
+		} catch (InvalidUserInputException iuie) {
+			allValidationPassed = false;
+			expiryMonthErrorLabel.setText(iuie.getMessage());
+		}
 
 		try {
 			cvvErrorLabel.setText(""); //clear text once error is gone
@@ -174,14 +205,6 @@ public class PaymentInfoController {
 			allValidationPassed = false;
 			cvvErrorLabel.setText(iuie.getMessage());
 		}
-		
-		try {
-			userPaymentCard.checkIfExpiryDateIsValid(expireMonthTextField.getText(), expiryYearTextField.getText());
-		} catch (InvalidUserInputException iuie) {
-			allValidationPassed = false;
-			expiryMonthErrorLabel.setText(iuie.getMessage());
-		}
-
 
 		if (orderConfirmationController == null && allValidationPassed == true) {
 			try {

@@ -93,7 +93,7 @@ public class PaymentInfoController {
 		try {
 			firstNameErrorLabel.setText(""); //clear text once error is gone
 			user.setFirstName(firstNameTextField.getText());			
-		} catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie) {
 			allValidationPassed = false;
 			firstNameErrorLabel.setText(iuie.getMessage());
 		}
@@ -101,7 +101,7 @@ public class PaymentInfoController {
 		try {
 			lastNameErrorLabel.setText(""); //clear text once error is gone
 			user.setLastName(lastNameTextField.getText());			
-		} catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie) {
 			allValidationPassed = false;
 			lastNameErrorLabel.setText(iuie.getMessage());
 		}
@@ -109,7 +109,7 @@ public class PaymentInfoController {
 		try {
 			addressErrorLabel.setText(""); //clear text once error is gone
 			user.setAddress(addressTextField.getText());			
-		} catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie) {
 			allValidationPassed = false;
 			addressErrorLabel.setText(iuie.getMessage());
 		}
@@ -117,7 +117,7 @@ public class PaymentInfoController {
 		try {
 			postalCodeErrorLabel.setText(""); //clear text once error is gone
 			user.setPostalCode(postalCodeTextField.getText());			
-		} catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie) {
 			allValidationPassed = false;
 			postalCodeErrorLabel.setText(iuie.getMessage());
 		}
@@ -125,7 +125,7 @@ public class PaymentInfoController {
 		try {
 			phoneNumberErrorLabel.setText(""); //clear text once error is gone
 			user.setPhoneNumber(phoneNumberTextField.getText());			
-		} catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie) {
 			allValidationPassed = false;
 			phoneNumberErrorLabel.setText(iuie.getMessage());
 		}
@@ -138,7 +138,7 @@ public class PaymentInfoController {
 		try {
 			nameErrorLabel.setText(""); //clear text once error is gone
 			userPaymentCard.setCardName(nameOnCardTextField.getText());			
-		} catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie) {
 			allValidationPassed = false;
 			nameErrorLabel.setText(iuie.getMessage());
 		}
@@ -146,7 +146,7 @@ public class PaymentInfoController {
 		try {
 			cardNumberErrorLabel.setText(""); //clear text once error is gone
 			userPaymentCard.setCardNumber(cardNumberTextField.getText());			
-		} catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie) {
 			allValidationPassed = false;
 			cardNumberErrorLabel.setText(iuie.getMessage());
 		}
@@ -154,7 +154,7 @@ public class PaymentInfoController {
 		try {
 			expiryMonthErrorLabel.setText(""); //clear text once error is gone
 			userPaymentCard.setExpiryMonth(expireMonthTextField.getText());
-		} catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie) {
 			allValidationPassed = false;
 			expiryMonthErrorLabel.setText(iuie.getMessage());
 		}
@@ -162,7 +162,7 @@ public class PaymentInfoController {
 		try {
 			expiryYearErrorLabel.setText(""); //clear text once error is gone
 			userPaymentCard.setExpiryYear(expiryYearTextField.getText());			
-		} catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie) {
 			allValidationPassed = false;
 			expiryYearErrorLabel.setText(iuie.getMessage());
 		}
@@ -170,10 +170,18 @@ public class PaymentInfoController {
 		try {
 			cvvErrorLabel.setText(""); //clear text once error is gone
 			userPaymentCard.setCVV(cvvTextField.getText());			
-		} catch (InvalidUserInputException iuie){
+		} catch (InvalidUserInputException iuie) {
 			allValidationPassed = false;
 			cvvErrorLabel.setText(iuie.getMessage());
 		}
+		
+		try {
+			userPaymentCard.checkIfExpiryDateIsValid(expireMonthTextField.getText(), expiryYearTextField.getText());
+		} catch (InvalidUserInputException iuie) {
+			allValidationPassed = false;
+			expiryMonthErrorLabel.setText(iuie.getMessage());
+		}
+
 
 		if (orderConfirmationController == null && allValidationPassed == true) {
 			try {

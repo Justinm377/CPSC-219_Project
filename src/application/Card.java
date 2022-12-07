@@ -163,4 +163,17 @@ public class Card {
 			this.cvv = cvv; //sets the instance variable when valid input is given
 		}
 	}
+	
+	/**
+	 * If the user input for expiry month is before month 12 and year input is 22, InvalidUserException will be thrown. Expiry date
+	 * should match current time (December 2022). 
+	 * @param expiryMonth a String intended to be the expiry month entered by the user
+	 * @param expiryYear a String intended to be the expiry user entered by the user
+	 * @throws InvalidUserInputException
+	 */
+	public void checkIfExpiryDateIsValid(String expiryMonth, String expiryYear) throws InvalidUserInputException {
+		if (Integer.parseInt(expiryYear) == 22 && Integer.parseInt(expiryMonth)<12) {
+			throw new InvalidUserInputException("For year 22, expiry month cannot be before 12.");
+		}
+	}
 }

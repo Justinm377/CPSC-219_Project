@@ -89,7 +89,7 @@ public class OrderMenuController {
 	private Label inputErrorLabel;
 
 	/**
-	 * This method sets the given stage as the primary stage of the application. 
+	 * Sets the given stage as the primary stage of the application. 
 	 * @param aStage The stage to be set as the application's primary stage.
 	 */
 	public void setPrimaryStage(Stage aStage) {
@@ -97,7 +97,7 @@ public class OrderMenuController {
 	}
 
 	/**
-	 * This method sets the given scene as the controller's scene. 
+	 * Sets the given scene as the controller's scene. 
 	 * @param aScene The scene intended to be displayed to the user. 
 	 */
 	public void setMyScene(Scene aScene) {
@@ -105,24 +105,23 @@ public class OrderMenuController {
 	}
 
 	/**
-	 * This method switches the controller from OrderMenuController to HomePageController. 
-	 * @param next The controller that it is switching to. 
+	 * Switches the controller from HomePageController to OrderMenuController. 
+	 * @param next The next controller. 
 	 */
 	public void setNextControllerHomePage(HomePageController next) {
 		homePageController = next;
 	}
 
 	/**
-	 * This method switches the controller from OrderMenuController to ViewMenuController.
-	 * @param next The controller that it is switching to. 
+	 * Switches the controller from ViewMenuController to OrderMenuController.
+	 * @param next The next controller. 
 	 */
 	public void setNextControllerViewMenu(ViewMenuController next) {
 		viewMenuController = next;
 	}
 
 	/**
-	 * This method sets the given scene as the primary stage's scene. This displays the given scene to the user
-	 * utilizing the application.
+	 * Sets the given scene as the primary stage's scene. This displays the given scene to the user utilizing the application.
 	 */
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
@@ -314,7 +313,7 @@ public class OrderMenuController {
 	}
 
 	/**
-	 * This method switches the scene to the Payment Summary scene after user places their order. Before switching,
+	 * Switches scenes to payment summary page from the ordering page after user places their order. Before switching,
 	 * it will validate user input for the quantity of items and the selection, and display an error message if 
 	 * invalid input is provided. It also displays an error message if user attempts to continue without selecting
 	 * an item, or selects a drink without a size. 
@@ -413,7 +412,7 @@ public class OrderMenuController {
 	}
 	
 	/**
-	 * This method sets the home page as the scene when the user decides to return to the home page. 
+	 * Switches scenes from ordering page to home page when user decides to return to home page. 
 	 * @param event Represents the action of the user pressing the button to return to the home page.
 	 */
 	@FXML

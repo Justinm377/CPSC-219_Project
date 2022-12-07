@@ -169,7 +169,7 @@ public class PaymentInfoController {
 
 		try {
 			cvvErrorLabel.setText(""); //clear text once error is gone
-			userPaymentCard.setCvv(cvvTextField.getText());			
+			userPaymentCard.setCVV(cvvTextField.getText());			
 		} catch (InvalidUserInputException iuie){
 			allValidationPassed = false;
 			cvvErrorLabel.setText(iuie.getMessage());

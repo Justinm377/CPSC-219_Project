@@ -138,7 +138,7 @@ public class Card {
 	/**
 	 * @return the cvv
 	 */
-	public String getCvv() {
+	public String getCVV() {
 		return cvv;
 	}
 
@@ -146,7 +146,7 @@ public class Card {
 	 * @param cvv a String intended to be the CVV entered by the user and set as cvv. 
 	 * @throws InvalidUserInputException when the user provides a cvv value that is not 3 digits long, or contains characters that are not digits. 
 	 */
-	public void setCvv(String cvv) throws InvalidUserInputException {
+	public void setCVV(String cvv) throws InvalidUserInputException {
 		//checks if CVV input by user is 3 digits only. if not it throws an exception
 		if (cvv == "") {
 			throw new InvalidUserInputException("Please input your card's CVV in this field."); //if user enters no cvv, exception is thrown

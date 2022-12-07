@@ -4,7 +4,7 @@ package application;
 import java.util.ArrayList;
 
 /**
- * The Order class is utilized to calculate the total order price of the user, after they input their quantities for
+ * Holds a list of MenuItems and Drinks to calculate the total order price of the user, after they input their quantities for
  * menu items and drinks. 
  * @author CS219-user Group 5
  *
@@ -18,21 +18,30 @@ public class Order {
 	 * @param foodItemList a list of all the MenuItems 
 	 * @param drinksItemList a list of all the Drinks
 	 */
-
 	public Order(ArrayList<MenuItem> menuItemList, ArrayList<Drinks> drinksItemList) {
-		// TODO Auto-generated constructor stub
 		setItemList(menuItemList);
 		setDrinksList(drinksItemList);
 	}
 
+	/**
+	 * @return A list of the MenuItem objects.
+	 */
 	public ArrayList<MenuItem> getItemList() {
 		return itemList;
 	}
 
+	/**
+	 * Sets the itemList as the list of MenuItem objects.
+	 * @param itemList the list of MenuItem objects to be set.
+	 */
 	public void setItemList(ArrayList<MenuItem> itemList) {
 		this.itemList = itemList;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public ArrayList<Drinks> getDrinksList() {
 		return drinksList;
 	}

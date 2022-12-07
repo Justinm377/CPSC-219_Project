@@ -42,7 +42,7 @@ public class MenuItem {
 	 * This setter method is a mutator method that sets the quantity instance variable, as long as the quantity
 	 * is a positive integer between 0 and 10. 
 	 * @param amountItemAsString a String intended to be a quantity value entered by the user. 
-	 * @throws InvalidUserInputException is thrown when quantity of item is anything other than a positive integer between 0 and 10.
+	 * @throws InvalidUserInputException is thrown when quantity of item is anything other than a positive integer between 1 and 10.
 	 */
 	public void setQuantity(String amountItemAsString) throws InvalidUserInputException {
 		int amountItem = 0;
@@ -53,16 +53,12 @@ public class MenuItem {
 			for (char c : amountItemAsString.toCharArray()) { //if anything other than an integer number is provided, it's not valid
 				if (!Character.isDigit(c)) validAmount = false;
 				if (c == '.') decimalCounter++;
+				if (c == '0' && amountItemAsString.length() == 1) throw new InvalidUserInputException("Order quantity cannot be 0."); //user cannot order 0 items
 			}
 		} else if (amountItemAsString == "" || amountItemAsString == null) { //checks for when an user enters no input
 			validAmount = false;
 			amountItem = 0;
 			throw new InvalidUserInputException("Please input a value in this field.");
-		}
-
-		//user cannot order negative amount
-		if (amountItem < 0) {
-			throw new InvalidUserInputException("Please enter a positive number between 0 and 10");
 		}
 
 		//non-numeric value for the amount will throw an exception
@@ -71,7 +67,7 @@ public class MenuItem {
 		} else if (validAmount == false && decimalCounter != 0) {
 			throw new InvalidUserInputException("Order quantity cannot contain decimals.");
 		} else if (validAmount == false && decimalCounter == 0) {
-			throw new InvalidUserInputException("Order quantity cannot contain non-numeric characters. Please enter a numeric value.");
+			throw new InvalidUserInputException("Order quantity cannot contain non-numeric characters. Please enter a positive numeric value.");
 		}
 
 		//let's assume that the max amount an user can order of a quantity is 10

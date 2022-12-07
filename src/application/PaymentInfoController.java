@@ -184,18 +184,11 @@ public class PaymentInfoController {
 
 		try {
 			expiryYearErrorLabel.setText(""); //clear text once error is gone
-			userPaymentCard.setExpiryYear(expiryYearTextField.getText());			
+			userPaymentCard.setExpiryYear(expiryYearTextField.getText());
+			userPaymentCard.checkIfExpiryDateIsValid(expiryMonthTextField.getText(), expiryYearTextField.getText()); //checking that if user enters year 22, month is not before 12. if it is, error message is displayed to user.
 		} catch (InvalidUserInputException iuie) {
 			allValidationPassed = false;
 			expiryYearErrorLabel.setText(iuie.getMessage());
-		}
-		
-		try { //checking that if user enters year 22, month is not before 12. if it is, error message is displayed to user. 
-			expiryMonthErrorLabel.setText("");
-			userPaymentCard.checkIfExpiryDateIsValid(expiryMonthTextField.getText(), expiryYearTextField.getText());
-		} catch (InvalidUserInputException iuie) {
-			allValidationPassed = false;
-			expiryMonthErrorLabel.setText(iuie.getMessage());
 		}
 
 		try {

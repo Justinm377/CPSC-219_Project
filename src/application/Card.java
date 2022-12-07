@@ -172,8 +172,10 @@ public class Card {
 	 * @throws InvalidUserInputException
 	 */
 	public void checkIfExpiryDateIsValid(String expiryMonth, String expiryYear) throws InvalidUserInputException {
-		if (Integer.parseInt(expiryYear) == 22 && Integer.parseInt(expiryMonth)<12) {
-			throw new InvalidUserInputException("For year 22, expiry month cannot be before 12.");
+		if (expiryMonth != "" && expiryYear != "") {
+			if (Integer.parseInt(expiryYear) == 22 && Integer.parseInt(expiryMonth)<12) {
+				throw new InvalidUserInputException("For year 22, expiry month cannot be before 12.");
+			}
 		}
 	}
 }

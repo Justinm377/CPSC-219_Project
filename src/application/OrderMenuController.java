@@ -223,7 +223,7 @@ public class OrderMenuController {
 			setTextFieldVisibility(chaiCheckBoxMedium, chaiTextFieldMedium);
 			setTextFieldVisibility(chaiCheckBoxLarge, chaiTextFieldLarge);
 		}
-		ifDrinkIsUnselectedWithSizeSelected(chaiMainCheckBox, chaiTextFieldSmall, chaiCheckBoxSmall, chaiTextFieldMedium,
+		checkIfDrinkIsUnselectedWithSize(chaiMainCheckBox, chaiTextFieldSmall, chaiCheckBoxSmall, chaiTextFieldMedium,
 				chaiCheckBoxMedium, chaiTextFieldLarge, chaiCheckBoxLarge); //if user decides to unselect  a drink, the size check boxes will be unselected and the text fields will not be visible
 	} 
 
@@ -241,7 +241,7 @@ public class OrderMenuController {
 			setTextFieldVisibility(sherbetCheckBoxMedium, sherbetTextFieldMedium);
 			setTextFieldVisibility(sherbetCheckBoxLarge, sherbetTextFieldLarge);
 		}
-		ifDrinkIsUnselectedWithSizeSelected(sherbetMainCheckBox, sherbetTextFieldSmall, sherbetCheckBoxSmall, sherbetTextFieldMedium,
+		checkIfDrinkIsUnselectedWithSize(sherbetMainCheckBox, sherbetTextFieldSmall, sherbetCheckBoxSmall, sherbetTextFieldMedium,
 				sherbetCheckBoxMedium, sherbetTextFieldLarge, sherbetCheckBoxLarge);
 	}
 
@@ -250,7 +250,7 @@ public class OrderMenuController {
 	 * InvalidUserInputException if no check boxes are selected.
 	 * @throws InvalidUserInputException if no check boxes are selected.
 	 */
-	public void ifAnyItemsAreSelected() throws InvalidUserInputException {
+	public void checkIfAnyItemsAreSelected() throws InvalidUserInputException {
 		// checks if any of the menu check boxes are selected.
 		if (samosaCheckBox.isSelected() == false && paniPuriCheckBox.isSelected() == false && butterChickenCheckBox.isSelected()==false
 				&& chefsChoiceCheckBox.isSelected() == false && gulabJamunCheckBox.isSelected()==false && brownieCheckBox.isSelected()==false
@@ -266,7 +266,7 @@ public class OrderMenuController {
 	 * @param inputQuantity takes the user input in the quantity text field for the corresponding check box ( menu item)
 	 * @throws InvalidUserInputException when user selects a check box and does not enter any input.
 	 */
-	public void ifItemIsSelected(CheckBox itemSelected, TextField inputQuantity) throws InvalidUserInputException{
+	public void checkIfItemIsSelected(CheckBox itemSelected, TextField inputQuantity) throws InvalidUserInputException{
 		// if the check box is selected and the corresponding quantity text field 
 		if (itemSelected.isSelected() == true && inputQuantity.getText() == "") throw new InvalidUserInputException ("Please input a quantity."); 
 	}
@@ -280,7 +280,7 @@ public class OrderMenuController {
 	 * @param largeCB CheckBox of the large size of given drink
 	 * @throws InvalidUserInputException is thrown when a drink is selected, but no size is selected by user. 
 	 */
-	public void ifDrinkIsSelectedWithNoSize(CheckBox drinkSelected, CheckBox smallCB, CheckBox mediumCB, CheckBox largeCB) throws InvalidUserInputException {
+	public void checkIfDrinkIsSelectedWithNoSize(CheckBox drinkSelected, CheckBox smallCB, CheckBox mediumCB, CheckBox largeCB) throws InvalidUserInputException {
 		if (drinkSelected.isSelected() == true && smallCB.isSelected() == false && mediumCB.isSelected() == false
 				&& largeCB.isSelected() == false) {
 			throw new InvalidUserInputException("Please select a drink size.");
@@ -298,7 +298,7 @@ public class OrderMenuController {
 	 * @param largeTF TextField for the large size option.
 	 * @param largeCB CheckBox for the large size option.
 	 */
-	public void ifDrinkIsUnselectedWithSizeSelected(CheckBox drinkSelected, TextField smallTF, CheckBox smallCB, 
+	public void checkIfDrinkIsUnselectedWithSize(CheckBox drinkSelected, TextField smallTF, CheckBox smallCB, 
 			TextField mediumTF, CheckBox mediumCB, TextField largeTF, CheckBox largeCB) {
 		if (drinkSelected.isSelected() == false && (smallTF.isVisible() == true || mediumTF.isVisible() == true 
 				|| smallTF.isVisible() == true)) {
@@ -363,27 +363,27 @@ public class OrderMenuController {
 			drinksItemList.add(drink2large);
 
 			//checks if any of the check boxes are not selected, and if none are, user is given an error message when they attempt to continue
-			ifAnyItemsAreSelected();
+			checkIfAnyItemsAreSelected();
 
 			//checks if the check box is selected for the menu items, and if one is, but text field is empty, user is given error message when they attempt to continue
-			ifItemIsSelected(samosaCheckBox,samosaTextField);	
-			ifItemIsSelected(paniPuriCheckBox,paniPuriTextField);	
-			ifItemIsSelected(butterChickenCheckBox,butterChickenTextField);	
-			ifItemIsSelected(chefsChoiceCheckBox,chefsChoiceTextField);	
-			ifItemIsSelected(gulabJamunCheckBox,gulabJamunTextField);	
-			ifItemIsSelected(brownieCheckBox,brownieTextField);
+			checkIfItemIsSelected(samosaCheckBox,samosaTextField);	
+			checkIfItemIsSelected(paniPuriCheckBox,paniPuriTextField);	
+			checkIfItemIsSelected(butterChickenCheckBox,butterChickenTextField);	
+			checkIfItemIsSelected(chefsChoiceCheckBox,chefsChoiceTextField);	
+			checkIfItemIsSelected(gulabJamunCheckBox,gulabJamunTextField);	
+			checkIfItemIsSelected(brownieCheckBox,brownieTextField);
 
 			//checks if drink is selected, but no size is selected, and if a size isn't selected, user is given error message 
-			ifDrinkIsSelectedWithNoSize(chaiMainCheckBox, chaiCheckBoxSmall, chaiCheckBoxMedium, chaiCheckBoxLarge);
-			ifDrinkIsSelectedWithNoSize(sherbetMainCheckBox, sherbetCheckBoxSmall, sherbetCheckBoxMedium, sherbetCheckBoxLarge);
+			checkIfDrinkIsSelectedWithNoSize(chaiMainCheckBox, chaiCheckBoxSmall, chaiCheckBoxMedium, chaiCheckBoxLarge);
+			checkIfDrinkIsSelectedWithNoSize(sherbetMainCheckBox, sherbetCheckBoxSmall, sherbetCheckBoxMedium, sherbetCheckBoxLarge);
 
 			//checks if the check box is selected for the different sizes of the drinks, and if one is, but text field is empty, user is given error message when they attempt to continue
-			ifItemIsSelected(chaiCheckBoxSmall, chaiTextFieldSmall);
-			ifItemIsSelected(chaiCheckBoxMedium, chaiTextFieldMedium);
-			ifItemIsSelected(chaiCheckBoxLarge, chaiTextFieldLarge);
-			ifItemIsSelected(sherbetCheckBoxSmall, sherbetTextFieldSmall);
-			ifItemIsSelected(sherbetCheckBoxMedium, sherbetTextFieldMedium);
-			ifItemIsSelected(sherbetCheckBoxLarge, sherbetTextFieldLarge);
+			checkIfItemIsSelected(chaiCheckBoxSmall, chaiTextFieldSmall);
+			checkIfItemIsSelected(chaiCheckBoxMedium, chaiTextFieldMedium);
+			checkIfItemIsSelected(chaiCheckBoxLarge, chaiTextFieldLarge);
+			checkIfItemIsSelected(sherbetCheckBoxSmall, sherbetTextFieldSmall);
+			checkIfItemIsSelected(sherbetCheckBoxMedium, sherbetTextFieldMedium);
+			checkIfItemIsSelected(sherbetCheckBoxLarge, sherbetTextFieldLarge);
 
 		} catch (InvalidUserInputException iuie) {
 			inputErrorLabel.setText(iuie.getMessage()); //if exception is caught because of invalid user input, an appropriate error message will be displayed

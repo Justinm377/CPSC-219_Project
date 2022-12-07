@@ -144,7 +144,7 @@ public class User {
 				
 				//user can only input letters or numbers, or exception is thrown
 				if (!Character.isDigit(c) && !Character.isLetter(c)) {
-					throw new InvalidUserInputException("Only include letters or numbers in this field, no whitespaces as well.");
+					throw new InvalidUserInputException("Only include letters or numbers in this field.");
 				}
 			}
 			//checks if postal code is in X1X1X1 format or not (alternating letters and numbers), or exception is thrown
@@ -184,13 +184,12 @@ public class User {
 				
 				//user cannot enter non-digit characters 
 				if (!Character.isDigit(c)) {
-					throw new InvalidUserInputException("Only include numbers in this field. No whitespaces should be included.");
+					throw new InvalidUserInputException("Only include numbers in this field.");
 				}
 				
 				//user cannot enter more than or less than 10 digits 
 				if (phoneNumber.replace("-", "").length() != 10 && phoneNumber.contains("0123456789")) {
-					throw new InvalidUserInputException (String.format("Phone number should have 10 digits, not %d digits. "
-							+ "No whitespaces should be included.", phoneNumber.length()));
+					throw new InvalidUserInputException (String.format("Phone number should have 10 digits, not %d digits.", phoneNumber.length()));
 				}
 			}
 		} else {

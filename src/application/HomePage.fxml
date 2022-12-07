@@ -17,11 +17,14 @@
 	<children>
 		<Label text="Welcome To Taste of India!" textFill="#289020">
 			<font>
-				<Font size="24.0" />
+				<Font size="14.0" />
 			</font>
 			<VBox.margin>
 				<Insets left="10.0" right="10.0" top="6.0" />
 			</VBox.margin>
+         <padding>
+            <Insets left="215.0" />
+         </padding>
 		</Label>
 		<Label text="We are glad to welcome you to our restaurant's online ordering portal for home delivered orders.">
 			<font>

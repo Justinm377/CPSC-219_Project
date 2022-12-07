@@ -13,7 +13,7 @@ public class Order {
 	private ArrayList<Drinks> drinksList;
 
 	/**
-	 * Takes lists of the menu items and drinks and sets the instance variables as those lists.
+	 * Constructs a new order by taking lists of the menu items and drinks and setting the instance variables as those lists.
 	 * @param foodItemList a list of all the MenuItems 
 	 * @param drinksItemList a list of all the Drinks
 	 */
@@ -38,7 +38,6 @@ public class Order {
 	}
 
 	/**
-	 * 
 	 * @return A list of the Drinks objects.
 	 */
 	public ArrayList<Drinks> getDrinksList() {

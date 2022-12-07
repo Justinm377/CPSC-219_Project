@@ -63,7 +63,7 @@ public class PaymentSummaryController {
 
 	@FXML
 	public void switchToPaymentInfo(ActionEvent event) {
-		if (paymentTypeChoiceBox.getValue() != null) {
+		if (paymentTypeChoiceBox.getValue() != null) { //checking to see that user has selected a payment type
 			if (paymentInfoController == null) {
 				try {
 					FXMLLoader loader = new FXMLLoader();

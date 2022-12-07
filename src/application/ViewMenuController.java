@@ -51,7 +51,7 @@ public class ViewMenuController {
 				orderMenuSceneController = loader.getController();
 				orderMenuSceneController.setPrimaryStage(primaryStage);
 				orderMenuSceneController.setMyScene(scene);
-				orderMenuSceneController.setNextController2(this);	
+				orderMenuSceneController.setNextControllerViewMenu(this);	
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

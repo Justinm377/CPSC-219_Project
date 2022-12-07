@@ -108,7 +108,7 @@ public class OrderMenuController {
 	 * This method switches the controller from OrderMenuController to HomePageController. 
 	 * @param next The controller that it is switching to. 
 	 */
-	public void setNextController(HomePageController next) {
+	public void setNextControllerHomePage(HomePageController next) {
 		homePageController = next;
 	}
 
@@ -116,7 +116,7 @@ public class OrderMenuController {
 	 * This method switches the controller from OrderMenuController to ViewMenuController.
 	 * @param next The controller that it is switching to. 
 	 */
-	public void setNextController2(ViewMenuController next) {
+	public void setNextControllerViewMenu(ViewMenuController next) {
 		viewMenuController = next;
 	}
 
@@ -126,29 +126,6 @@ public class OrderMenuController {
 	 */
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
-	}
-
-	/**
-	 * This method sets the home page as the scene when the user decides to return to the home page. 
-	 * @param event Represents the action of the user pressing the button to return to the home page.
-	 */
-	@FXML
-	public void switchToHomePage(ActionEvent event) {
-		if (homePageController == null) {
-			try {
-				FXMLLoader loader = new FXMLLoader();
-				Parent root = loader.load(new FileInputStream("src/application/HomePage.fxml"));
-				Scene scene = new Scene(root);
-				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-				homePageController = loader.getController();
-				homePageController.setPrimaryStage(primaryStage);
-				homePageController.setMyScene(scene);
-				homePageController.setNextController(this);	
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		}
-		homePageController.takeFocus();
 	}
 
 	/**
@@ -433,6 +410,29 @@ public class OrderMenuController {
 			}
 			paymentController.takeFocus();
 		}
+	}
+	
+	/**
+	 * This method sets the home page as the scene when the user decides to return to the home page. 
+	 * @param event Represents the action of the user pressing the button to return to the home page.
+	 */
+	@FXML
+	public void switchToHomePage(ActionEvent event) {
+		if (homePageController == null) {
+			try {
+				FXMLLoader loader = new FXMLLoader();
+				Parent root = loader.load(new FileInputStream("src/application/HomePage.fxml"));
+				Scene scene = new Scene(root);
+				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+				homePageController = loader.getController();
+				homePageController.setPrimaryStage(primaryStage);
+				homePageController.setMyScene(scene);
+				homePageController.setNextControllerOrderMenu(this);	
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+		homePageController.takeFocus();
 	}
 }
 

@@ -32,11 +32,11 @@ public class HomePageController {
 		primaryStage.setScene(myScene);
 	}
 	
-	public void setNextController(OrderMenuController next) {
+	public void setNextControllerOrderMenu(OrderMenuController next) {
 		orderMenuSceneController = next;
 	}
 
-	public void setNextController2(OrderConfirmationController next) {
+	public void setNextControllerOrderConfirmation(OrderConfirmationController next) {
 		orderConfirmationController = next;
 	}
 	
@@ -71,7 +71,7 @@ public class HomePageController {
 				orderMenuSceneController = loader.getController();
 				orderMenuSceneController.setPrimaryStage(primaryStage);
 				orderMenuSceneController.setMyScene(scene);
-				orderMenuSceneController.setNextController(this);	
+				orderMenuSceneController.setNextControllerHomePage(this);	
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

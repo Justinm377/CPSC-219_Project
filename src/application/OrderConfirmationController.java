@@ -49,7 +49,7 @@ public class OrderConfirmationController {
 				homePageController = loader.getController();
 				homePageController.setPrimaryStage(primaryStage);
 				homePageController.setMyScene(scene);
-				homePageController.setNextController2(this);	
+				homePageController.setNextControllerOrderConfirmation(this);	
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

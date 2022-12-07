@@ -52,7 +52,7 @@
          </padding></Label>
 		<HBox prefHeight="23.0" prefWidth="622.0">
 			<children>
-				<Label prefHeight="17.0" prefWidth="222.0" text="Pani Puri">
+				<Label prefHeight="17.0" prefWidth="222.0" text="Pani Puri (6pc.)">
 					<padding>
 						<Insets left="5.0" top="5.0" />
 					</padding>

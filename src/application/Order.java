@@ -1,4 +1,3 @@
-
 package application;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public class Order {
 	private ArrayList<Drinks> drinksList;
 
 	/**
-	 * This constructor takes lists of the menu items and drinks and sets the instance variables as those lists.
+	 * Takes lists of the menu items and drinks and sets the instance variables as those lists.
 	 * @param foodItemList a list of all the MenuItems 
 	 * @param drinksItemList a list of all the Drinks
 	 */
@@ -40,7 +39,7 @@ public class Order {
 
 	/**
 	 * 
-	 * @return
+	 * @return A list of the Drinks objects.
 	 */
 	public ArrayList<Drinks> getDrinksList() {
 		return drinksList;
@@ -51,7 +50,7 @@ public class Order {
 	}
 
 	/**
-	 * This method calculates the total price of the user's order and returns that total price.
+	 * Calculates the total price of the user's order and returns that total price.
 	 * @return the total price of the user's entire order of items
 	 */
 	public double calculateTotalPrice() {
@@ -70,17 +69,17 @@ public class Order {
 				e.printStackTrace();
 			}
 		}
-
+		
 		return priceToReturn;
 	}
 
 	/**
-	 * This method calculates the total price of the user's order with 5% tax and returns the total price with tax.
+	 * Calculates the total price of the user's order with 5% tax and returns the total price with tax.
 	 * @return the total price of the user's entire order of items with 5% tax.
 	 */
 	public double calculateTotalPriceWithTax() {
 		double priceToReturnWithTax = calculateTotalPrice() + (calculateTotalPrice() * 0.05); //we're using GST tax of 5%
-
+		
 		return priceToReturnWithTax;
 	}
 

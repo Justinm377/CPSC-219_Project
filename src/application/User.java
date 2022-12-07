@@ -14,7 +14,7 @@ public class User {
 	private String phoneNumber;
 
 	/**
-	 * Initializes a new User. 
+	 * Constructs a new User. 
 	 */
 	public User() {
 	}

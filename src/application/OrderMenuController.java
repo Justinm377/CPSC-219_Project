@@ -177,7 +177,7 @@ public class OrderMenuController {
 	    		cb.setVisible(false);
 		
 	}*/
-	}
+	
 	    
 	@FXML
 	void samosaTextFieldAppears(ActionEvent event) {

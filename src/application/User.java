@@ -177,18 +177,13 @@ public class User {
 			throw new InvalidUserInputException("Please input your phone number in this field."); //user doesn't enter anything so exception is thrown
 		} else if (phoneNumber != "") {
 			for (char c : phoneNumber.toCharArray()){
-				//no dashes or whitespaces are allowed. if entered, exception is thrown
-				if (c == '-' || Character.isWhitespace(c)) {
-					throw new InvalidUserInputException("Phone number should not include '-' or whitespaces.");
-				}
-				
 				//user cannot enter non-digit characters 
 				if (!Character.isDigit(c)) {
-					throw new InvalidUserInputException("Only include numbers in this field.");
+					throw new InvalidUserInputException("Only include numbers in this field. No white spaces as well.");
 				}
 				
 				//user cannot enter more than or less than 10 digits 
-				if (phoneNumber.replace("-", "").length() != 10 && phoneNumber.contains("0123456789")) {
+				if (phoneNumber.replaceAll(" ", "").length() != 10 && c != ' ') {
 					throw new InvalidUserInputException (String.format("Phone number should have 10 digits, not %d digits.", phoneNumber.length()));
 				}
 			}

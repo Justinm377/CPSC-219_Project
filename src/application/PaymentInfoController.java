@@ -14,8 +14,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * The PaymentInfoController switches scenes from the payment information page to the order confirmation page, provided that user 
- * input for personal information and payment information is valid. 
+ * The PaymentInfoController switches scenes from the payment information page to the order confirmation page,
+ * provided that user input for personal information and payment information is valid. 
  * @author CS219-user Group 5
  *
  */
@@ -94,7 +94,8 @@ public class PaymentInfoController {
 	}
 
 	/**
-	 * Sets the given scene as the primary stage's scene. This displays the given scene to the user utilizing the application.
+	 * Sets the given scene as the primary stage's scene. This displays the given scene to the user
+	 * utilizing the application.
 	 */
 	public void takeFocus() {
 		primaryStage.setScene(myScene);

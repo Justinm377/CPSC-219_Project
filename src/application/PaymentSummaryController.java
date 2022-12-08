@@ -13,8 +13,10 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
- * The PaymentSummaryController switches scenes from the payment summary page to the ordering page or to the payment info page. It
- * also sets the total price and total price with tax labels and validates the payment type selection for the user. 
+ * The PaymentSummaryController switches scenes from the payment summary 
+ * page to the ordering page or to the payment info page. 
+ * It also sets the total price and total price with tax labels and validates 
+ * the payment type selection for the user. 
  * @author CS219-user Group 5
  *
  */
@@ -59,7 +61,8 @@ public class PaymentSummaryController {
 	}
 
 	/**
-	 * Sets the given scene as the primary stage's scene. This displays the given scene to the user utilizing the application.
+	 * Sets the given scene as the primary stage's scene. 
+	 * This displays the given scene to the user utilizing the application.
 	 */
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
@@ -82,7 +85,8 @@ public class PaymentSummaryController {
 	}
 
 	/**
-	 * Switches scenes from the payment summary page to the ordering page when user decides to go to the ordering page.
+	 * Switches scenes from the payment summary page to the 
+	 * ordering page when user decides to go to the ordering page.
 	 * @param event Represents the action of the user pressing the button to go to the ordering page. 
 	 */
 	@FXML

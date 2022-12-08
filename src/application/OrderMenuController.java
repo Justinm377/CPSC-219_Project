@@ -149,8 +149,8 @@ public class OrderMenuController {
 	}
 
 	/**
-	 * Upon selecting the check box for the samosa menu item, its quantity text field will be visible. Deselecting 
-	 * the check box will make the quantity text field invisible.
+	 * Upon selecting the check box for the samosa menu item, its quantity text field will be visible. 
+	 * Deselecting the check box will make the quantity text field invisible.
 	 * @param event The user selecting or deselecting the check box for the samosa menu item. 
 	 */
 	@FXML
@@ -159,8 +159,8 @@ public class OrderMenuController {
 	}   
 
 	/**
-	 * Upon selecting the check box for the pani puri menu item, its quantity text field will be visible. Deselecting
-	 * the check box will make the quantity text field invisible.
+	 * Upon selecting the check box for the pani puri menu item, its quantity text field will be visible. 
+	 * Deselecting the check box will make the quantity text field invisible.
 	 * @param event The user selecting or deselecting the check box for the pani puri menu item. 
 	 */
 	@FXML
@@ -199,8 +199,9 @@ public class OrderMenuController {
 	}
 
 	/**
-	 * Upon selecting the check box for the brownie menu item, its quantity text field will be visible. Deselecting
-	 * the check box will make the quantity text field invisible. 
+	 * Upon selecting the check box for the brownie menu item, its quantity text field will be visible. 
+	 * Deselecting the check box will make the quantity text field invisible. 
+	 * 
 	 * @param event The user selecting or deselecting the check box for brownie menu item. 
 	 */
 	@FXML
@@ -262,7 +263,8 @@ public class OrderMenuController {
 	 * This method checks if the user has selected a check box and if they have inputed a quantity in the quantity 
 	 * text field. If there is no input and the check box is selected it throws an InvalidUserInputException. 
 	 * @param itemSelected takes the check box for the menu item
-	 * @param inputQuantity takes the user input in the quantity text field for the corresponding check box ( menu item)
+	 * @param inputQuantity takes the user input in the quantity text field for the corresponding check box 
+	 * ( menu item)
 	 * @throws InvalidUserInputException when user selects a check box and does not enter any input.
 	 */
 	public void checkIfItemIsSelected(CheckBox itemSelected, TextField inputQuantity) throws InvalidUserInputException{
@@ -271,7 +273,8 @@ public class OrderMenuController {
 	}
 
 	/**
-	 * This method checks if the user has selected a drinks check box, but has selected no size. If they have selected no
+	 * This method checks if the user has selected a drinks check box, but has selected no size.
+	 * If they have selected no
 	 * size but have selected a drink, an InvalidUserInputException is thrown. 
 	 * @param drinkSelected the drink that is selected by user
 	 * @param smallCB CheckBox of the small size of given drink
@@ -287,8 +290,8 @@ public class OrderMenuController {
 	}
 
 	/**
-	 * This method unselects the different size check boxes for a drink and their respective text fields when the user
-	 * unselects the main drink check box. 
+	 * This method unselects the different size check boxes for a drink and their
+	 * respective text fields when the user unselects the main drink check box. 
 	 * @param drinkSelected CheckBox of the Drinks item. 
 	 * @param smallTF TextField for the small size option. 
 	 * @param smallCB CheckBox for the small size option. 

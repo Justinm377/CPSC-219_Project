@@ -12,8 +12,8 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 /**
- * The OrderConfirmationController switches scenes from the order confirmation page to the home page. The order number is set when
- * the order confirmation page is opened. 
+ * The OrderConfirmationController switches scenes from the order confirmation page to the home page. 
+ * The order number is set when the order confirmation page is opened. 
  * @author CS219-user Group 5
  *
  */
@@ -52,7 +52,8 @@ public class OrderConfirmationController {
 	}
 
 	/**
-	 * Sets the given scene as the primary stage's scene. This displays the given scene to the user utilizing the application.
+	 * Sets the given scene as the primary stage's scene. This displays the given scene to the user 
+	 * utilizing the application.
 	 */
 	public void takeFocus() {
 		primaryStage.setScene(myScene);

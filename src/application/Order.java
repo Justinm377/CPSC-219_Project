@@ -3,8 +3,8 @@ package application;
 import java.util.ArrayList;
 
 /**
- * Holds a list of MenuItems and Drinks to calculate the total order price of the user, after they input their quantities for
- * menu items and drinks. 
+ * Holds a list of MenuItems and Drinks to calculate the total order price of the user,
+ * after they input their quantities for menu items and drinks. 
  * @author CS219-user Group 5
  *
  */
@@ -13,7 +13,8 @@ public class Order {
 	private ArrayList<Drinks> drinksList;
 
 	/**
-	 * Constructs a new order by taking lists of the menu items and drinks and setting the instance variables as those lists.
+	 * Constructs a new order by taking lists of the menu items and drinks and 
+	 * setting the instance variables as those lists.
 	 * @param foodItemList a list of all the MenuItems 
 	 * @param drinksItemList a list of all the Drinks
 	 */

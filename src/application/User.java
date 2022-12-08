@@ -183,17 +183,17 @@ public class User {
 		} else if (phoneNumber != "") {
 			for (char c : phoneNumber.toCharArray()){
 				//no dashes or whitespaces are allowed. if entered, exception is thrown
-				//if (c == '-' || c==' ') {
-				//	throw new InvalidUserInputException("Phone number should not include '-' or whitespaces.");
-				//}
+				if (c==' ') {
+					throw new InvalidUserInputException("Phone number should not include '-' or whitespaces.");
+				}
+				if (c=='-') {
+					throw new InvalidUserInputException("Phone number should not include '-' or whitespaces.");
+				}
 				
 				//user cannot enter non-digit characters 
 				if (!Character.isDigit(c)) {
 					if(c==' ') {
 						throw new InvalidUserInputException("Phone number should not include whitespaces.");
-					}
-					if(c=='-') {
-						throw new InvalidUserInputException("Phone number should not include -.");
 					}
 					throw new InvalidUserInputException("Only include numbers in this field.");
 					
@@ -201,11 +201,9 @@ public class User {
 				
 				//user cannot enter more than or less than 10 digits 
 				if (phoneNumber.replace(" ", "").length() != 10 && c!=' ' ) {
-					if(c == '-' || c==' ') {
-						throw new InvalidUserInputException("Phone number should not include '-' or whitespaces.");
-					}else {
+					
 						throw new InvalidUserInputException (String.format("Phone number should have 10 digits, not %d digits.", phoneNumber.length()));
-				}
+				
 				
 				}		
 			}

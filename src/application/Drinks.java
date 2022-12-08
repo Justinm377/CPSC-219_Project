@@ -1,9 +1,6 @@
 
 package application;
 
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.RadioButton;
-
 /**
  * This class is a sub-class of the MenuItem class. It uses size to calculate total price of the drink and the quantity
  * of the drink.
@@ -13,16 +10,14 @@ import javafx.scene.control.RadioButton;
 
 public class Drinks extends MenuItem {
 	private String size ;
-	
-	
-	
+
 	/**
-	 * An empty constructor that utilizes super method to match its parent class, MenuItem. 
+	 * Constructs a new Drinks. 
 	 */
 	public Drinks() {
 		super();
 	}
-	
+
 	/**
 	 * This constructor takes the drink size and drink quantity and sets the instance variables size and quantity.
 	 * @param drinkSize A size (Small, Medium, Large) selected by the user. 
@@ -32,23 +27,29 @@ public class Drinks extends MenuItem {
 
 	public Drinks(String drinkSize, String drinkAmount) throws InvalidUserInputException {
 		setSize(drinkSize);
-		setAmount(drinkAmount);
+		setQuantity(drinkAmount);
 	}
 
+	/**
+	 * @return The size of the drink.
+	 */
 	public String getSize() {
 		return size;
 	}
 
+	/**
+	 * Sets the size provided by the user's input.
+	 * @param size The size given by user input. 
+	 */
 	public void setSize(String size) {
 		this.size = size;
 	}
-	
+
 	/**
-	 * This method calculates the total price of the drink selected by the user. 
+	 * This method calculates the total price of the drink item selected by the user. 
 	 * @return the total price of the drink.
 	 * @throws InvalidUserInputException when no size is selected by user. 
 	 */
-
 	public double calculateDrinkTotalPrice() throws InvalidUserInputException {
 		if (getSize().equals("Small")) {
 			setPrice(1.99); //small is $1.99
@@ -60,7 +61,7 @@ public class Drinks extends MenuItem {
 			setPrice(0.00);
 			throw new InvalidUserInputException("Please select a size for your drink.");
 		}
-		
+
 		return calculateItemTotalPrice();
 	}
 

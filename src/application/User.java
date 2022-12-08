@@ -27,7 +27,8 @@ public class User {
 	}
 	
 	/**
-	 * Sets the user's input of their first name, if input is valid. Valid input contains only letter characters. 
+	 * Sets the user's input of their first name, if input is valid. Valid input contains only letter characters.
+	 *  
 	 * @param firstName A string intended to be the first name of the user. 
 	 * @throws InvalidUserInputException if the user inputs characters apart from letters in first name or 
 	 * does not input anything. 
@@ -56,6 +57,7 @@ public class User {
 
 	/**
 	 * Sets the user's input of their last name, if input is valid. Valid input contains only letter characters.
+	 * 
 	 * @param lastName A string intended to be the last name of the user.
 	 * @throws InvalidUserInputException if the user inputs characters apart from letters in last name or does not 
 	 * input anything. 
@@ -86,6 +88,7 @@ public class User {
 	/**
 	 * Sets the user's input of their address, if input is valid. Valid input contains only letter or number characters. 
 	 * and one hash is allowed. 
+	 * 
 	 * @param address A string intended to be the address of the user. 
 	 * @throws InvalidUserInputException if the user inputs characters apart from letters or numbers, more than one 
 	 * hash character, or does not input anything. 
@@ -123,6 +126,7 @@ public class User {
 	/**
 	 * Sets the user's input of their postal code, if input is valid. Valid input is in the format "X1X1X1" and
 	 * contains only 6 characters (only letters and numbers, no white spaces). 
+	 * 
 	 * @param postalCode A string intended to be the postal code of the user. 
 	 * @throws InvalidUserInputException if the user doesn't input a postal code with format "X1X1X1", input has more 
 	 * than 6 characters, input has characters other than letters or numbers, or user doesn't input anything 
@@ -168,6 +172,7 @@ public class User {
 	/**
 	 * Sets the user's input of their phone number, if input is valid. Valid input contains 10 digits, and characters
 	 * that are only numbers. The phone number is in the format "1112223333".
+	 * 
 	 * @param phoneNumber A string intended to be the phone number of the user. 
 	 * @throws InvalidUserInputException if the user inputs an phone number containing characters (including white spaces) other 
 	 * than numbers, more than or less than 10 digits, if phone number format is not "1112223333", or inputs nothing. 

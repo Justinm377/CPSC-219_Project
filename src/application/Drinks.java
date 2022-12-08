@@ -20,6 +20,7 @@ public class Drinks extends MenuItem {
 
 	/**
 	 * This constructor takes the drink size and drink quantity and sets the instance variables size and quantity.
+	 * 
 	 * @param drinkSize A size (Small, Medium, Large) selected by the user. 
 	 * @param drinkAmount a String that holds the value of the quantity of drinks intended by the user to be a quantity of that item. 
 	 * @throws InvalidUserInputException 
@@ -47,6 +48,7 @@ public class Drinks extends MenuItem {
 
 	/**
 	 * This method calculates the total price of the drink item selected by the user. 
+	 * 
 	 * @return the total price of the drink.
 	 * @throws InvalidUserInputException when no size is selected by user. 
 	 */

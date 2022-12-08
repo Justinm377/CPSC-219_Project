@@ -64,6 +64,7 @@ public class HomePageController {
 	
 	/**
 	 * Switches scenes from home page scene to view menu scene when user decides to view the menu. 
+	 * 
 	 * @param event Represents the action of the user pressing the button to view the menu. 
 	 */
 	@FXML
@@ -88,6 +89,7 @@ public class HomePageController {
 
 	/**
 	 * Switches scenes from the home page scene to order menu scene when user decides to go to the ordering page.
+	 * 
 	 * @param event Represents the action of the user pressing the button to go to the ordering page.
 	 */
 	@FXML

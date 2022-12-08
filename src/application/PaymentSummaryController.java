@@ -35,7 +35,7 @@ public class PaymentSummaryController {
 	private Label errorLabelPaymentType;
 
 	/**
-	 *  Sets the given stage as the primary stage of the application. 
+	 * Sets the given stage as the primary stage of the application. 
 	 * @param aStage The stage to be set as the application's primary stage.
 	 */
 	public void setPrimaryStage(Stage aStage) {

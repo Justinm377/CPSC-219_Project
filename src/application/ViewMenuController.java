@@ -32,6 +32,7 @@ public class ViewMenuController {
 
 	/**
 	 * Sets the given scene as the controller's scene.
+	 * 
 	 * @param aScene The scene intended to be displayed to the user.
 	 */
 	public void setMyScene(Scene aScene) {
@@ -40,6 +41,7 @@ public class ViewMenuController {
 
 	/**
 	 * Switches the controller from the HomePageController to the ViewMenuController. 
+	 * 
 	 * @param next The next controller. 
 	 */
 	public void setNextController(HomePageController next) {
@@ -55,6 +57,7 @@ public class ViewMenuController {
 
 	/**
 	 * Switches scenes from the view menu page to the home page when user decides to return to the home page.
+	 * 
 	 * @param event Represents the action of the user pressing the button to return to the home page.
 	 */
 	@FXML
@@ -66,6 +69,7 @@ public class ViewMenuController {
 
 	/**
 	 * Switches scenes from the view menu page to the ordering page when user decides to go to the ordering page.
+	 * 
 	 * @param event Represents the action of the user pressing the button to go to the ordering page. 
 	 */
 	@FXML

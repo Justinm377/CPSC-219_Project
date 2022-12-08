@@ -24,7 +24,8 @@ public class Card {
 	}
 
 	/**
-	 * The method validates the name on card. It would allow only alphabets as a valid entry.
+	 * The method validates the name on card. It would allow only alphabets as a valid entry. It would not allow 
+	 * digits and special characters.
 	 * 
 	 * @param cardName a String intended to be a card name entered by the user and set as cardName.
 	 * @throws InvalidUserInputException when user provides a card name containing characters other than letters
@@ -52,7 +53,9 @@ public class Card {
 	}
 
 	/**
-	 * The method validates card number. It allows only numbers and limits the size to 16 digits.
+	 * The method validates card number. It allows only numbers and limits the size to 16 digits. No alphabets 
+	 * or special characters will be allowed. It will also show error when card size exceeds 16 digits.
+	 * 
 	 * 
 	 * @param cardNumber A String intended to be a card number entered by the user and set as cardNumber. 
 	 * @throws InvalidUserInputException when user provides a card number that doesn't contain 16 numbers and characters other than digits.

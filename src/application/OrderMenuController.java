@@ -310,8 +310,6 @@ public class OrderMenuController {
 			smallCB.setSelected(false);
 			mediumCB.setSelected(false);
 			largeCB.setSelected(false);
-			//if drink check box is unselected, and a quantity textfield is visible for any of the size options, it
-			//will be set unvisible and its checkbox will be unselected. 
 		}
 	}
 

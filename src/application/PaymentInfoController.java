@@ -220,7 +220,7 @@ public class PaymentInfoController {
 					number = randomNumbers.nextInt(10);
 					orderNumberAsString = orderNumberAsString + Integer.toString(number);
 				}
-				orderConfirmationController.setLabelText(orderNumberAsString); //set order number as this number
+				orderConfirmationController.setOrderNumber(orderNumberAsString); //set order number as this number
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

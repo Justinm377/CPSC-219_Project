@@ -8,7 +8,19 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
+/**
+ * The Main class is used to start the application, with the home page being the first page displayed
+ * to the user. 
+ * @author CS219-user Group 5
+ *
+ */
 public class Main extends Application {
+	
+	/**
+	 * Starts the application by setting the first scene of the application's home page on the
+	 * primary stage. 
+	 * @param primaryStage The stage where the scene is set. 
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -27,9 +39,5 @@ public class Main extends Application {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}	
-	}
-
-	public static void main(String[] args) {
-		launch(args);		
 	}
 }

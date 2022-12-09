@@ -63,7 +63,7 @@ public class OrderConfirmationController {
 	 * Sets the order number label as the randomly generated number.
 	 * @param randomNumber The random number to set as the order number. 
 	 */
-	public void setLabelText(String randomNumber) {
+	public void setOrderNumber(String randomNumber) {
 		orderNumber.setText(randomNumber); 
 	}
 

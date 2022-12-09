@@ -77,6 +77,14 @@
             <Insets left="10.0" />
          </padding>
       </Label>
+      <Label prefHeight="10.0" prefWidth="625.0" text="To contact us by phone, please call this number:  334-123-5679" translateY="10.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
 		<HBox prefHeight="97.0" prefWidth="626.0">
 			<children>
 				<Button mnemonicParsing="false" onAction="#switchToViewMenu" text="View Our Menu" translateY="40.0">

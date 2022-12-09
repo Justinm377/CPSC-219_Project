@@ -110,7 +110,7 @@
 				</VBox>
 			</children>
 		</HBox>
-		<Label text="To pay in cash, please visit us in person or give us a call on our phone number: 202-225-4965" />
+		<Label text="To pay in cash, please visit us in person or give us a call on our phone number: 334-123-5679" />
 		<Label fx:id="errorLabelPaymentType" alignment="CENTER" contentDisplay="CENTER" minHeight="25.0" prefHeight="38.0" prefWidth="389.0" textFill="RED" />
 		<HBox prefHeight="51.0" prefWidth="600.0">
 			<children>
@@ -119,7 +119,7 @@
 						<Insets left="10.0" right="20.0" />
 					</HBox.margin>
 				</Button>
-            <Button layoutX="328.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToPaymentInfo" prefHeight="26.0" prefWidth="289.0" text="Continue to Payment" />
+            <Button layoutX="328.0" layoutY="10.0" mnemonicParsing="false" onAction="#switchToPaymentInfo" prefHeight="26.0" prefWidth="289.0" text="Continue to Payment" translateX="-8.0" />
 			</children>
 		</HBox>
 	</children>

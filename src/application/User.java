@@ -138,7 +138,7 @@ public class User {
 			for (char c : postalCode.toCharArray()){
 				//user may have entered postal code in format "X1X 1X1", but white spaces are not allowed, so exception is thrown
 				if (c == ' ') {
-					throw new InvalidUserInputException("Please do not include white space.");
+					throw new InvalidUserInputException("Please do not include white spaces.");
 				}
 				
 				//user cannot input more or less than 6 characters, or exception is thrown
@@ -193,7 +193,7 @@ public class User {
 				}
 				
 				//user cannot enter more than or less than 10 digits 
-				if (phoneNumber.replaceAll(" ","").length() != 10 && c != ' ' && c != '-') {
+				if (phoneNumber.replace(" ","").length() != 10 && c != ' ' && c != '-') {
 					throw new InvalidUserInputException (String.format("Phone number should have 10 digits, not %d digits.", phoneNumber.length()));	
 				}
 			}

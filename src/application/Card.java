@@ -67,11 +67,16 @@ public class Card {
 			throw new InvalidUserInputException("Please input your card number in this field."); //if user enters no card number, exception is thrown
 		} else if (cardNumber != "") {
 			for (char c : cardNumber.toCharArray()){
-				if (cardNumber.length() != 16 && Character.isDigit(c)) {
-					throw new InvalidUserInputException(String.format("Card number should have 16 digits, not %d digits.", cardNumber.length())); //if user enters card number that doesn't have 16 digits, exception is thrown
+				if (c == ' ') {
+					throw new InvalidUserInputException("Please do not include white spaces."); //checking for white spaces user may have accidentally entered
 				}
+				
 				if (!Character.isDigit(c)) {
 					throw new InvalidUserInputException("Only include numbers in this field."); //if user enters non-digit characters, exception is thrown
+				}
+				
+				if (cardNumber.replace(" ", "").length() != 16 && Character.isDigit(c) && c != ' ') {
+					throw new InvalidUserInputException(String.format("Card number should have 16 digits, not %d digits.", cardNumber.length())); //if user enters card number that doesn't have 16 digits, exception is thrown
 				}
 			}
 		} else {
@@ -99,11 +104,16 @@ public class Card {
 			throw new InvalidUserInputException("Please input your card's expiry month in the first field."); //if user enters no expiry month, exception is thrown
 		} else if (expiryMonth != "") {
 			for (char c : expiryMonth.toCharArray()){
-				if (expiryMonth.length() != 2 && Character.isDigit(c)) {
-					throw new InvalidUserInputException (String.format("Expiry month should have 2 digits, not %d digits.", expiryMonth.length())); //if user enters expiry month that doesn't have 2 digits, exception is thrown
+				if (c == ' ') {
+					throw new InvalidUserInputException("Please do not include white spaces in the first field."); //checking for white spaces user may have accidentally entered
 				}
-				if (!Character.isDigit(c)) {
-					throw new InvalidUserInputException("Only include numbers in this field."); //if user enters expiry month with non-digit characters, exception is thrown
+				
+				if (!Character.isDigit(c) && c != ' ') {
+					throw new InvalidUserInputException("Only include numbers in the first field."); //if user enters expiry month with non-digit characters, exception is thrown
+				}
+				
+				if (expiryMonth.replace(" ", "").length() != 2 && Character.isDigit(c) && c != ' ') {
+					throw new InvalidUserInputException (String.format("Expiry month should have 2 digits, not %d digits.", expiryMonth.length())); //if user enters expiry month that doesn't have 2 digits, exception is thrown
 				}
 			}
 			if (Integer.parseInt(expiryMonth) < 1 || Integer.parseInt(expiryMonth) > 12) {
@@ -133,11 +143,16 @@ public class Card {
 			throw new InvalidUserInputException("Please input your card's expiry year in the second field."); //if user enters no expiry year, exception is thrown
 		} else if (expiryYear != "") {
 			for (char c : expiryYear.toCharArray()){
-				if (expiryYear.length() != 2 && Character.isDigit(c)) {
-					throw new InvalidUserInputException (String.format("Expiry year should have 2 digits, not %d digits.", expiryYear.length())); //if user enters expiry year that doesn't have 2 digits, exception is thrown
+				if (c == ' ') {
+					throw new InvalidUserInputException("Please do not include white spaces in the second field."); //checking for white spaces user may have accidentally entered
 				}
-				if (!Character.isDigit(c) && c!=' ') {
-					throw new InvalidUserInputException("Only include numbers in this field."); //if user enters expiry year with non-digit characters, exception is thrown
+				
+				if (!Character.isDigit(c) && c != ' ') {
+					throw new InvalidUserInputException("Only include numbers in the second field."); //if user enters expiry year with non-digit characters, exception is thrown
+				}
+	
+				if (expiryYear.replace(" ", "").length() != 2 && Character.isDigit(c) && c != ' ') {
+					throw new InvalidUserInputException (String.format("Expiry year should have 2 digits, not %d digits.", expiryYear.length())); //if user enters expiry year that doesn't have 2 digits, exception is thrown
 				}
 			}
 			if (Integer.parseInt(expiryYear) < 22) {
@@ -166,11 +181,16 @@ public class Card {
 			throw new InvalidUserInputException("Please input your card's CVV in this field."); //if user enters no cvv, exception is thrown
 		} else if (cvv != "") {
 			for (char c : cvv.toCharArray()){
-				if (cvv.length() != 3 && Character.isDigit(c)) {
-					throw new InvalidUserInputException (String.format("CVV should have 3 digits, not %d digits.", cvv.length())); //if user enters a cvv that doesn't contain 3 digits, exception is thrown
+				if (c == ' ') {
+					throw new InvalidUserInputException("Please do not include white spaces."); //checking for white spaces user may have accidentally entered
 				}
-				if (!Character.isDigit(c) && c!=' ') {
+				
+				if (!Character.isDigit(c) && c != ' ') {
 					throw new InvalidUserInputException("Only include numbers in this field."); //if user enters a cvv value with non-digit characters, exception is thrown
+				}
+				
+				if (cvv.replace(" ", "").length() != 3 && Character.isDigit(c) && c != ' ') {
+					throw new InvalidUserInputException (String.format("CVV should have 3 digits, not %d digits.", cvv.length())); //if user enters a cvv that doesn't contain 3 digits, exception is thrown
 				}
 			}
 		} else {

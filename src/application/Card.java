@@ -13,24 +13,22 @@ public class Card {
 	private String cvv;
 	
 	/**
-	 * 
-	 * constructs new user card
+	 * Constructs new user card.
 	 */
 	public Card() {
 
 	}
 
 	/**
-	 * @return the cardName
+	 * @return the card name entered by user.  
 	 */
 	public String getCardName() {
 		return cardName;
 	}
 
 	/**
-	 * The method validates the name on card. It would allow only alphabets as a valid entry. It would not allow 
-	 * digits and special characters.
-	 * 
+	 * Sets the user input of their card name, as long as input is valid. Valid input only allows letters, no numbers
+	 * or special characters.
 	 * @param cardName a String intended to be a card name entered by the user and set as cardName.
 	 * @throws InvalidUserInputException when user provides a card name containing characters other than letters
 	 */
@@ -50,17 +48,16 @@ public class Card {
 	}
 
 	/**
-	 * @return the cardNumber
+	 * @return the card number entered by user.  
 	 */
 	public String getCardNumber() {
 		return cardNumber;
 	}
 
 	/**
-	 * The method validates card number. It allows only numbers and limits the size to 16 digits. No alphabets 
-	 * or special characters will be allowed. It will also show error when card size exceeds 16 digits.
-	 * 
-	 * 
+	 * Sets the card number given by user input, as long as input is valid. Valid input allows only numbers 
+	 * and limits the size to 16 digits. No alphabets or special characters will be allowed. It will also 
+	 * show error when card size exceeds 16 digits.
 	 * @param cardNumber A String intended to be a card number entered by the user and set as cardNumber. 
 	 * @throws InvalidUserInputException when user provides a card number that doesn't contain 16 numbers and characters other than digits.
 	 */
@@ -83,17 +80,18 @@ public class Card {
 	}
 
 	/**
-	 * @return the expiryMonth
+	 * @return the expiry month entered by user. 
 	 */
 	public String getExpiryMonth() {
 		return expiryMonth;
 	}
 
 	/**
-	 * The method validates Expiry Month. It allows only digits and doesn't allow month greater than 12 .
-	 * 
+	 * Sets the expiry month given by user input, as long as it is valid. Valid input allows only digits 
+	 * between 1 and 12.
 	 * @param expiryMonth a String intended to be the expiry month entered by the user and set as expiryMonth.
-	 * @throws InvalidUserInputException when the user provides an expiry month that contains characters that are not digits, does not have 2 digits, or provides a value that is not between 1 and 12.
+	 * @throws InvalidUserInputException when the user provides an expiry month that contains characters that are not digits, does 
+	 * not have 2 digits, or provides a value that is not between 1 and 12.
 	 */
 	public void setExpiryMonth(String expiryMonth) throws InvalidUserInputException {
 		//sets user input for expiry month, only if it is between 1 and 12 and contains only digits, else it throws an exception
@@ -117,15 +115,15 @@ public class Card {
 	}
 
 	/**
-	 * @return the expiryYear
+	 * @return the expiry year entered by user. 
 	 */
 	public String getExpiryYear() {
 		return expiryYear;
 	}
 
 	/**
-	 * The method validates Expiry Month. It allows only digits and doesn't allow year less than 2022.
-	 * 
+	 * Sets the expiry year entered by the user input, as long as input is valid. Valid input allows only 2 digits
+	 * and does not allow years less than 22 (2022). 
 	 * @param expiryYear a String intended to be the expiry year entered by the user and set as expiryYear.
 	 * @throws InvalidUserInputException when the user enters an expiry year that contains characters other than digits, does not have 2 digits, or provides a value less than the current year, 22. 
 	 */
@@ -158,9 +156,7 @@ public class Card {
 	}
 
 	/**
-	 * The method validates CVV. It allows only numbers and limits the size to 3 digits.No alphabets 
-	 * or special characters will be allowed. It will also show error when card size exceeds 3 digits.
-	 * 
+	 * Sets the CVV entered by user input, as long as user input is valid. Valid input allows only 3 digits. 
 	 * @param cvv a String intended to be the CVV entered by the user and set as cvv. 
 	 * @throws InvalidUserInputException when the user provides a cvv value that is not 3 digits long, or contains characters that are not digits. 
 	 */
@@ -183,12 +179,11 @@ public class Card {
 	}
 	
 	/**
-	 * If the user input for expiry month is before month 12 and year input is 22, InvalidUserException will be thrown. 
-	 * Expiry date should match current time (December 2022). 
-	 * 
+	 * Checks that the user input for expiry month is valid when their input for expiry year is 22 (2022), to match the
+	 * current time (December 2022). 
 	 * @param expiryMonth a String intended to be the expiry month entered by the user
-	 * @param expiryYear a String intended to be the expiry user entered by the user
-	 * @throws InvalidUserInputException
+	 * @param expiryYear a String intended to be the expiry year user entered by the user
+	 * @throws InvalidUserInputException when expiry date does not match the current time (December 2022). 
 	 */
 	public void checkIfExpiryDateIsValid(String expiryMonth, String expiryYear) throws InvalidUserInputException {
 		if (expiryMonth != "" && expiryYear != "") {

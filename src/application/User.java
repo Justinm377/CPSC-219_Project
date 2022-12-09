@@ -138,7 +138,7 @@ public class User {
 			for (char c : postalCode.toCharArray()){
 				//user may have entered postal code in format "X1X 1X1", but white spaces are not allowed, so exception is thrown
 				if (c == ' ') {
-					throw new InvalidUserInputException("Please don't include white space");
+					throw new InvalidUserInputException("Please do not include white space.");
 				}
 				
 				//user cannot input more or less than 6 characters, or exception is thrown
@@ -183,31 +183,19 @@ public class User {
 		} else if (phoneNumber != "") {
 			for (char c : phoneNumber.toCharArray()){
 				//no dashes or whitespaces are allowed. if entered, exception is thrown
-				if (c==' ') {
-					throw new InvalidUserInputException("Phone number should not include '-' or whitespaces.");
-				}
-				if (c=='-') {
-					throw new InvalidUserInputException("Phone number should not include '-' or whitespaces.");
+				if (c == ' ' || c == '-') {
+					throw new InvalidUserInputException("Phone number should not include '-' or white spaces.");
 				}
 				
 				//user cannot enter non-digit characters 
 				if (!Character.isDigit(c)) {
-					//if(c==' ') {
-					//	throw new InvalidUserInputException("Phone number should not include whitespaces.");
-					//}
-					throw new InvalidUserInputException("Only include numbers in this field.");
-					
+					throw new InvalidUserInputException("Only include numbers in this field.");	
 				}
 				
 				//user cannot enter more than or less than 10 digits 
-				if (phoneNumber.replace(" ","").length() != 10 && c!=' ' ) {
-					if (c==' ') {
-						throw new InvalidUserInputException("Phone number should not include whitespaces.");
-					}
-						throw new InvalidUserInputException (String.format("Phone number should have 10 digits, not %d digits.", phoneNumber.length()));
-				
-				
-				}		
+				if (phoneNumber.replaceAll(" ","").length() != 10 && c != ' ' && c != '-') {
+					throw new InvalidUserInputException (String.format("Phone number should have 10 digits, not %d digits.", phoneNumber.length()));	
+				}
 			}
 		} else {
 			this.phoneNumber = phoneNumber; //sets the instance variable when valid input is given

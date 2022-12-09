@@ -149,7 +149,7 @@ public class Card {
 	}
 
 	/**
-	 * @return the cvv
+	 * @return the cvv entered by the user. 
 	 */
 	public String getCVV() {
 		return cvv;

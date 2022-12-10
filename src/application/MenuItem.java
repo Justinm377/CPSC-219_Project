@@ -99,5 +99,5 @@ public class MenuItem {
 		double totalItemPrice = getQuantity() * getPrice(); 
 		return totalItemPrice;
 	}
-	
+
 }

@@ -1,4 +1,5 @@
 package application;
+
 /**
  * Takes information about the user's credit or debit card, like card name, card number, expiry month, expiry year,
  * and CVV, and validates the user's input for these attributes. 
@@ -212,5 +213,5 @@ public class Card {
 			}
 		}
 	}
-	
+
 }

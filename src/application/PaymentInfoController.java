@@ -226,6 +226,6 @@ public class PaymentInfoController {
 			}
 			orderConfirmationController.takeFocus();
 		}
-
 	}
+
 }

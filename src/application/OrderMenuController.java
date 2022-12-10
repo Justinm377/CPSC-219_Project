@@ -54,7 +54,7 @@ public class OrderMenuController {
 	private TextField brownieTextField;
 	@FXML
 	private CheckBox brownieCheckBox; 
-	
+
 	@FXML
 	private CheckBox chaiMainCheckBox;
 	@FXML
@@ -69,7 +69,7 @@ public class OrderMenuController {
 	private TextField chaiTextFieldMedium;
 	@FXML
 	private TextField chaiTextFieldLarge;
-	
+
 	@FXML
 	private CheckBox sherbetMainCheckBox;
 	@FXML
@@ -201,7 +201,6 @@ public class OrderMenuController {
 	/**
 	 * Upon selecting the check box for the brownie menu item, its quantity text field will be visible. 
 	 * Deselecting the check box will make the quantity text field invisible. 
-	 * 
 	 * @param event The user selecting or deselecting the check box for brownie menu item. 
 	 */
 	@FXML
@@ -411,7 +410,7 @@ public class OrderMenuController {
 			paymentController.takeFocus();
 		}
 	}
-	
+
 	/**
 	 * Switches scenes from ordering page to home page when user decides to return to home page. 
 	 * @param event Represents the action of the user pressing the button to return to the home page.
@@ -434,5 +433,5 @@ public class OrderMenuController {
 		}
 		homePageController.takeFocus();
 	}
+	
 }
-

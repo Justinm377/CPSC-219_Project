@@ -70,7 +70,7 @@ public class Order {
 				e.printStackTrace();
 			}
 		}
-		
+
 		return priceToReturn;
 	}
 
@@ -81,7 +81,7 @@ public class Order {
 	 */
 	public double calculateTotalPriceWithTax() {
 		double priceToReturnWithTax = calculateTotalPrice() + (calculateTotalPrice() * 0.05); //we're using GST tax of 5%
-		
+
 		return priceToReturnWithTax;
 	}
 

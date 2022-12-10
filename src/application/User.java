@@ -25,10 +25,9 @@ public class User {
 	public String getFirstName() {
 		return firstName;
 	}
-	
+
 	/**
 	 * Sets the user's input of their first name, if input is valid. Valid input contains only letter characters.
-	 *  
 	 * @param firstName A string intended to be the first name of the user. 
 	 * @throws InvalidUserInputException if the user inputs characters apart from letters in first name or 
 	 * does not input anything. 
@@ -57,7 +56,6 @@ public class User {
 
 	/**
 	 * Sets the user's input of their last name, if input is valid. Valid input contains only letter characters.
-	 * 
 	 * @param lastName A string intended to be the last name of the user.
 	 * @throws InvalidUserInputException if the user inputs characters apart from letters in last name or does not 
 	 * input anything. 
@@ -88,7 +86,6 @@ public class User {
 	/**
 	 * Sets the user's input of their address, if input is valid. Valid input contains only letter or number characters. 
 	 * and one hash is allowed. 
-	 * 
 	 * @param address A string intended to be the address of the user. 
 	 * @throws InvalidUserInputException if the user inputs characters apart from letters or numbers, more than one 
 	 * hash character, or does not input anything. 
@@ -126,7 +123,6 @@ public class User {
 	/**
 	 * Sets the user's input of their postal code, if input is valid. Valid input is in the format "X1X1X1" and
 	 * contains only 6 characters (only letters and numbers, no white spaces). 
-	 * 
 	 * @param postalCode A string intended to be the postal code of the user. 
 	 * @throws InvalidUserInputException if the user doesn't input a postal code with format "X1X1X1", input has more 
 	 * than 6 characters, input has characters other than letters or numbers, or user doesn't input anything 
@@ -140,12 +136,12 @@ public class User {
 				if (c == ' ') {
 					throw new InvalidUserInputException("Please do not include white spaces.");
 				}
-				
+
 				//user cannot input more or less than 6 characters, or exception is thrown
 				if (postalCode.replace(" ", "").length() != 6 && c != ' ' && (Character.isDigit(c) || Character.isLetter(c))) {
 					throw new InvalidUserInputException (String.format("Postal should have 6 characters, not %d characters.", postalCode.length()));
 				}
-				
+
 				//user can only input letters or numbers, or exception is thrown
 				if (!Character.isDigit(c) && !Character.isLetter(c)) {
 					throw new InvalidUserInputException("Only include letters or numbers in this field.");
@@ -172,7 +168,6 @@ public class User {
 	/**
 	 * Sets the user's input of their phone number, if input is valid. Valid input contains 10 digits, and characters
 	 * that are only numbers. The phone number is in the format "1112223333".
-	 * 
 	 * @param phoneNumber A string intended to be the phone number of the user. 
 	 * @throws InvalidUserInputException if the user inputs an phone number containing characters (including white spaces) other 
 	 * than numbers, more than or less than 10 digits, if phone number format is not "1112223333", or inputs nothing. 
@@ -186,12 +181,12 @@ public class User {
 				if (c == ' ' || c == '-') {
 					throw new InvalidUserInputException("Phone number should not include '-' or white spaces.");
 				}
-				
+
 				//user cannot enter non-digit characters 
 				if (!Character.isDigit(c)) {
 					throw new InvalidUserInputException("Only include numbers in this field.");	
 				}
-				
+
 				//user cannot enter more than or less than 10 digits 
 				if (phoneNumber.replace(" ","").length() != 10 && c != ' ' && c != '-') {
 					throw new InvalidUserInputException (String.format("Phone number should have 10 digits, not %d digits.", phoneNumber.length()));	

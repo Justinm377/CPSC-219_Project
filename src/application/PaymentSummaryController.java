@@ -123,4 +123,5 @@ public class PaymentSummaryController {
 			errorLabelPaymentType.setText("Please select a type of payment."); //if user doesn't select a payment type, error message will be displayed
 		}
 	}
+	
 }

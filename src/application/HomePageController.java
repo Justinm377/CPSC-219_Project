@@ -38,7 +38,7 @@ public class HomePageController {
 	public void setMyScene(Scene aScene) {
 		myScene = aScene;
 	}
-	
+
 	/**
 	 * Switches the controller from the OrderMenuController to the HomePageController.
 	 * @param next The next controller. 
@@ -54,17 +54,16 @@ public class HomePageController {
 	public void setNextControllerOrderConfirmation(OrderConfirmationController next) {
 		orderConfirmationController = next;
 	}
-	
+
 	/**
 	 * Sets the given scene as the primary stage's scene. This displays the given scene to the user utilizing the application.
 	 */
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
 	}
-	
+
 	/**
 	 * Switches scenes from home page scene to view menu scene when user decides to view the menu. 
-	 * 
 	 * @param event Represents the action of the user pressing the button to view the menu. 
 	 */
 	@FXML
@@ -89,7 +88,6 @@ public class HomePageController {
 
 	/**
 	 * Switches scenes from the home page scene to order menu scene when user decides to go to the ordering page.
-	 * 
 	 * @param event Represents the action of the user pressing the button to go to the ordering page.
 	 */
 	@FXML

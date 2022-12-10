@@ -15,7 +15,7 @@ import javafx.scene.Scene;
  *
  */
 public class Main extends Application {
-	
+
 	/**
 	 * Starts the application by setting the first scene of the application's home page on the
 	 * primary stage. 
@@ -40,4 +40,5 @@ public class Main extends Application {
 			e.printStackTrace();
 		}	
 	}
+	
 }

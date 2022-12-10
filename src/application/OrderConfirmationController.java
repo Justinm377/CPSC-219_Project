@@ -58,7 +58,7 @@ public class OrderConfirmationController {
 	public void takeFocus() {
 		primaryStage.setScene(myScene);
 	}
-	
+
 	/**
 	 * Sets the order number label as the randomly generated number.
 	 * @param randomNumber The random number to set as the order number. 

@@ -51,6 +51,7 @@ public class MenuItem {
 				if (!Character.isDigit(c)) validQuantity = false;
 				if (c == '.') decimalCounter++;
 				if (c == '0' && quantityItemAsString.length() == 1) throw new InvalidUserInputException("Order quantity cannot be 0."); //user cannot order 0 items
+				if (c == ' ') throw new InvalidUserInputException("Please do not include any white spaces.");
 			}
 		} else if (quantityItemAsString == "" || quantityItemAsString == null) { //checks for when an user enters no input
 			validQuantity = false;

@@ -51,7 +51,6 @@ public class Order {
 
 	/**
 	 * Calculates the total price of the user's order and returns that total price.
-	 * 
 	 * @return the total price of the user's entire order of items
 	 */
 	public double calculateTotalPrice() {

@@ -61,7 +61,6 @@ public class User {
 	 * input anything. 
 	 */
 	public void setLastName(String lastName) throws InvalidUserInputException {
-
 		//checks if last name input given by user is only letters, and if not, throws invalid input exception
 		if (lastName == "") {
 			throw new InvalidUserInputException("Please input your last name in this field."); //user doesn't input anything in text field, so exception is thrown

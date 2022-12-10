@@ -8,7 +8,7 @@ package application;
  */
 
 public class Drinks extends MenuItem {
-	private String size ;
+	private String size;
 
 	/**
 	 * Constructs a new Drinks. 

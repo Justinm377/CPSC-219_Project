@@ -76,7 +76,6 @@ public class Order {
 
 	/**
 	 * Calculates the total price of the user's order with 5% tax and returns the total price with tax.
-	 * 
 	 * @return the total price of the user's entire order of items with 5% tax.
 	 */
 	public double calculateTotalPriceWithTax() {

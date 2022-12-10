@@ -336,14 +336,14 @@ public class OrderMenuController {
 			MenuItem brownie = new MenuItem(brownieTextField.getText(), 4.99);
 
 			//creating Drinks objects for Chai, based on its different sizes
-			Drinks drink1small = new Drinks("Small",chaiTextFieldSmall.getText());
-			Drinks drink1med = new Drinks("Medium",chaiTextFieldMedium.getText());
-			Drinks drink1large = new Drinks("Large",chaiTextFieldLarge.getText());
+			Drinks chaiSmall = new Drinks("Small",chaiTextFieldSmall.getText());
+			Drinks chaiMedium = new Drinks("Medium",chaiTextFieldMedium.getText());
+			Drinks chaiLarge = new Drinks("Large",chaiTextFieldLarge.getText());
 
 			//creating Drinks objects for Rose Sherbet, based on its different sizes
-			Drinks drink2small = new Drinks("Small",sherbetTextFieldSmall.getText());
-			Drinks drink2med = new Drinks("Medium",sherbetTextFieldMedium.getText());
-			Drinks drink2large = new Drinks("Large",sherbetTextFieldLarge.getText());
+			Drinks sherbetSmall = new Drinks("Small",sherbetTextFieldSmall.getText());
+			Drinks sherbetMedium = new Drinks("Medium",sherbetTextFieldMedium.getText());
+			Drinks sherbetLarge = new Drinks("Large",sherbetTextFieldLarge.getText());
 
 			//adding all the menu items to the list
 			menuItemList.add(samosa);
@@ -354,12 +354,12 @@ public class OrderMenuController {
 			menuItemList.add(brownie);
 
 			//adding all the drinks (specifically, their sizes) to the list
-			drinksItemList.add(drink1small);
-			drinksItemList.add(drink2small);
-			drinksItemList.add(drink1med);
-			drinksItemList.add(drink2med);
-			drinksItemList.add(drink1large);
-			drinksItemList.add(drink2large);
+			drinksItemList.add(chaiSmall);
+			drinksItemList.add(sherbetSmall);
+			drinksItemList.add(chaiMedium);
+			drinksItemList.add(sherbetMedium);
+			drinksItemList.add(chaiLarge);
+			drinksItemList.add(sherbetLarge);
 
 			//checks if any of the check boxes are not selected, and if none are, user is given an error message when they attempt to continue
 			checkIfAnyItemsAreSelected();

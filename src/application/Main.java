@@ -18,7 +18,7 @@ public class Main extends Application {
 
 	/**
 	 * Starts the application by setting the first scene of the application's home page on the
-	 * primary stage. 
+	 * primary stage and sets its title to "Taste of India - Food Ordering App". 
 	 * @param primaryStage The stage where the scene is set. 
 	 */
 	@Override

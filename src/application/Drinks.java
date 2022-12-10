@@ -23,9 +23,9 @@ public class Drinks extends MenuItem {
 	 * @param drinkAmount a String that holds the value of the quantity of drinks intended by the user to be a quantity of that item. 
 	 * @throws InvalidUserInputException 
 	 */
-	public Drinks(String drinkSize, String drinkAmount) throws InvalidUserInputException {
+	public Drinks(String drinkSize, String drinkQuantity) throws InvalidUserInputException {
 		setSize(drinkSize);
-		setQuantity(drinkAmount);
+		setQuantity(drinkQuantity);
 	}
 
 	/**

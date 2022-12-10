@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.web.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -12,37 +13,100 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="347.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FoodOrderingAppController">
-    <children>
-       <Label text="Welcome To Taste of India" textFill="#289020">
+<VBox prefHeight="317.0" prefWidth="626.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomePageController">
+	<children>
+		<Label text="Welcome To Taste of India!" textFill="#289020">
+			<font>
+				<Font size="14.0" />
+			</font>
+			<VBox.margin>
+				<Insets left="10.0" right="10.0" top="6.0" />
+			</VBox.margin>
+         <padding>
+            <Insets left="215.0" />
+         </padding>
+		</Label>
+		<Label text="We are glad to welcome you to our restaurant's online ordering portal for home delivered orders.">
+			<font>
+				<Font size="13.0" />
+			</font>
+			<VBox.margin>
+				<Insets top="10.0" />
+			</VBox.margin>
+			<padding>
+				<Insets left="10.0" />
+			</padding>
+		</Label>
+		<Label prefHeight="29.0" prefWidth="536.0" text="We strive to bring you the very authentic and tasty delicacies from the Indian subcontinent. ">
+			<padding>
+				<Insets left="10.0" />
+			</padding>
+			<font>
+				<Font size="13.0" />
+			</font>
+		</Label>
+		<Label text="We provide a classic combination of indisputable food taste, unique experience and tradition that holds worldwide recognition." wrapText="true">
+			<font>
+				<Font size="13.0" />
+			</font>
+			<padding>
+				<Insets left="10.0" />
+			</padding>
+		</Label>
+		<Label>
+			<font>
+				<Font size="13.0" />
+			</font>
+			<padding>
+				<Insets left="10.0" />
+			</padding>
+		</Label>
+		<Label prefHeight="6.0" prefWidth="625.0" text="By ordering online, you can enjoy a warm and freshly cooked meal with your loved ones in the comfort of" translateY="2.0">
+			<font>
+				<Font size="13.0" />
+			</font>
+			<padding>
+				<Insets left="10.0" />
+			</padding>
+		</Label>
+      <Label prefHeight="10.0" prefWidth="625.0" text="your home.">
          <font>
-            <Font size="24.0" />
+            <Font size="13.0" />
          </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+      <Label prefHeight="10.0" prefWidth="625.0" text="To contact us by phone, please call this number:  334-123-5679" translateY="10.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+         <padding>
+            <Insets left="10.0" />
+         </padding>
+      </Label>
+		<HBox prefHeight="97.0" prefWidth="626.0">
+			<children>
+				<Button mnemonicParsing="false" onAction="#switchToViewMenu" text="View Our Menu" translateY="40.0">
+					<padding>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</padding>
+					<HBox.margin>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</HBox.margin>
+				</Button>
+				<Button mnemonicParsing="false" onAction="#switchToOrderMenu" prefHeight="37.0" prefWidth="109.0" text="Order Now" translateY="40.0">
+					<HBox.margin>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</HBox.margin>
+					<padding>
+						<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+					</padding>
+				</Button>
+			</children>
          <VBox.margin>
-            <Insets left="10.0" right="10.0" />
-         </VBox.margin></Label>
-       <HBox prefHeight="100.0" prefWidth="200.0">
-          <children>
-             <Button mnemonicParsing="false" onAction="#switchtoViewMenu" text="View Our Menu">
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin></Button>
-             <Button mnemonicParsing="false" onAction="#switchtoOrderMenu" prefHeight="37.0" prefWidth="109.0" text="Order Now">
-               <HBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </HBox.margin>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding></Button>
-          </children>
-       </HBox>
-       <HBox prefHeight="100.0" prefWidth="200.0">
-          <children>
-             <Label />
-          </children>
-       </HBox>
-    </children>
- </VBox>
+            <Insets top="20.0" />
+         </VBox.margin>
+		</HBox>
+	</children>
+</VBox>

@@ -5,107 +5,230 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.collections.*?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FoodOrderingAppController">
-   <children>
-      <Label text="Order Menu">
-         <font>
-            <Font size="24.0" />
-         </font>
-         <VBox.margin>
-            <Insets />
-         </VBox.margin>
-         <padding>
-            <Insets bottom="10.0" />
-         </padding>
-      </Label>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Label prefHeight="17.0" prefWidth="237.0" text="Option">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OrderMenuController">
+	<children>
+		<Label text="Order Menu">
+			<font>
+				<Font size="24.0" />
+			</font>
+			<VBox.margin>
+				<Insets />
+			</VBox.margin>
+			<padding>
+				<Insets bottom="10.0" />
+			</padding>
+		</Label>
+		<HBox prefHeight="100.0" prefWidth="200.0">
+			<children>
+				<Label prefHeight="17.0" prefWidth="237.0" text="Option">
+					<HBox.margin>
+						<Insets left="5.0" />
+					</HBox.margin>
+				</Label>
+				<Label prefHeight="17.0" prefWidth="131.0" text="Price" />
+				<VBox prefHeight="40.0" prefWidth="128.0">
+					<children>
+						<Label prefHeight="17.0" prefWidth="56.0" text="Quantity">
+							<VBox.margin>
+								<Insets left="35.0" />
+							</VBox.margin>
+						</Label>
+						<Label prefHeight="13.0" prefWidth="210.0" text="(Only inlude whole numbers)">
+							<font>
+								<Font size="9.0" />
+							</font>
+						</Label>
+					</children>
+				</VBox>
+			</children>
+		</HBox>
+		<HBox prefHeight="100.0" prefWidth="200.0">
+			<children>
+				<CheckBox fx:id="samosaCheckBox" mnemonicParsing="false" onAction="#samosaTextFieldAppears" prefHeight="18.0" prefWidth="233.0" text="Samosa (2pc.)">
+					<HBox.margin>
+						<Insets left="5.0" />
+					</HBox.margin>
+				</CheckBox>
+				<Label prefHeight="17.0" prefWidth="116.0" text="\$5.99" />
+				<TextField fx:id="samosaTextField" translateX="2.0" visible="false" />
+			</children>
+		</HBox>
+		<HBox prefHeight="100.0" prefWidth="200.0">
+			<children>
+				<CheckBox fx:id="paniPuriCheckBox" mnemonicParsing="false" onAction="#paniPuriTextFieldAppears" prefHeight="18.0" prefWidth="236.0" text="Pani Puri (6pc.)">
+					<HBox.margin>
+						<Insets left="5.0" />
+					</HBox.margin>
+				</CheckBox>
+				<Label prefHeight="17.0" prefWidth="116.0" text="\$8.99" />
+				<TextField fx:id="paniPuriTextField" visible="false" />
+			</children>
+		</HBox>
+		<HBox prefHeight="100.0" prefWidth="200.0">
+			<children>
+				<CheckBox fx:id="butterChickenCheckBox" mnemonicParsing="false" onAction="#butterChickenTextFieldAppears" prefHeight="18.0" prefWidth="235.0" text="Butter Chicken and Rice Meal">
+					<HBox.margin>
+						<Insets left="5.0" />
+					</HBox.margin>
+				</CheckBox>
+				<Label prefHeight="17.0" prefWidth="116.0" text="\$17.99" />
+				<TextField fx:id="butterChickenTextField" visible="false" />
+			</children>
+		</HBox>
+		<HBox prefHeight="100.0" prefWidth="200.0">
+			<children>
+				<CheckBox fx:id="chefsChoiceCheckBox" mnemonicParsing="false" onAction="#chefsChoiceTextFieldAppears" prefHeight="18.0" prefWidth="235.0" text="Chef's Choice Lentil and Rice Meal">
+					<HBox.margin>
+						<Insets left="5.0" />
+					</HBox.margin>
+				</CheckBox>
+				<Label prefHeight="17.0" prefWidth="116.0" text="\$14.99" />
+				<TextField fx:id="chefsChoiceTextField" visible="false" />
+			</children>
+		</HBox>
+		<HBox prefHeight="100.0" prefWidth="200.0">
+			<children>
+				<CheckBox fx:id="gulabJamunCheckBox" mnemonicParsing="false" onAction="#gulabJamunTextFieldAppears" prefHeight="18.0" prefWidth="238.0" text="Gulab Jamun">
+					<HBox.margin>
+						<Insets left="5.0" />
+					</HBox.margin>
+				</CheckBox>
+				<Label prefHeight="17.0" prefWidth="116.0" text="\$6.99" translateX="-2.0" />
+				<TextField fx:id="gulabJamunTextField" translateX="-3.0" visible="false" />
+			</children>
+		</HBox>
+		<HBox prefHeight="100.0" prefWidth="200.0">
+			<children>
+				<CheckBox fx:id="brownieCheckBox" mnemonicParsing="false" onAction="#brownieTextFieldAppears" prefHeight="18.0" prefWidth="236.0" text="Sizzling Brownie">
+					<HBox.margin>
+						<Insets left="5.0" />
+					</HBox.margin>
+				</CheckBox>
+				<Label prefHeight="17.0" prefWidth="116.0" text="\$4.99" />
+				<TextField fx:id="brownieTextField" visible="false" />
+			</children>
+		</HBox>
+		<Separator prefWidth="200.0" />
+		<HBox prefHeight="100.0" prefWidth="200.0">
+			<children>
+            <VBox prefHeight="75.0" prefWidth="240.0">
+               <children>
+      				<CheckBox fx:id="chaiMainCheckBox" mnemonicParsing="false" onAction="#chaiTextFieldsAppear" prefHeight="18.0" prefWidth="236.0" text="Masala Chai">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding></CheckBox>
+                  <Label prefHeight="36.0" prefWidth="243.0" text="Select drink check box before size selection.">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+				<VBox prefHeight="75.0" prefWidth="345.0">
+					<children>
+						<HBox prefHeight="100.0" prefWidth="200.0">
+							<children>
+								<CheckBox fx:id="chaiCheckBoxSmall" mnemonicParsing="false" onAction="#chaiTextFieldsAppear" prefHeight="17.0" prefWidth="121.0" text="Small ($1.99)" />
+								<TextField fx:id="chaiTextFieldSmall" onAction="#chaiTextFieldsAppear" prefHeight="25.0" prefWidth="150.0" visible="false" />
+							</children>
+						</HBox>
+						<HBox prefHeight="100.0" prefWidth="200.0">
+							<children>
+								<CheckBox fx:id="chaiCheckBoxMedium" mnemonicParsing="false" onAction="#chaiTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Medium ($2.49)" />
+								<TextField fx:id="chaiTextFieldMedium" onAction="#chaiTextFieldsAppear" visible="false" />
+							</children>
+						</HBox>
+						<HBox prefHeight="100.0" prefWidth="200.0">
+							<children>
+								<CheckBox fx:id="chaiCheckBoxLarge" mnemonicParsing="false" onAction="#chaiTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Large ($2.99)" />
+								<TextField fx:id="chaiTextFieldLarge" onAction="#chaiTextFieldsAppear" visible="false" />
+							</children>
+						</HBox>
+					</children>
+				</VBox>
+			</children>
+		</HBox>
+		<Separator prefHeight="0.0" prefWidth="600.0" />
+		<HBox prefHeight="100.0" prefWidth="200.0">
+			<children>
+            <VBox prefHeight="75.0" prefWidth="240.0">
+               <children>
+      				<CheckBox fx:id="sherbetMainCheckBox" mnemonicParsing="false" onAction="#sherbetTextFieldsAppear" prefHeight="18.0" prefWidth="236.0" text="Rose Sherbet">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding></CheckBox>
+                  <Label prefHeight="38.0" prefWidth="241.0" text="Select drink check box before size selection.">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <font>
+                        <Font size="11.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+				<VBox prefHeight="75.0" prefWidth="308.0">
+					<children>
+						<HBox prefHeight="100.0" prefWidth="200.0">
+							<children>
+								<CheckBox fx:id="sherbetCheckBoxSmall" mnemonicParsing="false" onAction="#sherbetTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Small ($1.99)" />
+								<TextField fx:id="sherbetTextFieldSmall" onAction="#sherbetTextFieldsAppear" visible="false" />
+
+							</children>
+						</HBox>
+						<HBox prefHeight="100.0" prefWidth="200.0">
+							<children>
+								<CheckBox fx:id="sherbetCheckBoxMedium" mnemonicParsing="false" onAction="#sherbetTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Medium ($2.49)" />
+								<TextField fx:id="sherbetTextFieldMedium" onAction="#sherbetTextFieldsAppear" visible="false" />
+							</children>
+						</HBox>
+						<HBox prefHeight="100.0" prefWidth="200.0">
+							<children>
+								<CheckBox fx:id="sherbetCheckBoxLarge" mnemonicParsing="false" onAction="#sherbetTextFieldsAppear" prefHeight="17.0" prefWidth="120.0" text="Large ($2.99)" />
+								<TextField fx:id="sherbetTextFieldLarge" onAction="#sherbetTextFieldsAppear" visible="false" />
+							</children>
+						</HBox>
+					</children>
+				</VBox>
+			</children>
+		</HBox>
+		<Label fx:id="inputErrorLabel" alignment="CENTER" prefHeight="19.0" prefWidth="558.0" text="" textFill="RED">
+			<font>
+				<Font size="13.0" />
+			</font>
+			<padding>
+				<Insets bottom="10.0" />
+			</padding>
+		</Label>
+		<HBox prefHeight="100.0" prefWidth="200.0">
+			<children>
+				<Button mnemonicParsing="false" onAction="#switchToHomePage" prefHeight="26.0" prefWidth="236.0" text="Return to Home Page" translateX="15.0">
+					<HBox.margin>
+						<Insets bottom="5.0" left="10.0" right="20.0" />
+					</HBox.margin>
+				</Button>
+				<Button mnemonicParsing="false" onAction="#switchToPaymentSummary" prefHeight="26.0" prefWidth="236.0" text="Continue to Payment" translateX="77.0">
                <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin></Label>
-            <Label prefHeight="17.0" prefWidth="153.0" text="Price" />
-            <Label prefHeight="17.0" prefWidth="56.0" text="Quantity" />
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <CheckBox fx:id="samosaCheckBox" mnemonicParsing="false" onAction="#samosaTextFieldAppears" prefHeight="18.0" prefWidth="233.0" text="Samosa (2pc.)">
-               <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin></CheckBox>
-            <Label prefHeight="17.0" prefWidth="116.0" text="\$5.99" />
-            <TextField fx:id="samosaTextField" translateX="2.0" visible="false" />
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <CheckBox fx:id="paniPuriCheckBox" mnemonicParsing="false" onAction="#paniPuriTextFieldAppears" prefHeight="18.0" prefWidth="236.0" text="Pani Puri (6pc.)">
-               <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin></CheckBox>
-            <Label prefHeight="17.0" prefWidth="116.0" text="\$8.99" />
-            <TextField fx:id="paniPuriTextField" visible="false" />
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <CheckBox fx:id="butterChickenCheckBox" mnemonicParsing="false" onAction="#butterChickenTextFieldAppears" prefHeight="18.0" prefWidth="235.0" text="Butter Chicken and Rice Meal">
-               <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin></CheckBox>
-            <Label prefHeight="17.0" prefWidth="116.0" text="\$17.99" />
-            <TextField fx:id="butterChickenTextField" visible="false" />
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <CheckBox fx:id="chefsChoiceCheckBox" mnemonicParsing="false" onAction="#chefsChoiceTextFieldAppears" prefHeight="18.0" prefWidth="235.0" text="Chef's Choice Lentil and Rice Meal">
-               <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin></CheckBox>
-            <Label prefHeight="17.0" prefWidth="116.0" text="\$14.99" />
-            <TextField fx:id="chefsChoiceTextField" visible="false" />
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <CheckBox fx:id="gulabJamunCheckBox" mnemonicParsing="false" onAction="#gulabJamunTextFieldAppears" prefHeight="18.0" prefWidth="238.0" text="Gulab Jamun">
-               <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin></CheckBox>
-            <Label prefHeight="17.0" prefWidth="116.0" text="\$6.99" />
-            <TextField fx:id="gulabJamunTextField" translateX="-3.0" visible="false" />
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <CheckBox fx:id="brownieCheckBox" mnemonicParsing="false" onAction="#brownieTextFieldAppears" prefHeight="18.0" prefWidth="236.0" text="Sizzling Brownie">
-               <HBox.margin>
-                  <Insets left="5.0" />
-               </HBox.margin></CheckBox>
-            <Label prefHeight="17.0" prefWidth="116.0" text="\$4.99" />
-            <TextField fx:id="brownieTextField" visible="false" />
-         </children>
-      </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#switchtoHomePage" prefHeight="26.0" prefWidth="236.0" text="Return to Home Page" translateX="15.0">
-               <HBox.margin>
-                  <Insets left="10.0" right="20.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#switchtoPaymentSummary" prefHeight="26.0" prefWidth="236.0" text="Continue to Payment" translateX="70.0" />
-         </children>
-      </HBox>
-   </children>
+                  <Insets bottom="5.0" />
+               </HBox.margin></Button>
+			</children>
+		</HBox>
+	</children>
 </VBox>
